@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable-v24/lij.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style.xml" value="0.148" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_style.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/round_button.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_login.xml" value="0.17490494296577946" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/cheese_button.xml" value="0.17083333333333334" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/custom_button.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/custom_edittext.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/customed_edittext.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/drawable/round_button.xml" value="0.1325" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/layout/activity_log.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

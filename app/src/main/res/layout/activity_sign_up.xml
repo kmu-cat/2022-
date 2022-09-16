@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignUp">
+
+        <ImageButton
+            android:id="@+id/signUp_arrow"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/signUp_title"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textAlignment="center"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/signUp_idTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="아이디(이메일)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_title"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_idEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            android:hint="아이디(이메일)을 입력하세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_idTextView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/signUp_certificationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="인증번호"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_idEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_certificationEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            android:hint="인증번호를 입력하세요."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_certificationTextView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/signUp_pwTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_certificationEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_pwEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            android:hint="비밀번호를 입력하세요."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_pwTextView"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/signUp_confirmPwTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="비밀번호 확인"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_pwEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_confirmPwEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="비밀번호 확인"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_confirmPwTextView"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/signUp_nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="이름"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_confirmPwEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_nameEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="실명을 입력하세요."
+            app:layout_constraintTop_toBottomOf="@+id/signUp_nameTextView"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/signUp_birthTextEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="생년월일"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_nameEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signUp_birthEditText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/edittext_style"
+            android:hint="숫자 6자리를 입력하세요."
+            app:layout_constraintTop_toBottomOf="@+id/signUp_birthTextEdit"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/signUp_genderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:text="성별"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_birthEditText"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/signUp_genderLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_genderTextView"
+            tools:context=".Start"
+            tools:ignore="MissingConstraints">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남자" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/signUp_allCheckBox"
+            android:layout_width="130dp"
+            android:layout_height="45dp"
+            android:text="모두 동의합니다."
+            android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_genderLinearLayout"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/signUp_termOfServiceCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:text="이용약관 동의"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_allCheckBox"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/signUp_personalInfoCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:text="개인정보 취급방침 동의"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_termOfServiceCheckBox"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/signUp_marketingInfoCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:text="마케팅 정보 수신 동의"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_personalInfoCheckBox"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            android:id="@+id/signUp_signUpButton"
+            android:layout_width="379dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/button_style"
+            android:text="회원가입"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUp_marketingInfoCheckBox"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
