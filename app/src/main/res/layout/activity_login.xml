@@ -14,7 +14,6 @@
         android:src="@drawable/app_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -24,7 +23,6 @@
         android:background="@drawable/edittext_style"
         android:hint="아이디(이메일)를 입력해주세요."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_appImage"
         tools:ignore="MissingConstraints" />
@@ -37,7 +35,6 @@
         android:background="@drawable/edittext_style"
         android:hint="비밀번호를 입력해주세요."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_idEditText"
         tools:ignore="MissingConstraints" />
@@ -46,7 +43,6 @@
         android:id="@+id/login_loginWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="입력된 아이디가 존재하지 않습니다."
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,11 +51,12 @@
         app:layout_constraintTop_toBottomOf="@+id/login_pwEditText"
         tools:ignore="MissingConstraints" />
 
-    <CheckBox
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/login_keepLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="자동로그인"
+        android:button="@drawable/custom_checkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +64,7 @@
         tools:ignore="MissingConstraints" />
 
     <android.widget.Button
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/login_loginButton"
         android:layout_width="379dp"
         android:layout_height="41dp"
@@ -80,7 +78,7 @@
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
-        android:id="@+id/login_linearLayoutFind"
+        android:id="@+id/login_findLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -98,11 +96,11 @@
         tools:layout_editor_absoluteY="576dp" />
 
     <TextView
-        android:id="@+id/findId"
+        android:id="@+id/login_findId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아이디 찾기 "
-        android:textColor="@color/cheese"
+        android:textColor="@color/cheese_font"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="176dp"
         tools:layout_editor_absoluteY="576dp" />
@@ -116,11 +114,11 @@
         tools:layout_editor_absoluteY="576dp" />
 
     <TextView
-        android:id="@+id/findPw"
+        android:id="@+id/login_findPw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="비밀번호 찾기"
-        android:textColor="@color/cheese"
+        android:textColor="@color/cheese_font"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="277dp"
         tools:layout_editor_absoluteY="576dp" />
@@ -129,10 +127,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_linearLayoutFind"
+        app:layout_constraintTop_toBottomOf="@+id/login_findLinearLayout"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -141,7 +138,6 @@
             android:layout_marginTop="52dp"
             android:text="아직 회원이 아닌가요? "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutFind"
             tools:ignore="MissingConstraints" />
@@ -152,9 +148,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
             android:text="회원가입"
-            android:textColor="@color/cheese"
+            android:textColor="@color/cheese_font"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutFind"
             tools:ignore="MissingConstraints" />

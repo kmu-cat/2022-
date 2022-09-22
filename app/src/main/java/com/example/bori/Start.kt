@@ -10,7 +10,14 @@ class Start : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        val toLogin: TextView = findViewById(R.id.main_toLogin)
+        val toSignUp: TextView = findViewById(R.id.start_signUpButton)
+
+        toSignUp.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+        }
+
+        val toLogin: TextView = findViewById(R.id.start_toLogin)
 
         toLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)

@@ -4,16 +4,33 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable-v24/lij.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_lefttop_checked_style.xml" value="0.1225" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_rightnarrow_style.xml" value="0.1225" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_righttop_checked_style.xml" value="0.1225" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_righttop_unchecked_style.xml" value="0.1835" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style.xml" value="0.148" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_checkbox.xml" value="0.119" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_leftnarrow_style.xml" value="0.183" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_righttop_checked_style.xml" value="0.1225" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_style.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/ic_checkbox_checked.xml" value="0.122" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/ic_checkbox_unchecked.xml" value="0.122" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/round_button.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_login.xml" value="0.17490494296577946" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_find_id.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_findid.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_findpw.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/cheese_button.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/custom_button.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/custom_edittext.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/customed_edittext.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_find_pw1.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_findpw1.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_findpw2.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/drawable/round_button.xml" value="0.1325" />
         <entry key="..\:/Users/bohhh/OneDrive/GitHub/2022-MOP/app/src/main/res/layout/activity_log.xml" value="0.16041666666666668" />
