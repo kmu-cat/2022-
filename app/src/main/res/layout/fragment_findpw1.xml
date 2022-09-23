@@ -24,6 +24,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:inputType="text"
         android:id="@+id/findId_nameEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -52,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/findId_emailTextView"
         tools:ignore="MissingConstraints">
         <EditText
+            android:inputType="text"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@drawable/edittext_leftnarrow_style"
@@ -94,6 +96,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:inputType="number"
         android:id="@+id/findId_certificationEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"

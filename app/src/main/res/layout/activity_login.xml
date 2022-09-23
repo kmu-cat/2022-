@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
+        android:inputType="text"
         android:id="@+id/login_idEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -28,6 +29,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:inputType="text"
         android:id="@+id/login_pwEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"

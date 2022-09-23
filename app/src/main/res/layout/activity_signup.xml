@@ -51,6 +51,7 @@
             tools:ignore="MissingConstraints">
 
             <EditText
+                android:inputType="text"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_leftnarrow_style"
@@ -95,6 +96,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:inputType="number"
             android:id="@+id/signUp_certificationEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -127,6 +129,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:inputType="text"
             android:id="@+id/signUp_pwEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -181,6 +184,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:inputType="text"
             android:id="@+id/signUp_nameEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -203,6 +207,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:inputType="number"
             android:id="@+id/signUp_birthEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -232,6 +237,7 @@
             app:layout_constraintTop_toBottomOf="@+id/signUp_nicknameTextView"
             tools:ignore="MissingConstraints">
             <EditText
+                android:inputType="text"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_leftnarrow_style"
@@ -285,18 +291,21 @@
             app:layout_constraintTop_toBottomOf="@+id/signUp_genderTextView"
             tools:context=".Start"
             tools:ignore="MissingConstraints">
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="남자"
-                android:button="@drawable/custom_checkbox"/>
-
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="여자"
+                android:checked="true"
+                android:id="@+id/signUp_genderCheckBoxFemale"
                 android:button="@drawable/custom_checkbox"/>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signUp_genderCheckBoxMale"
+                android:text="남자"
+                android:button="@drawable/custom_checkbox"/>
+
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatCheckBox
