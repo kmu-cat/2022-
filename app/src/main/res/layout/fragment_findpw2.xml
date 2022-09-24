@@ -24,7 +24,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:inputType="text"
+        android:inputType="textPassword"
         android:id="@+id/findPw2_pwEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -48,7 +48,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:inputType="text"
+        android:inputType="textPassword"
         android:id="@+id/findPw2_pwCertificationEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
