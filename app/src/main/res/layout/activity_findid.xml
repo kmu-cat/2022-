@@ -45,7 +45,6 @@ tools:context=".FindId">
             android:background="@drawable/button_lefttop_checked_style"
             android:text="아이디 찾기"
             android:textColor="@color/cheese_font"
-            app:layout_constraintTop_toBottomOf="@+id/findId_certificationWarning"
             tools:ignore="MissingConstraints" />
 
         <android.widget.Button
@@ -58,8 +57,7 @@ tools:context=".FindId">
             android:textColor="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/findId_certificationWarning"
-            tools:ignore="MissingConstraints" />
+                        tools:ignore="MissingConstraints" />
     </LinearLayout>
 
     <TextView
@@ -138,6 +136,7 @@ tools:context=".FindId">
     </LinearLayout>
     <TextView
         android:id="@+id/findId_emailWarning"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -169,6 +168,7 @@ tools:context=".FindId">
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
     <TextView
+        android:visibility="invisible"
         android:id="@+id/findId_certificationWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

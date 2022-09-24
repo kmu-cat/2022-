@@ -3,8 +3,11 @@ package com.example.bori
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CheckBox
-import android.widget.ImageButton
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.*
+import androidx.core.widget.addTextChangedListener
 
 class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +20,85 @@ class SignUp : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+
+        val nickNameCertificationButton: Button = findViewById(R.id.signUp_nickNameCertificationButton)
+        val emailWarning: TextView = findViewById(R.id.signUp_emailWarning)
+
+        nickNameCertificationButton.setOnClickListener {
+            emailWarning.setVisibility(View.VISIBLE)
+        }
+
+
+        val certificationEditText: EditText = findViewById(R.id.signUp_certificationEditText)
+        val certificationWarning: TextView = findViewById(R.id.signUp_certificationWarning)
+
+        certificationEditText.addTextChangedListener(object: TextWatcher{
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+                    certificationWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    certificationWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+                    certificationWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    certificationWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+                    certificationWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    certificationWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+        })
+
+        val confirmPwEditText: EditText = findViewById(R.id.signUp_confirmPwEditText)
+        val confirmPwWarning: TextView = findViewById(R.id.signUp_confirmPwWarning)
+
+        confirmPwEditText.addTextChangedListener(object: TextWatcher{
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else{
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }
+            }
+
+        })
+
+        val nicknameCertificationButton: Button = findViewById(R.id.signUp_nicknameCertificationButton)
+        val nicknameWarning: TextView = findViewById(R.id.signUp_nicknameWarning)
+
+        nicknameCertificationButton.setOnClickListener {
+            nicknameWarning.setVisibility(View.VISIBLE)
+        }
+
+
         val allCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
             findViewById(R.id.signUp_allCheckBox)
         val termOfServiceCheckBox: androidx.appcompat.widget.AppCompatCheckBox =

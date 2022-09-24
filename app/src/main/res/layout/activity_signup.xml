@@ -76,6 +76,7 @@
         </LinearLayout>
         <TextView
             android:id="@+id/signUp_emailWarning"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
@@ -107,6 +108,7 @@
             app:layout_constraintTop_toBottomOf="@+id/signUp_certificationTextView"
             tools:ignore="MissingConstraints" />
         <TextView
+            android:visibility="invisible"
             android:id="@+id/signUp_certificationWarning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,6 +154,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:inputType="text"
             android:id="@+id/signUp_confirmPwEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -163,6 +166,7 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp" />
         <TextView
+            android:visibility="invisible"
             android:id="@+id/signUp_confirmPwWarning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -208,6 +212,7 @@
 
         <EditText
             android:inputType="number"
+            android:maxLength="8"
             android:id="@+id/signUp_birthEditText"
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -261,6 +266,7 @@
         </LinearLayout>
         <TextView
             android:id="@+id/signUp_nicknameWarning"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"

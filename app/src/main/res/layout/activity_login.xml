@@ -42,6 +42,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/login_loginWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
