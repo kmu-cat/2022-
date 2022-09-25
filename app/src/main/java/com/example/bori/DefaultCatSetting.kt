@@ -7,12 +7,15 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class DefaultCatSetting: AppCompatActivity() {
+class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
     lateinit var myCat: ImageView;
     lateinit var btnSamsagi: ImageButton;
     lateinit var btnCheese: ImageButton;
     lateinit var btnTiger: ImageButton;
     lateinit var btnSnowwhite: ImageButton;
+
+    lateinit var prev: ImageButton;
+    lateinit var curr: ImageButton;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,18 +27,51 @@ class DefaultCatSetting: AppCompatActivity() {
         btnTiger = findViewById(R.id.tigerBtn)
         myCat = findViewById(R.id.my_cat)
 
-        btnSamsagi.setOnClickListener {
-            myCat.setImageResource(R.drawable.cat_samsagi)
-        }
-        btnCheese.setOnClickListener {
-            myCat.setImageResource(R.drawable.cat_cheese)
-        }
-        btnSnowwhite.setOnClickListener {
-            myCat.setImageResource(R.drawable.cat_snowwhite)
-        }
-        btnTiger.setOnClickListener {
-            myCat.setImageResource(R.drawable.cat_tiger)
+        curr = btnSnowwhite
+
+        btnSamsagi.setOnClickListener(this)
+        btnCheese.setOnClickListener(this)
+        btnSnowwhite.setOnClickListener(this)
+        btnTiger.setOnClickListener(this)
+    }
+
+    override fun onClick(selected: View?) {
+        if (selected != null) {
+            prev = curr
+            when (selected.id) {
+                R.id.samsagiBtn -> {
+                    myCat.setImageResource(R.drawable.cat_samsagi)
+                    curr = btnSamsagi
+                }
+                R.id.cheeseBtn -> {
+                    myCat.setImageResource(R.drawable.cat_cheese)
+                    curr = btnCheese
+                }
+                R.id.snowwhiteBtn -> {
+                    myCat.setImageResource(R.drawable.cat_snowwhite)
+                    curr = btnSnowwhite
+                }
+                R.id.tigerBtn -> {
+                    myCat.setImageResource(R.drawable.cat_tiger)
+                    curr = btnTiger
+                }
+            }
+            when (prev.id) {
+                R.id.samsagiBtn -> btnSamsagi.setImageResource(R.drawable.color_samsagi)
+                R.id.tigerBtn -> btnTiger.setImageResource(R.drawable.color_tiger)
+                R.id.snowwhiteBtn -> btnSnowwhite.setImageResource(R.drawable.color_snowwhite)
+                R.id.cheeseBtn -> btnCheese.setImageResource(R.drawable.color_cheese)
+            }
+            when (curr.id) {
+                R.id.samsagiBtn -> btnSamsagi.setImageResource(R.drawable.color_samsagi_clk)
+                R.id.tigerBtn -> btnTiger.setImageResource(R.drawable.color_tiger_clk)
+                R.id.snowwhiteBtn -> btnSnowwhite.setImageResource(R.drawable.color_snowwhite_clk)
+                R.id.cheeseBtn -> btnCheese.setImageResource(R.drawable.color_cheese_clk)
+            }
         }
     }
+
 }
+
+
 
