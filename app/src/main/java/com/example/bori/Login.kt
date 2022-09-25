@@ -17,6 +17,9 @@ class Login : AppCompatActivity() {
         val loginWarning: TextView = findViewById(R.id.login_loginWarning)
         login.setOnClickListener {
             loginWarning.setVisibility(View.VISIBLE)
+
+            val intent = Intent(this, DefaultCatSetting::class.java)
+            startActivity(intent)
         }
 
 
