@@ -30,7 +30,7 @@
             android:id="@+id/my_cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/samsagi" />
+            android:src="@drawable/cat_samsagi" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,18 +44,22 @@
             android:layout_gravity="center_horizontal">
 
             <ImageButton
+                android:id="@+id/samsagiBtn"
                 style="@style/SettingBtn"
                 android:src="@drawable/color_samsagi" />
 
             <ImageButton
+                android:id="@+id/cheeseBtn"
                 style="@style/SettingBtn"
                 android:src="@drawable/color_cheese" />
 
             <ImageButton
+                android:id="@+id/tigerBtn"
                 style="@style/SettingBtn"
                 android:src="@drawable/color_tiger" />
 
             <ImageButton
+                android:id="@+id/snowwhiteBtn"
                 style="@style/SettingBtn"
                 android:src="@drawable/color_snowwhite" />
 
