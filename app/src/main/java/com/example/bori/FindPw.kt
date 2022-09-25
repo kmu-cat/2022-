@@ -20,7 +20,7 @@ class FindPw : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
-        val toFindId: Button = findViewById(R.id.toFindId)
+        val toFindId: Button = findViewById(R.id.findPw_toFindId)
 
         toFindId.setOnClickListener {
             val intent = Intent(this, FindId::class.java)
