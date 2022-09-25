@@ -32,42 +32,54 @@
             android:layout_height="wrap_content"
             android:src="@drawable/cat_snowwhite" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="색상" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/snowwhiteBtn"
-                style="@style/SettingBtn"
-                android:src="@drawable/color_snowwhite_clk" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3.33dp"
+                android:text="색상"
+                android:textColor="@color/black" />
 
-            <ImageButton
-                android:id="@+id/samsagiBtn"
-                style="@style/SettingBtn"
-                android:src="@drawable/color_samsagi" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/cheeseBtn"
-                style="@style/SettingBtn"
-                android:src="@drawable/color_cheese" />
+                <ImageButton
+                    android:id="@+id/snowwhiteBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_snowwhite_clk" />
 
-            <ImageButton
-                android:id="@+id/tigerBtn"
-                style="@style/SettingBtn"
-                android:src="@drawable/color_tiger" />
+                <ImageButton
+                    android:id="@+id/samsagiBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_samsagi" />
 
+                <ImageButton
+                    android:id="@+id/cheeseBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_cheese" />
+
+                <ImageButton
+                    android:id="@+id/tigerBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_tiger" />
+
+            </LinearLayout>
         </LinearLayout>
 
+
         <Button
+            android:id="@+id/pickUpBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="33.33dp"
             android:background="@drawable/button_style"
             android:text="냥줍 완료" />

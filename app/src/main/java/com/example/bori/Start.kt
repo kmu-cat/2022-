@@ -20,9 +20,7 @@ class Start : AppCompatActivity(){
         val toLogin: TextView = findViewById(R.id.start_toLogin)
 
         toLogin.setOnClickListener {
-//            val intent = Intent(this, Login::class.java)
-//            startActivity(intent)
-            val intent = Intent(this, DefaultCatSetting::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
     }

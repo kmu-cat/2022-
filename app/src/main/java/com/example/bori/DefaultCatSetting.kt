@@ -1,10 +1,11 @@
 package com.example.bori
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
@@ -33,6 +34,12 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
         btnCheese.setOnClickListener(this)
         btnSnowwhite.setOnClickListener(this)
         btnTiger.setOnClickListener(this)
+
+        var pickUpBtn = findViewById<Button>(R.id.pickUpBtn)
+
+        pickUpBtn.setOnClickListener {
+            Toast.makeText(this@DefaultCatSetting, "야옹~",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onClick(selected: View?) {
