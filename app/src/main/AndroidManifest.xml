@@ -14,7 +14,45 @@
         android:theme="@style/Theme.Bori"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
             android:name=".MainActivity"
+=======
+            android:name=".DeleteAccount2"
+            android:exported="false" />
+        <activity
+            android:name=".DeleteAccount1"
+            android:exported="false" />
+        <activity
+            android:name=".ModifyPw"
+            android:exported="false" />
+        <activity
+            android:name=".Privacy"
+            android:exported="false" />
+        <activity
+            android:name=".FindId"
+            android:exported="false" />
+        <activity
+            android:name=".FindPw"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".Start"
+>>>>>>> Stashed changes
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
