@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/modifyPw1_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="새로운 비밀번호로 변경하기 위해\n현재 비밀번호를 입력해주세요."
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/modifyPw1_pwTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:text="현재 비밀번호"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyPw1_info"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/modifyPw1_pwEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="현재 비밀번호를 입력하세요."
+        app:layout_constraintTop_toBottomOf="@+id/modifyPw1_pwTextView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+        <TextView
+        android:id="@+id/modifyPw1_pwCertificationWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginStart="28dp"
+        android:textColor="#FF0000"
+        android:text="비밀번호가 일치하지 않습니다."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyPw1_pwEditText"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

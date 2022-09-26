@@ -14,6 +14,18 @@
         android:theme="@style/Theme.Bori"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteAccount2"
+            android:exported="false" />
+        <activity
+            android:name=".DeleteAccount1"
+            android:exported="false" />
+        <activity
+            android:name=".ModifyPw"
+            android:exported="false" />
+        <activity
+            android:name=".Privacy"
+            android:exported="false" />
+        <activity
             android:name=".FindId"
             android:exported="false" />
         <activity
