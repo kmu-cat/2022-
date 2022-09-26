@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".FindId">
+    <ImageButton
+        android:id="@+id/findId_arrow"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="37dp"
+        android:background="@color/white"
+        android:src="@drawable/vector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/findId_title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="아이디 찾기"
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <LinearLayout
+        android:id="@+id/findId_topButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findId_title"
+        tools:ignore="MissingConstraints">
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="41dp"
+            android:layout_marginRight="-0.8dp"
+            android:background="@drawable/button_lefttop_checked_style"
+            android:text="아이디 찾기"
+            android:textColor="@color/cheese_font"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/toFindPw"
+            android:layout_width="150dp"
+            android:layout_height="41dp"
+            android:background="@drawable/button_righttop_unchecked_style"
+            android:text="비밀번호 찾기"
+            android:textColor="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/findId_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="회원가입시 등록한 정보로\n아이디를 확인할 수 있습니다."
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_topButton"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/findId_nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="이름"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_info"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/findId_nameEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="실명을 입력하세요."
+        app:layout_constraintTop_toBottomOf="@+id/findId_nameTextView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+    <TextView
+        android:id="@+id/findId_emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="이메일"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_nameEditText"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/findId_emailLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_emailTextView"
+        tools:ignore="MissingConstraints">
+        <EditText
+            android:inputType="text"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_leftnarrow_style"
+            android:hint="이메일을 입력하세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/findId_confirmButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-1.7dp"
+            android:layout_marginLeft="-0.8dp"
+            android:background="@drawable/button_rightnarrow_style"
+            android:text="인증 받기"
+            android:textColor="@color/cheese_font"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/findId_emailWarning"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:textColor="#FF0000"
+        android:text="이메일이 일치하지 않습니다."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_emailLinearLayout"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/findId_certificationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="인증번호"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_emailWarning"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/findId_certificationEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="인증번호를 입력하세요."
+        app:layout_constraintTop_toBottomOf="@+id/findId_certificationTextView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/findId_certificationWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:textColor="#FF0000"
+        android:text="인증번호가 일치하지 않습니다."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_certificationEditText"
+        tools:ignore="MissingConstraints" />
+    <android.widget.Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/main_startButton"
+        android:layout_width="379dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_style"
+        android:text="확인"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findId_certificationWarning"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

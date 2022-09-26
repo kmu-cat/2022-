@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:text="고양이 꾸미기"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="앗 귀여운 고양이가 나타났어요!\n닉네임님만의 고양이를 꾸며주세요."
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/my_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat_snowwhite" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3.33dp"
+                android:text="색상"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageButton
+                    android:id="@+id/snowwhiteBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_snowwhite_clk" />
+
+                <ImageButton
+                    android:id="@+id/samsagiBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_samsagi" />
+
+                <ImageButton
+                    android:id="@+id/cheeseBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_cheese" />
+
+                <ImageButton
+                    android:id="@+id/tigerBtn"
+                    style="@style/SettingBtn"
+                    android:src="@drawable/color_tiger" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/pickUpBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="33.33dp"
+            android:background="@drawable/button_style"
+            android:text="냥줍 완료" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
