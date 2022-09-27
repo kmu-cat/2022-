@@ -2,15 +2,26 @@ package com.example.bori
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.*
+import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.addTextChangedListener
 
 class SignUp : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
+    
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        auth = Firebase.auth
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
@@ -99,13 +110,13 @@ class SignUp : AppCompatActivity() {
         }
 
 
-        val allCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val allCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_allCheckBox)
-        val termOfServiceCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val termOfServiceCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_termOfServiceCheckBox)
-        val personalInfoCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val personalInfoCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_personalInfoCheckBox)
-        val marketingInfoCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val marketingInfoCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_marketingInfoCheckBox)
 
         allCheckBox.setOnClickListener { agreeCheckBoxHandler("allCheckBox") }
@@ -113,8 +124,8 @@ class SignUp : AppCompatActivity() {
         personalInfoCheckBox.setOnClickListener { agreeCheckBoxHandler("personalInfoCheckBox") }
         marketingInfoCheckBox.setOnClickListener { agreeCheckBoxHandler("marketingInfoCheckBox") }
 
-        val genderCheckBoxMale: androidx.appcompat.widget.AppCompatCheckBox = findViewById(R.id.signUp_genderCheckBoxMale)
-        val genderCheckBoxFemale: androidx.appcompat.widget.AppCompatCheckBox = findViewById(R.id.signUp_genderCheckBoxFemale)
+        val genderCheckBoxMale: AppCompatCheckBox = findViewById(R.id.signUp_genderCheckBoxMale)
+        val genderCheckBoxFemale: AppCompatCheckBox = findViewById(R.id.signUp_genderCheckBoxFemale)
 
         genderCheckBoxMale.setOnClickListener { genderCheckBoxHandler("Male") }
         genderCheckBoxFemale.setOnClickListener { genderCheckBoxHandler("Female") }
@@ -123,13 +134,13 @@ class SignUp : AppCompatActivity() {
 
 
     private fun agreeCheckBoxHandler(checkBoxName: String) {
-        val allCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val allCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_allCheckBox)
-        val termOfServiceCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val termOfServiceCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_termOfServiceCheckBox)
-        val personalInfoCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val personalInfoCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_personalInfoCheckBox)
-        val marketingInfoCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
+        val marketingInfoCheckBox: AppCompatCheckBox =
             findViewById(R.id.signUp_marketingInfoCheckBox)
         when (checkBoxName) {
             "allCheckBox" -> {
@@ -153,9 +164,9 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun genderCheckBoxHandler(checkBoxName: String) {
-        val genderCheckBoxMale: androidx.appcompat.widget.AppCompatCheckBox =
+        val genderCheckBoxMale: AppCompatCheckBox =
             findViewById(R.id.signUp_genderCheckBoxMale)
-        val genderCheckBoxFemale: androidx.appcompat.widget.AppCompatCheckBox =
+        val genderCheckBoxFemale: AppCompatCheckBox =
             findViewById(R.id.signUp_genderCheckBoxFemale)
 
         when (checkBoxName) {
