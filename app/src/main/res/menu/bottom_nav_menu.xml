@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_bucketList"
+        android:icon="@drawable/bottom_navigation_bucketlist"
+        android:title="BucketList"/>
+
+    <item
+        android:id="@+id/navigation_certifyingShot"
+        android:icon="@drawable/bottom_navigation_certifyingshot"
+        android:title="CertifyingShot"/>
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/bottom_navigation_home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/navigation_inventory"
+        android:icon="@drawable/bottom_navigation_inventory"
+        android:title="Inventory"/>
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/bottom_navigation_setting"
+        android:title="Setting"/>
+
+</menu>

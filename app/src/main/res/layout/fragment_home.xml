@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_spring">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dailyComment"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/textview_speechbubble"
+            android:gravity="center"
+            android:text="오늘 같은 날씨에 추천해 줄 만한\n버캣리스트가 있지~"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dailyComment"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cat_snowwhite" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
