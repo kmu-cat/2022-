@@ -42,6 +42,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1425" />
         <entry key="app/src/main/res/drawable/selector_radio_button_setting.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/temp.xml" value="0.1315" />
+        <entry key="app/src/main/res/drawable/textview_speechbubble.xml" value="0.31089935302734384" />
         <entry key="app/src/main/res/layout/activity_defaultcatsetting.xml" value="0.32360534667968754" />
         <entry key="app/src/main/res/layout/activity_delete_account1.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_delete_account2.xml" value="0.13229166666666667" />
@@ -49,6 +50,7 @@
         <entry key="app/src/main/res/layout/activity_findpw.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.43107757568359384" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29579315185546884" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/fragment_bucket_list.xml" value="0.13229166666666667" />
@@ -72,7 +74,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.38028717041015636" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>
