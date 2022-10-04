@@ -58,29 +58,25 @@
                 android:id="@+id/cat_face"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src=""
                 android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/cat_body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src=""
                 android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/cat_foot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src=""
                 android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/cat_etc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="" />
+                android:layout_gravity="center" />
 
         </FrameLayout>
 
