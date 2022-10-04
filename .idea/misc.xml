@@ -50,12 +50,23 @@
         <entry key="app/src/main/res/layout/activity_findid.xml" value="0.3484278361002604" />
         <entry key="app/src/main/res/layout/activity_findpw.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22780797101449277" />
+<<<<<<< Updated upstream
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16576086956521738" />
+=======
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29579315185546884" />
+>>>>>>> Stashed changes
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/fragment_catsetting.xml" value="0.24253540039062502" />
         <entry key="app/src/main/res/layout/fragment_findpw1.xml" value="0.245018115942029" />
         <entry key="app/src/main/res/layout/fragment_findpw2.xml" value="0.1" />
+<<<<<<< Updated upstream
+=======
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2590179443359375" />
+        <entry key="app/src/main/res/layout/fragment_inventory.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw1.xml" value="0.15570831298828108" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw2.xml" value="0.1" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
@@ -68,7 +79,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.38028717041015636" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>
