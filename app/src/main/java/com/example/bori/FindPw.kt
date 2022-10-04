@@ -32,8 +32,6 @@ class FindPw : AppCompatActivity() {
         toFindPw2.setOnClickListener {
             setFrag("FindPw2")
         }
-
-
     }
 
     private fun setFrag(fragmentName: String) {
