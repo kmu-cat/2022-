@@ -17,7 +17,10 @@ class CertifyingShot : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_community, container, false)
+        val view = inflater.inflate(R.layout.fragment_certifying_shot, container, false)
+
+
+
         return view
     }
 
