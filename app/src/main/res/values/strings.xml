@@ -11,4 +11,19 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">Main</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string-array name="daily_comment">
+        <item>오늘 같은 날씨에 추천 해 줄만한\n버캣리스트가 있지~</item>
+        <item>오늘은 기분이 좋은 날!</item>
+        <item>안녕, 좋은 하루야!</item>
+        <item>새로운 옷을 입고 싶은걸~</item>
+        <item>야옹 야옹</item>
+        <item>오늘도 행복하게 보내자!</item>
+        <item>새로운 버캣리스트를 완료해볼까?</item>
+        <item>버캣리스트 추가는\n"버캣리스트 줍기"에서 할 수 있어.</item>
+        <item>예쁜 옷이 생기면 좋겠어!</item>
+    </string-array>
 </resources>
