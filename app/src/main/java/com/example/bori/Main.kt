@@ -1,10 +1,8 @@
 package com.example.bori
 
 import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.bori.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Main : AppCompatActivity() {
@@ -23,13 +21,13 @@ class Main : AppCompatActivity() {
                     changeFragment(Home())
                 }
                 R.id.navigation_certifyingShot -> {
-                    changeFragment(Inventory())
+                    changeFragment(CertifyingShot())
                 }
                 R.id.navigation_setting -> {
                     changeFragment(Setting())
                 }
                 R.id.navigation_inventory -> {
-                    changeFragment(Inventory())
+                    changeFragment(CatSettingFragment())
                 }
                 R.id.navigation_bucketList -> {
                     changeFragment(BucketList())

@@ -1,5 +1,6 @@
 package com.example.bori
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -39,6 +40,8 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
 
         pickUpBtn.setOnClickListener {
             Toast.makeText(this@DefaultCatSetting, "야옹~",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Main::class.java)
+            startActivity(intent)
         }
     }
 
