@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterCommunity (private val context: Context) :
+class AdapterCommunity(private val context: Context) :
 RecyclerView.Adapter<AdapterCommunity.ViewHolder>() {
     var datas = mutableListOf<DataCommunity>()
     override fun onCreateViewHolder(
