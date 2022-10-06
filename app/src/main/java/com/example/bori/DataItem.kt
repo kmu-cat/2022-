@@ -6,4 +6,5 @@ data class DataItem(
     val name: String,
     val explain: String,
     val src: Int,
+    val colorSrc: Int,
 )
