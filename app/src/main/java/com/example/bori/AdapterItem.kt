@@ -33,7 +33,7 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
             private val viewButton: RadioButton = itemView.findViewById(R.id.item_button)
 //                private val viewSelected: ImageView = itemView.findViewById(R.id.item_selected_icon)
             fun bind(item: DataItem) {
-                viewButton.setBackgroundResource(item.src)
+                viewButton.setCompoundDrawablesRelative(item.src, null, null, null)
             }
         }
 }

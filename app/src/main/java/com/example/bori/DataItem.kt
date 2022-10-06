@@ -5,5 +5,5 @@ import android.graphics.drawable.Drawable
 data class DataItem(
     val name: String,
     val explain: String,
-    val src: Int,
+    val src: Drawable,
 )
