@@ -30,8 +30,7 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/cat_bg"
@@ -92,91 +91,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="색상" />
+
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
+
                     <GridLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:columnCount="5">
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
+                        android:columnCount="5"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            ></RadioButton>                        <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                    </GridLayout>
-                </RadioGroup>
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/button_item_radio"
+                            android:button="@null"
+                            android:drawableStart="@drawable/color_samsagi" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="머리" />
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                    <GridLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:columnCount="5">
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>                        <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            ></RadioButton>
+                            android:background="@drawable/button_item_radio"
+                            android:button="@null"
+                            android:drawableStart="@drawable/color_cheese" />
                     </GridLayout>
                 </RadioGroup>
             </LinearLayout>
