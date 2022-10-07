@@ -30,14 +30,14 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
         holder.bind(datas[position])
         // onClick 호출
         holder.viewButton.setOnClickListener {
-            itemClickListener.onClick(it, position)
+            itemClickListener.onClick(it, position, datas[position].colorSrc)
         }
 
     }
 
     // 리스너 인터페이스
     interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
+        fun onClick(v: View, position: Int, src: Int)
     }
     // 외부에서 클릭 시 이벤트 설정
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -49,14 +49,8 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
     inner class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         val viewButton: RadioButton = itemView.findViewById(R.id.item_button)
-        val cat_color: ImageView = binding.catColor
-        lateinit var cat_color_explain: String
-
         fun bind(item: DataItem) {
             viewButton.setCompoundDrawablesRelativeWithIntrinsicBounds(item.src, 0, 0, 0)
-            cat_color_explain = item.explain
         }
-
-
     }
 }
