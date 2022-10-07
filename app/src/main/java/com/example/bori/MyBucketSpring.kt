@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bori.databinding.ActivityMainBinding
 
 class MyBucketSpring : Fragment(){
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
@@ -29,12 +30,18 @@ class MyBucketSpring : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketSpring)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketSpringAdapter(bucketList)
+        rv.adapter = MyBucketSpringAdapter(bucketList,
+            onClickHeart = {
+                bucketList.remove(it)
+                rv.adapter?.notifyDataSetChanged()
+            }
+        )
 
-        
+
 
         return view
     }
+
 
 
 }

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecommendBucketFallAdapter (val bucketLists: ArrayList<BucketListForm>): RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
+class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
 {
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketFallAdapter.CustomViewHolder
     {
@@ -14,11 +14,11 @@ class RecommendBucketFallAdapter (val bucketLists: ArrayList<BucketListForm>): R
         return CustomViewHolder(view)
     }
     override fun getItemCount(): Int{
-        return bucketLists.size
+        return bucketList.size
     }
     override fun onBindViewHolder(holder: RecommendBucketFallAdapter.CustomViewHolder, position: Int){
-        holder.title.text = bucketLists.get(position).title.toString()
-        holder.challenger.text = bucketLists.get(position).challenger.toString()
+        holder.title.text = bucketList.get(position).title.toString()
+        holder.challenger.text = bucketList.get(position).challenger.toString()
     }
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

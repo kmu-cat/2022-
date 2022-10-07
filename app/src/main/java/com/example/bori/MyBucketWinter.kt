@@ -29,8 +29,12 @@ class MyBucketWinter : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketWinter)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketSpringAdapter(bucketList)
-
+        rv.adapter = MyBucketWinterAdapter(bucketList,
+            onClickHeart = {
+                bucketList.remove(it)
+                rv.adapter?.notifyDataSetChanged()
+            }
+        )
         return view
     }
 

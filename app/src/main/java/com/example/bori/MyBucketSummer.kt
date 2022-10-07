@@ -29,7 +29,12 @@ class MyBucketSummer : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketSummer)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketSpringAdapter(bucketList)
+        rv.adapter = MyBucketSummerAdapter(bucketList,
+            onClickHeart = {
+                bucketList.remove(it)
+                rv.adapter?.notifyDataSetChanged()
+            }
+        )
 
         return view
     }
