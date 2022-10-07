@@ -13,6 +13,7 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_red.xml" value="0.116" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_white.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_checkbox.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_heartcheckbox.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_leftnarrow_style.xml" value="0.1275" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_style.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/ic_checkbox_checked.xml" value="0.1" />
@@ -43,8 +44,8 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_component.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_list_component.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_privacy.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.6666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_bucket_list.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_findpw1.xml" value="0.3148936170212766" />

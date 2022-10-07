@@ -24,6 +24,7 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): Re
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val title = itemView.findViewById<TextView>(R.id.recommend_bucket_component_titleTextView)
         val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
+        val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
     }
 
 }
