@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyBucket">
+
+    <Spinner
+        android:id="@+id/myBucket_spinner"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_background_style"
+        android:popupBackground="@drawable/spinner_popup_background_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:dropDownVerticalOffset="40dp"
+        android:layout_marginBottom="30dp"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/myBucket_layout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myBucket_spinner"
+        tools:ignore="MissingConstraints">
+
+        <android.widget.Button
+            android:id="@+id/myBucket_springButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/topnavigation_style"
+            android:text="봄"
+            android:textColor="@drawable/topnavigation_style"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            android:id="@+id/myBucket_summerButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/topnavigation_style"
+            android:text="여름"
+            android:textColor="@drawable/topnavigation_style"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            android:id="@+id/myBucket_fallButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/topnavigation_style"
+            android:text="가을"
+            android:textColor="@drawable/topnavigation_style"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            android:id="@+id/myBucket_winterButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/topnavigation_style"
+            android:text="겨울"
+            android:textColor="@drawable/topnavigation_style"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/myBucket_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myBucket_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

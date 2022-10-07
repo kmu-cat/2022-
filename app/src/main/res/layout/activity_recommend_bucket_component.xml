@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginHorizontal="5dp"
+    tools:context=".myBucketComponent"
+    android:background="@drawable/bucketlist_component_style">
+
+    <TextView
+        android:id="@+id/recommend_bucket_component_titleTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="10dp"
+        android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/recommend_bucket_component_challengeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10명이 도전 중!"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/recommend_bucket_component_titleTextView"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/myBucketComponent_heartImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:paddingBottom="20dp"
+        android:src="@drawable/cheese_heart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
