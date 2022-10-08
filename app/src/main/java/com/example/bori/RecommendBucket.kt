@@ -1,5 +1,8 @@
 package com.example.bori
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +17,7 @@ class RecommendBucket : Fragment(){
     private lateinit var summerButton : android.widget.Button
     private lateinit var fallButton : android.widget.Button
     private lateinit var winterButton : android.widget.Button
+    private lateinit var addButton:android.widget.Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,6 +65,23 @@ class RecommendBucket : Fragment(){
                 }
             }
         }
+
+        addButton= view.findViewById(R.id.myBucketRecommend_addButton)
+            addButton.setOnClickListener {
+                val dialogView = layoutInflater.inflate(R.layout.activity_add_bucket_modal, null)
+
+                val addBucketDialog = Dialog(view.context)
+                addBucketDialog.setContentView(dialogView)
+
+                addBucketDialog.setCancelable(true)
+                addBucketDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                addBucketDialog.show()
+
+                val xButton = dialogView.findViewById<ImageButton>(R.id.addBucket_xButton)
+                xButton.setOnClickListener{
+                    addBucketDialog.dismiss()
+                }
+            }
 
         var myBucketSpring = MyBucketSpring()
         var myBucketSummer = MyBucketSummer()

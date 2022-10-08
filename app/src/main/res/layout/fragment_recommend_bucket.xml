@@ -22,6 +22,21 @@
         android:layout_marginBottom="30dp"
         tools:ignore="MissingConstraints" />
 
+    <android.widget.Button
+        android:id="@+id/myBucketRecommend_addButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="44dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/white"
+        android:text="추가"
+        android:textColor="@color/cheese_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/myBucketRecommend_spinner"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/myBucketRecommend_layout"
         android:layout_width="350dp"
