@@ -10,8 +10,10 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_righttop_checked_style.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_righttop_unchecked_style.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_gray.xml" value="0.1265" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_red.xml" value="0.116" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_white.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_certifying_button.xml" value="0.1265" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_checkbox.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_heartcheckbox.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_leftnarrow_style.xml" value="0.1275" />
@@ -26,8 +28,9 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/top_navigation_unselected_style.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/topnavigation_style.xml" value="0.1275" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_add_bucket.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_add_bucket_modal.xml" value="0.22" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_certifying_shot_modal.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_add_bucket_modal.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_bucketlist_modal.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_certifying_shot_modal.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_community.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_defaultcatsetting.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_delete_account.xml" value="0.22" />
@@ -41,10 +44,11 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_modify_pw.xml" value="0.134375" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket.xml" value="0.22" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_component.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_component.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_list_component.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_post.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_privacy.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.6666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.6" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_bucket_list.xml" value="0.175" />
@@ -64,7 +68,7 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_my_bucket_summer.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_my_bucket_summer_list.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_my_bucket_winter_list.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_recommend_bucket.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_recommend_bucket.xml" value="0.16049382716049382" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_recommend_bucket_fall.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_recommend_bucket_spring.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_recommend_bucket_summer.xml" value="0.1" />

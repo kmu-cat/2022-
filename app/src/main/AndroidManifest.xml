@@ -22,7 +22,7 @@
             android:name=".LogoutModal"
             android:exported="false" />
         <activity
-            android:name=".GetItemModal"
+            android:name=".RecommendBucketSummerModal"
             android:exported="false" />
         <activity
             android:name=".CertifyingShotModal"

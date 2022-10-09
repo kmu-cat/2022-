@@ -19,6 +19,10 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): Re
     override fun onBindViewHolder(holder: RecommendBucketFallAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
+        holder.itemView.setOnClickListener{
+            val dialog = RecommendBucketFallModal(holder)
+            dialog.myDig()
+        }
     }
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

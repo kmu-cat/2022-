@@ -16,6 +16,7 @@ class MyBucket : Fragment() {
     private lateinit var summerButton: android.widget.Button
     private lateinit var fallButton: android.widget.Button
     private lateinit var winterButton: android.widget.Button
+    private lateinit var addButton:android.widget.Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
