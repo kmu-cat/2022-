@@ -7,12 +7,108 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.*
-import androidx.core.widget.addTextChangedListener
+import android.widget.Button
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import android.widget.Toast
+import com.example.bori.databinding.ActivitySignupBinding
+import com.google.firebase.firestore.ktx.firestore
+
 
 class SignUp : AppCompatActivity() {
+    companion object {
+        lateinit var auth: FirebaseAuth
+        var email: String? = null
+        fun checkAuth(): Boolean {
+            val currentUser = auth.currentUser
+            return currentUser?.let {
+                email = currentUser.email
+                currentUser.isEmailVerified
+            } ?: let {
+                false
+            }
+        }
+    }
+
+    val db = Firebase.firestore
+
+    private lateinit var binding: ActivitySignupBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+
+        binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        auth = Firebase.auth
+
+        val btnRegister = binding.signUpSignUpButton
+
+        btnRegister.setOnClickListener {
+            val email:String = binding.emailIdEditText.text.toString()
+            val pwd:String = binding.signUpPwEditText.text.toString()
+            val pwdConfirm = binding.signUpConfirmPwEditText.text.toString()
+            val realName = binding.signUpNameEditText.text.toString()
+            val birthDate = binding.signUpBirthEditText.text.toString()
+            val nickName = binding.signUpNickNameEditText.text.toString()
+            val terms1 = binding.signUpTermOfServiceCheckBox
+            val terms2 = binding.signUpMarketingInfoCheckBox
+            val terms3 = binding.signUpPersonalInfoCheckBox
+            if(email.isNotEmpty() && pwd.isNotEmpty() && pwdConfirm.isNotEmpty() && realName.isNotEmpty() && birthDate.isNotEmpty() && nickName.isNotEmpty()){
+                if(terms1.isChecked() && terms2.isChecked() && terms3.isChecked()){
+                    if(pwd == pwdConfirm){
+                        auth.createUserWithEmailAndPassword(email, pwd)
+                            .addOnCompleteListener(this) { task ->
+                                binding.emailIdEditText.text.clear()
+                                binding.signUpPwEditText.text.clear()
+                                binding.signUpConfirmPwEditText.text.clear()
+                                binding.signUpNameEditText.text.clear()
+                                binding.signUpBirthEditText.text.clear()
+                                binding.signUpNickNameEditText.text.clear()
+                                if (task.isSuccessful) {
+                                    // 비밀번호는 최소 6자 이상
+                                    // 메일 보내기
+                                    auth.currentUser?.sendEmailVerification()
+                                        ?.addOnCompleteListener { sendTask ->
+                                            if (sendTask.isSuccessful) {
+                                                Toast.makeText(baseContext,
+                                                    "회원가입에 성공하였습니다. 전송된 메일을 확인 해주세요.",
+                                                    Toast.LENGTH_SHORT).show()
+                                                Firebase.auth.signOut()
+                                                val user = hashMapOf(
+                                                    "email" to email,
+                                                    "realName" to realName,
+                                                    "birthDate" to birthDate,
+                                                    "nickName" to nickName,
+                                                )
+                                                db.collection("users").add(user)
+                                                val intent = Intent(this, Start::class.java)
+                                                startActivity(intent)
+                                            } else {
+                                                Toast.makeText(baseContext, "메일 전송 실패",
+                                                    Toast.LENGTH_SHORT).show()
+                                            }
+                                        }
+                                } else {
+                                    Toast.makeText(baseContext, "회원가입 실패",
+                                        Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                    } else {
+                        Toast.makeText(baseContext, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(baseContext, "약관에 동의 해주세요..", Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+                Toast.makeText(baseContext, "회원정보를 모두 입력 해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
 
         val arrowToLogin: ImageButton = findViewById(R.id.signUp_arrow)
 
@@ -167,4 +263,6 @@ class SignUp : AppCompatActivity() {
             }
         }
     }
+
+
 }
