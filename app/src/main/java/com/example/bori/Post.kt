@@ -26,23 +26,24 @@ class Post : AppCompatActivity() {
         binding= ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.postSave.setOnClickListener{
+        binding.postImageView.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.setDataAndType(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 "image/*"
             )
+            requestLauncher.launch(intent)
         }
 
-        binding.postImageView.setOnClickListener {
-            if(binding.postImageView.drawable !== null && binding.postEditView.text.isNotEmpty()){
+        binding.postSave.setOnClickListener{
+            if(binding.postImageView.drawable !== null && binding.etPost.text.isNotEmpty()){
                 //store 에 먼저 데이터를 저장후 document id 값으로 업로드 파일 이름 지정
                 saveStore()
+                Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
             }else {
                 Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
     val requestLauncher = registerForActivityResult(
@@ -69,7 +70,7 @@ class Post : AppCompatActivity() {
         //add............................
         val data = mapOf(
             "email" to MyApplication.email,
-            "content" to binding.postEditView.text.toString(),
+            "content" to binding.etPost.text.toString(),
             "date" to dateToString(Date())
         )
         MyApplication.db.collection("news")
