@@ -28,13 +28,13 @@ class MyApplication: MultiDexApplication() {
         }
     }
 
-    /*
+
     override fun onCreate() {
         super.onCreate()
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance()
         storage = Firebase.storage
     }
-     */
+
 
 }
