@@ -15,8 +15,11 @@
         android:theme="@style/Theme.Bori"
         tools:targetApi="31" >
         <activity
-            android:name=".Post"
+            android:name=".MyApplication"
             android:exported="false" />
+        <activity
+            android:name=".Start"
+            android:exported="true" />
         <activity
             android:name=".LogoutModal"
             android:exported="false" />
@@ -61,7 +64,7 @@
             android:name=".DefaultCatSetting"
             android:exported="false" />
         <activity
-            android:name=".Start"
+            android:name=".Post"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
