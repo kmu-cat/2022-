@@ -37,8 +37,6 @@ class MyBucketSpring : Fragment(){
             }
         )
 
-
-
         return view
     }
 

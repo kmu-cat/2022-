@@ -22,5 +22,6 @@ class Modaltest : AppCompatActivity(){
             val title  = findViewById<TextView>(R.id.bucketListModal_titleTextView)
             title.text = intent.getStringExtra("k")
         }
+
     }
 }
