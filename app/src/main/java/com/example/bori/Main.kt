@@ -12,37 +12,49 @@ class Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        changeFragment(Home())
+        changeNavFragment(Home())
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-        bottomNav.setSelectedItemId(R.id.navigation_home)
+        bottomNav.setSelectedItemId(R.id.navigation_home);
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    changeFragment(Home())
+                    changeNavFragment(Home())
                 }
                 R.id.navigation_certifyingShot -> {
-                    changeFragment(CertifyingShot())
+                    changeNavFragment(CertifyingShot())
                 }
                 R.id.navigation_setting -> {
-                    changeFragment(Setting())
+                    changeNavFragment(Setting())
                 }
                 R.id.navigation_inventory -> {
-                    changeFragment(CatSettingFragment())
+                    changeNavFragment(CatSettingFragment())
                 }
                 R.id.navigation_bucketList -> {
-                    changeFragment(BucketList())
+                    changeNavFragment(MyBucket())
                 }
             }
             true
         }
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    fun changeNavFragment(fragment: Fragment) {
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_fragmentLayout, fragment)
             .commit()
+    }
+
+    fun changeMyBucketFragment(index: Int){
+        when(index){
+            0 -> {
+                changeNavFragment(MyBucket())
+            }
+
+            1 -> {
+               changeNavFragment(RecommendBucket())
+            }
+        }
     }
 }
