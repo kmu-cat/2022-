@@ -142,7 +142,6 @@
             android:id="@+id/privacy_genderCheckBoxMale"
             android:text="남자"
             android:button="@drawable/custom_checkbox"/>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

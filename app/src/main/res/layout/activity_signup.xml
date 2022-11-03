@@ -29,7 +29,9 @@
             android:gravity="center"
             android:text="회원가입"
             android:textAlignment="center"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-30dp" />
 
         <TextView
             android:id="@+id/signUp_idTextView"
