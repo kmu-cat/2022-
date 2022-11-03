@@ -53,7 +53,7 @@ class Post : AppCompatActivity() {
             Glide
                 .with(getApplicationContext())
                 .load(it.data?.data)
-                .apply(RequestOptions().override(250, 200))
+                .apply(RequestOptions().override(360, 480))
                 .centerCrop()
                 .into(binding.postImageView)
 
