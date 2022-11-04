@@ -1,18 +1,34 @@
 package com.example.bori
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Main : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         changeNavFragment(Home())
+
+        val toCertifyingShot = intent.getIntExtra("pageNum", 0)
+        val certifyingShotTag = intent.getStringExtra("Tag")
+        if (toCertifyingShot==1){
+            getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragmentLayout, CertifyingShot().apply{
+                    arguments = Bundle().apply{
+                        putString("tag", certifyingShotTag)
+                    }
+                }).commit()
+            val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+            bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
+        }else{
+        val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+        bottomNav.setSelectedItemId(R.id.navigation_home);}
+
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
         bottomNav.setSelectedItemId(R.id.navigation_home);
@@ -51,7 +67,6 @@ class Main : AppCompatActivity() {
             0 -> {
                 changeNavFragment(MyBucket())
             }
-
             1 -> {
                changeNavFragment(RecommendBucket())
             }
