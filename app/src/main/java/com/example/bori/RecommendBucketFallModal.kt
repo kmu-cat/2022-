@@ -52,11 +52,6 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
             context.startActivity(intent)
         }
     }
-
-        val lookAroundButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_lookAroundButton)
-        lookAroundButton.setOnClickListener{
-        }
-    }
     interface  ButtonClickListener{
         fun onClicked(myName:String)
     }

@@ -19,7 +19,7 @@ class CertifyingShot : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_community, container, false)
+        val view = inflater.inflate(R.layout.fragment_certifying_shot, container, false)
         val tag = arguments?.getString("tag")
         if (tag != null) {
             Log.d("tag", tag)
