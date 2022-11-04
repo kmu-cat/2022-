@@ -16,7 +16,6 @@ import java.security.AccessController.getContext
 class RecommendBucketSpringAdapter(val bucketList: ArrayList<BucketListForm>):
     RecyclerView.Adapter<RecommendBucketSpringAdapter.CustomViewHolder>()
 {
-
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketSpringAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -39,6 +38,4 @@ class RecommendBucketSpringAdapter(val bucketList: ArrayList<BucketListForm>):
         val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
         val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
     }
-
-
 }

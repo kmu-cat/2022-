@@ -28,7 +28,7 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
         challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
-
+        
         dialog.setCancelable(true)
         dialog.show()
 

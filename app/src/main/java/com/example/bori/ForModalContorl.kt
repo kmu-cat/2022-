@@ -22,7 +22,8 @@
 ////        }
 //
 //        toSignUp.setOnClickListener {
-//            val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+//            val dialogView = layoutIn
+//            flater.inflate(R.layout.activity_get_item_modal, null)
 //
 //            val addBucketDialog = Dialog(this)
 //            addBucketDialog.setContentView(dialogView)

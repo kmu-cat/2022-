@@ -11,7 +11,7 @@ class Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        changeFragment(Home())
+        changeNavFragment(Home())
 
         val toCertifyingShot = intent.getIntExtra("pageNum", 0)
         val certifyingShotTag = intent.getStringExtra("Tag")
@@ -27,43 +27,40 @@ class Main : AppCompatActivity() {
             bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
         }else{
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-<<<<<<< Updated upstream
-=======
         bottomNav.setSelectedItemId(R.id.navigation_home);}
 
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
->>>>>>> Stashed changes
+        bottomNav.setSelectedItemId(R.id.navigation_home);
+
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    changeFragment(Home())
+                    changeNavFragment(Home())
                 }
                 R.id.navigation_certifyingShot -> {
-                    changeFragment(CertifyingShot())
+                    changeNavFragment(CertifyingShot())
                 }
                 R.id.navigation_setting -> {
-                    changeFragment(Setting())
+                    changeNavFragment(Setting())
                 }
                 R.id.navigation_inventory -> {
-                    changeFragment(CatSettingFragment())
+                    changeNavFragment(CatSettingFragment())
                 }
                 R.id.navigation_bucketList -> {
-                    changeFragment(BucketList())
+                    changeNavFragment(MyBucket())
                 }
             }
             true
         }
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    fun changeNavFragment(fragment: Fragment) {
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_fragmentLayout, fragment)
             .commit()
     }
-<<<<<<< Updated upstream
-=======
 
     fun changeMyBucketFragment(index: Int){
         when(index){
@@ -75,7 +72,4 @@ class Main : AppCompatActivity() {
             }
         }
     }
-
-
->>>>>>> Stashed changes
 }
