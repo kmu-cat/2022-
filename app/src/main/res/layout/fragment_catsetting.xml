@@ -103,6 +103,19 @@
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     tools:listitem="@layout/recyclerview_item_button" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="머리" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_hair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
             </LinearLayout>
         </ScrollView>
 
