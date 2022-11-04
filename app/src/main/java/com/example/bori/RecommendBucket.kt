@@ -182,7 +182,11 @@ class RecommendBucket : Fragment(){
         val btn =
             listOf<android.widget.Button>(springButton, summerButton, fallButton, winterButton)
         for (i in btn) {
-            i.isSelected = button == i
+            if (button == i) {
+                i.isSelected = true
+            } else {
+                i.isSelected = false
+            }
         }
     }
 }
