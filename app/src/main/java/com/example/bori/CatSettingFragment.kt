@@ -1,5 +1,6 @@
 package com.example.bori
 
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +37,14 @@ class CatSettingFragment : Fragment() {
         adapteritem_color.setItemClickListener(object: AdapterItem.OnItemClickListener{
             override fun onClick(v: View, position: Int, src: Int) {
                 view.findViewById<ImageView>(R.id.cat_color).setImageResource(src)
-                Toast.makeText(context, "클릭", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "", Toast.LENGTH_SHORT)
+            }
+        })
+
+        adapteritem_hair.setItemClickListener(object : AdapterItem.OnItemClickListener {
+            override fun onClick(v: View, position: Int, src: Int) {
+                view.findViewById<ImageView>(R.id.cat_hair).setImageResource(src)
+                Toast.makeText(context, "", Toast.LENGTH_SHORT)
             }
         })
 
