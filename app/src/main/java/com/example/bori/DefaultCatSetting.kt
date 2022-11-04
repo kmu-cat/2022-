@@ -1,5 +1,6 @@
 package com.example.bori
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -38,6 +39,7 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
         var pickUpBtn = findViewById<Button>(R.id.pickUpBtn)
 
         pickUpBtn.setOnClickListener {
+            startActivity(Intent(this, Main::class.java))
             Toast.makeText(this@DefaultCatSetting, "야옹~",Toast.LENGTH_SHORT).show()
         }
     }
