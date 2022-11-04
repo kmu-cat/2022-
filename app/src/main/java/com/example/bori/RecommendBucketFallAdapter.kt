@@ -21,7 +21,7 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): Re
         holder.challenger.text = bucketList.get(position).challenger.toString()
         holder.itemView.setOnClickListener{
             val dialog = RecommendBucketFallModal(holder)
-            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(), holder.heart.isChecked)
+            dialog.myDig()
         }
     }
 

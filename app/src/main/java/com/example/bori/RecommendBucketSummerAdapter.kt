@@ -25,7 +25,7 @@ class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>): 
         holder.challenger.text = bucketList.get(position).challenger.toString()
         holder.itemView.setOnClickListener{
             val dialog = RecommendBucketSummerModal(holder)
-            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(),holder.heart.isChecked)
+            dialog.myDig()
         }
     }
 
