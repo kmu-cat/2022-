@@ -7,7 +7,7 @@
         android:id="@+id/item_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:drawableStart="@drawable/color_cheese"
+        android:drawableLeft="@drawable/rc_color_samsagi"
         android:button="@null" />
     <ImageView
         android:id="@+id/item_selected_icon"
