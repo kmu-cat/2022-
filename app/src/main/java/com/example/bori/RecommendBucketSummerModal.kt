@@ -30,6 +30,12 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
+
+        if(bucketHeart==true){
+            val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+            uploadButton.isEnabled = true
+        }
+
         dialog.setCancelable(true)
         dialog.show()
 

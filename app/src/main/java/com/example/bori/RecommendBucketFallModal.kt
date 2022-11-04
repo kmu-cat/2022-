@@ -18,6 +18,8 @@ import java.security.AccessController.getContext
 class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHolder){
     private val context = holder.itemView.context
     private val dialog = Dialog(context)
+
+
     fun myDig(bucketTitle:String, bucketChallenger:String, bucketHeart:Boolean) {
 //        val view = LayoutInflater.from(context).inflate(R.layout.activity_bucketlist_modal, null, false)
 //        view.findViewById<TextView>(R.id.bucketListModal_titleTextView).text = "dfd"
@@ -31,6 +33,11 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
         challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
+
+        if(bucketHeart==true){
+            val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+            uploadButton.isEnabled = true
+        }
 
         dialog.setCancelable(true)
         dialog.show()
