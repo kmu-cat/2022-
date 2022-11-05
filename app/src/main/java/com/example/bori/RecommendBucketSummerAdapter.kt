@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>): RecyclerView.Adapter<RecommendBucketSummerAdapter.CustomViewHolder>()
+class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface): RecyclerView.Adapter<RecommendBucketSummerAdapter.CustomViewHolder>()
 {
+    private val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketSummerAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -23,8 +24,12 @@ class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>): 
     override fun onBindViewHolder(holder: RecommendBucketSummerAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
+        holder.heart.isChecked = bucketList.get(position).heartState
+        holder.heart.setOnClickListener{
+            heartInterface.heartControl(position, holder.heart.isChecked)
+        }
         holder.itemView.setOnClickListener{
-            val dialog = RecommendBucketSummerModal(holder)
+            val dialog = RecommendBucketSummerModal(holder,position, heartInterface)
             dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(),holder.heart.isChecked)
         }
     }

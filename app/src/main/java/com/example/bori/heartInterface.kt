@@ -1,5 +1,5 @@
 package com.example.bori
 
 interface heartInterface {
-    fun heartControl(heart:Boolean)
+    fun heartControl(position: Int, heartState: Boolean)
 }

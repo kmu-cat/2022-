@@ -13,9 +13,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.bori.databinding.FragmentInventoryBinding.inflate
 import com.example.bori.databinding.FragmentRecommendBucketWinterBinding.inflate
 
-class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomViewHolder){
+class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomViewHolder, position:Int, heartInterface: heartInterface){
     private val context = holder.itemView.context
     private val dialog = Dialog(context)
+
+    private val position = position
+    private val heartInterface = heartInterface
 
     fun myDig(bucketTitle:String, bucketChallenger:String, bucketHeart:Boolean){
 //        val view = LayoutInflater.from(context).inflate(R.layout.activity_bucketlist_modal, null, false)
@@ -41,6 +44,7 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
             xButton.setOnClickListener{
+                heartInterface.heartControl(position,heart.isChecked)
                 dialog.dismiss()
            }
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)

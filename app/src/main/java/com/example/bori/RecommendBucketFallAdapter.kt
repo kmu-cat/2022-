@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>):
+class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface):
     RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
 {
+    private val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketFallAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -21,9 +22,13 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>):
     override fun onBindViewHolder(holder: RecommendBucketFallAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
+        holder.heart.isChecked = bucketList.get(position).heartState
+        holder.heart.setOnClickListener{
+            heartInterface.heartControl(position, holder.heart.isChecked)
+        }
         holder.itemView.setOnClickListener{
-            val dialog = RecommendBucketFallModal(holder)
-            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(), holder.heart.isChecked)
+            val dialog = RecommendBucketFallModal(holder, position, heartInterface)
+            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(), bucketList.get(position).heartState)
         }
     }
 

@@ -13,21 +13,24 @@ class Main : AppCompatActivity() {
 
         changeNavFragment(Home())
 
-        val toCertifyingShot = intent.getIntExtra("pageNum", 0)
+        val pageNum = intent.getIntExtra("pageNum", 3)
         val certifyingShotTag = intent.getStringExtra("Tag")
-        if (toCertifyingShot==1){
-            getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragmentLayout, CertifyingShot().apply{
-                    arguments = Bundle().apply{
-                        putString("tag", certifyingShotTag)
-                    }
-                }).commit()
-            val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-            bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
-        }else{
-        val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-        bottomNav.setSelectedItemId(R.id.navigation_home)}
+        when(pageNum){
+            1->{
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragmentLayout, CertifyingShot().apply{
+                        arguments = Bundle().apply{
+                            putString("tag", certifyingShotTag)
+                        }
+                    }).commit()
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
+            }
+            else->{
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_home)}
+        }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
         bottomNav.setOnItemSelectedListener { item ->

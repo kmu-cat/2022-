@@ -13,9 +13,10 @@ import com.firebase.ui.auth.AuthUI.getApplicationContext
 import kotlinx.coroutines.NonDisposableHandle.parent
 import java.security.AccessController.getContext
 
-class RecommendBucketSpringAdapter(val bucketList: ArrayList<BucketListForm>):
+class RecommendBucketSpringAdapter(val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface):
     RecyclerView.Adapter<RecommendBucketSpringAdapter.CustomViewHolder>()
 {
+    private  val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketSpringAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -27,9 +28,13 @@ class RecommendBucketSpringAdapter(val bucketList: ArrayList<BucketListForm>):
     override fun onBindViewHolder(holder: RecommendBucketSpringAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
+        holder.heart.isChecked = bucketList.get(position).heartState
+        holder.heart.setOnClickListener{
+            heartInterface.heartControl(position, holder.heart.isChecked)
+        }
         holder.itemView.setOnClickListener{
-            val dialog = RecommendBucketSpringModal(holder)
-            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(),holder.heart.isChecked)
+            val dialog = RecommendBucketSpringModal(holder,position, heartInterface)
+            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(),bucketList.get(position).heartState)
         }
     }
 

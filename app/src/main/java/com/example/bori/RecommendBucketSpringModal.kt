@@ -13,9 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.bori.databinding.FragmentInventoryBinding.inflate
 import com.example.bori.databinding.FragmentRecommendBucketWinterBinding.inflate
 
-class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomViewHolder){
+class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomViewHolder, position: Int, heartInterface: heartInterface){
     private val context = holder.itemView.context
     private val dialog = Dialog(context)
+    private val position = position
+    private val heartInterface = heartInterface
 
     fun myDig(bucketTitle:String, bucketChallenger:String, bucketHeart:Boolean){
         dialog.setContentView(R.layout.activity_bucketlist_modal)
@@ -28,6 +30,7 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
         challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
+
         if(bucketHeart==true){
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
             uploadButton.isEnabled = true
@@ -38,6 +41,7 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
         xButton.setOnClickListener{
+            heartInterface.heartControl(position, heart.isChecked)
             dialog.dismiss()
         }
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
