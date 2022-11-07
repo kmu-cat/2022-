@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 
-class RecommendBucketWinter : Fragment(){
+class RecommendBucketWinter : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
     val bucketList = arrayListOf(
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울", "0명이 도전 중!",false),
@@ -35,16 +35,21 @@ class RecommendBucketWinter : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_winter, container, false)
+        val heartState = arguments?.getBoolean("heartState")
+        val position = arguments?.getInt("position")
+        if(heartState!=null && position!=null){
+            bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
+        }
 
         rv = view.findViewById(R.id.rv_recommendBucketWinter)
         rv.layoutManager = GridLayoutManager(context,2)
         rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketWinterAdapter(bucketList)
+        rv.adapter = RecommendBucketWinterAdapter(bucketList, this)
 
         return view
     }
     fun clicked(text:String){
-        bucketList.add(BucketListForm(text,"0명이 도전 중!"))
+        bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
         rv.adapter?.notifyDataSetChanged()
     }
 
@@ -71,10 +76,10 @@ class RecommendBucketWinter : Fragment(){
             rv.adapter?.notifyDataSetChanged()
             winterRecommendSet.remove(bucketList.get(position).title)
         }
-        rv = requireView().findViewById(R.id.rv_recommendBucketWinter)
-        rv.layoutManager = GridLayoutManager(context,2)
-        rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketWinterAdapter(bucketList, this)
+//        rv = requireView().findViewById(R.id.rv_recommendBucketWinter)
+//        rv.layoutManager = GridLayoutManager(context,2)
+//        rv.setHasFixedSize(true)
+//        rv.adapter = RecommendBucketWinterAdapter(bucketList, this)
 
     }
 

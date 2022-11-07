@@ -1,13 +1,14 @@
 package com.example.bori
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 
-class RecommendBucketSummer : Fragment(){
+class RecommendBucketSummer : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     val bucketList = arrayListOf(
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 여름", "0명이 도전 중!",false),
@@ -20,7 +21,6 @@ class RecommendBucketSummer : Fragment(){
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 여름7", "7명이 도전 중!",false)
 
     )
-
     val summerRecommendSet = mutableSetOf<String>()
 
     override fun onPause() {
@@ -36,15 +36,20 @@ class RecommendBucketSummer : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_summer, container, false)
+        val heartState = arguments?.getBoolean("heartState")
+        val position = arguments?.getInt("position")
+        if(heartState!=null && position!=null){
+            bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
+        }
         rv = view.findViewById(R.id.rv_recommendBucketSummer)
         rv.layoutManager = GridLayoutManager(context,2)
         rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketSummerAdapter(bucketList)
+        rv.adapter = RecommendBucketSummerAdapter(bucketList, this)
 
         return view
     }
     fun clicked(text:String){
-        bucketList.add(BucketListForm(text,"0명이 도전 중!"))
+        bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
         rv.adapter?.notifyDataSetChanged()
     }
 
@@ -70,11 +75,11 @@ class RecommendBucketSummer : Fragment(){
             rv.adapter?.notifyDataSetChanged()
             summerRecommendSet.remove(bucketList.get(position).title)
         }
-        Log.d("heartState", bucketList.get(position).heartState.toString())
-        rv = requireView().findViewById(R.id.rv_recommendBucketSummer)
-        rv.layoutManager = GridLayoutManager(context,2)
-        rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketSummerAdapter(bucketList, this)
+//        Log.d("heartState", bucketList.get(position).heartState.toString())
+//        rv = requireView().findViewById(R.id.rv_recommendBucketSummer)
+//        rv.layoutManager = GridLayoutManager(context,2)
+//        rv.setHasFixedSize(true)
+//        rv.adapter = RecommendBucketSummerAdapter(bucketList, this)
     }
 
 }

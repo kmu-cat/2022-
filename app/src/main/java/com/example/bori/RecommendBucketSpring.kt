@@ -39,15 +39,21 @@ class RecommendBucketSpring : Fragment(), heartInterface {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_spring, container, false)
 
+        val heartState = arguments?.getBoolean("heartState")
+        val position = arguments?.getInt("position")
+        if(heartState!=null && position!=null){
+            bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
+        }
+
         rv = view.findViewById(R.id.rv_recommendBucketSpring)
         rv.layoutManager = GridLayoutManager(context, 2)
         rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketSpringAdapter(bucketList)
+        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
 
         return view
     }
     fun clicked(text:String){
-        bucketList.add(BucketListForm(text,"0명이 도전 중!"))
+        bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
         rv.adapter?.notifyDataSetChanged()
     }
 
@@ -73,10 +79,10 @@ class RecommendBucketSpring : Fragment(), heartInterface {
             springRecommendSet.remove(bucketList.get(position).title)
         }
 
-        rv = requireView().findViewById(R.id.rv_recommendBucketSpring)
-        rv.layoutManager = GridLayoutManager(context,2)
-        rv.setHasFixedSize(true)
-        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
+//        rv = requireView().findViewById(R.id.rv_recommendBucketSpring)
+//        rv.layoutManager = GridLayoutManager(context,2)
+//        rv.setHasFixedSize(true)
+//        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
 
     }
 }
