@@ -40,6 +40,7 @@
         android:gravity="center"
         android:text="귀여운 고양이의 등장!\n고양이는 무슨 꿈을 꾸고 있을까요?"
         android:textColor="@color/black"
+        android:textStyle="normal"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,11 +51,11 @@
         android:id="@+id/start_signUpButton"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_style"
         android:text="회원가입"
-        android:textSize="16dp"
+        android:textSize="17dp"
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +77,7 @@
             android:layout_height="wrap_content"
             android:text="이미 계정이 있나요?   "
             android:textStyle="normal"
+            android:textSize="14dp"
             android:textColor="@color/black"
             tools:ignore="MissingConstraints" />
 
@@ -85,6 +87,7 @@
             android:layout_height="match_parent"
             android:text="로그인"
             android:textStyle="bold"
+            android:textSize="14dp"
             android:textColor="@color/cheese_font"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
