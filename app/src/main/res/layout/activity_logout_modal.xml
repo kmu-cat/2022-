@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center">
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/certifying_lookAroundButton"
+                android:id="@+id/logoutModal_yes"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
@@ -36,7 +36,7 @@
                 android:text="예"
                 android:textColor="@color/white" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/certifying_uploadButton"
+                android:id="@+id/logoutModal_no"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:background="@drawable/button_style_white"

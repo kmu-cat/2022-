@@ -1,6 +1,9 @@
 package com.example.bori
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,9 +42,27 @@ class Setting : Fragment(){
             val intent = Intent(context, Privacy::class.java)
             startActivity(intent)
         }
+        btnLogout.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.activity_logout_modal, null)
+            val logoutDialog = Dialog(view.context)
+            logoutDialog.setContentView(dialogView)
+            logoutDialog.setCancelable(true)
+            logoutDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            logoutDialog.show()
 
+            val yesButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
+            yesButton.setOnClickListener {
+                //어디로 갈지 정해지면 수정
+                logoutDialog.dismiss()
+            }
+            val noButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_no)
+            noButton.setOnClickListener {
+                logoutDialog.dismiss()
+            }
+        }
         return view
-
-
     }
+
 }
