@@ -43,7 +43,7 @@ class Setting : Fragment(){
         }
 
         btnModifyPw.setOnClickListener{
-            val intent = Intent(context, ModifyPw1::class.java)
+            val intent = Intent(context, ModifyPw::class.java)
             startActivity(intent)
         }
 
