@@ -104,6 +104,7 @@
         android:id="@+id/findId_nameEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="7dp"
         android:background="@drawable/edittext_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,8 +131,8 @@
     <LinearLayout
         android:id="@+id/findId_emailLinearLayout"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findId_emailTextView"
@@ -155,7 +156,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginLeft="-0.8dp"
-            android:layout_marginTop="-1.7dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/button_rightnarrow_style"
             android:text="인증 받기"
 
@@ -173,6 +174,8 @@
         android:layout_marginStart="0dp"
         android:textColor="#FF0000"
         android:text="이메일이 일치하지 않습니다."
+        android:textSize="15dp"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findId_emailLinearLayout"
         tools:ignore="MissingConstraints" />
@@ -195,6 +198,7 @@
         android:id="@+id/findId_certificationEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="7dp"
         android:background="@drawable/edittext_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -213,6 +217,8 @@
         android:layout_marginStart="0dp"
         android:textColor="#FF0000"
         android:text="인증번호가 일치하지 않습니다."
+        android:textSize="15dp"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findId_certificationEditText"
         tools:ignore="MissingConstraints" />
