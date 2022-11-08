@@ -45,7 +45,6 @@
             android:id="@+id/signUp_idTextView"
             android:layout_width="102dp"
             android:layout_height="24dp"
-
             android:text="아이디(이메일)"
             android:textColor="@color/black"
             android:textSize="16dp"
