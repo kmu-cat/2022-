@@ -54,6 +54,7 @@
         android:layout_height="50dp"
         android:background="@drawable/edittext_style"
         android:padding="10dp"
+        android:textSize="15dp"
         android:enabled="false"
         android:layout_marginBottom="20dp" />
 
@@ -72,6 +73,7 @@
         android:layout_height="50dp"
         android:padding="10dp"
         android:enabled="false"
+        android:textSize="15dp"
         android:background="@drawable/edittext_style"
         android:layout_marginBottom="20dp"/>
 
@@ -91,6 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:enabled="false"
+        android:textSize="15dp"
         android:background="@drawable/edittext_style"
         android:layout_marginBottom="20dp"/>
 
@@ -109,6 +112,7 @@
         android:layout_height="50dp"
         android:enabled="false"
         android:padding="10dp"
+        android:textSize="15dp"
         android:background="@drawable/edittext_style"/>
     <TextView
         android:id="@+id/privacy_nicknameWarning"

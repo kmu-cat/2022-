@@ -39,6 +39,10 @@ class Setting : Fragment(){
             val intent = Intent(context, Privacy::class.java)
             startActivity(intent)
         }
+        btnModifyPw.setOnClickListener {
+            val intent = Intent(context, ModifyPw1::class.java)
+            startActivity(intent)
+        }
 
         return view
 

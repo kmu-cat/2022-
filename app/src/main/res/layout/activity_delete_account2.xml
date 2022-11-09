@@ -110,6 +110,7 @@
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        style="?android:attr/borderlessButtonStyle"
         android:background="@drawable/button_style_red"
         android:text="탈퇴하기"
         android:textStyle="bold"

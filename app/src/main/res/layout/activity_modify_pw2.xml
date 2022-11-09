@@ -5,8 +5,28 @@
     android:layout_marginRight="30dp"
     android:layout_marginLeft="30dp"
     android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/modifyPw2_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/modifyPw2_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="비밀번호 변경"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </FrameLayout>
     <TextView
         android:id="@+id/modifyPw2_info"
         android:layout_width="wrap_content"
@@ -54,15 +74,26 @@
         android:hint="새 비밀번호 확인"
         android:padding="10dp"
         android:textSize="15dp"/>
+
     <TextView
         android:id="@+id/modifyPw2_pwCertificationWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="비밀번호가 일치하지 않습니다."
         android:textColor="#FF0000"
         android:textSize="15dp"
-        android:text="비밀번호가 일치하지 않습니다."
-        android:visibility="visible"
-        android:layout_marginBottom="36dp"/>
+        android:visibility="invisible" />
 
+    <android.widget.Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/modifyPw2_confirmButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button_style"
+        android:text="확인"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="@color/white" />
 
 </LinearLayout>

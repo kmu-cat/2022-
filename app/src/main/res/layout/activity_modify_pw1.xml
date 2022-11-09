@@ -5,6 +5,26 @@
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
     android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/modifyPw1_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/modifyPw1_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="비밀번호 변경"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+    </FrameLayout>
     <TextView
         android:id="@+id/modifyPw1_info"
         android:layout_width="wrap_content"
@@ -38,8 +58,21 @@
         android:id="@+id/modifyPw1_pwCertificationWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:textColor="#FF0000"
         android:textSize="15dp"
+        android:layout_marginBottom="40dp"
         android:text="비밀번호가 일치하지 않습니다." />
+
+    <android.widget.Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/modifyPw1_confirmButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button_style"
+        android:text="확인"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="@color/white" />
+
 </LinearLayout>
