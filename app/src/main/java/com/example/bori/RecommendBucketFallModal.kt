@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View.inflate
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -24,6 +25,9 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
         dialog.setContentView(R.layout.activity_bucketlist_modal)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCancelable(true)
         dialog.show()
 
