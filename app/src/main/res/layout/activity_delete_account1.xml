@@ -122,7 +122,7 @@
             android:background="@drawable/edittext_style"
             android:hint="서비스 이용 중 아쉬운 점에 대해서 알려주세요.\n(선택사항, 80자 이내)"
             android:maxLength="80"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
     </RadioGroup>
     <LinearLayout
         android:id="@+id/deleteAccount_bottomButton"
@@ -149,7 +149,7 @@
             android:enabled="false"
             android:textSize="17dp"
             android:textStyle="bold"
-            android:background="@drawable/button_style"
+            android:background="@drawable/button_style_submit"
             android:text="제출"
             android:textColor="@color/white"/>
     </LinearLayout>
