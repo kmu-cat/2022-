@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class FindPw2 : Fragment(){
     private lateinit var pwCertificationEditText: EditText
     private lateinit var pwCertificationWarning: TextView
+    private lateinit var pwConfirmButton: Button
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,6 +24,7 @@ class FindPw2 : Fragment(){
         val view = inflater.inflate(R.layout.fragment_findpw2, container, false)
         pwCertificationEditText = view.findViewById(R.id.findPw2_pwCertificationEditText)
         pwCertificationWarning = view.findViewById(R.id.findPw2_pwCertificationWarning)
+
 
         pwCertificationEditText.addTextChangedListener(object: TextWatcher {
 
@@ -48,6 +51,8 @@ class FindPw2 : Fragment(){
                     pwCertificationWarning.setVisibility(View.VISIBLE)
                 }
             }
+
+
 
         })
         return view

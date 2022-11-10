@@ -9,26 +9,41 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class FindPw1 : Fragment(){
     private lateinit var certificationEditText: EditText
     private lateinit var certificationWarning: TextView
-    private lateinit var confirmButton: Button
+    private lateinit var pwConfirmButton: Button
     private lateinit var emailWarning: TextView
+    lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_findpw1, container, false)
-
-        confirmButton= view.findViewById(R.id.findPw1_confirmButton)
+        auth = Firebase.auth
+        pwConfirmButton= view.findViewById(R.id.findPw1_confirmButton)
         emailWarning= view.findViewById(R.id.findPw1_emailWarning)
 
-
-        confirmButton.setOnClickListener {
-            emailWarning.setVisibility(View.VISIBLE)
+        pwConfirmButton.setOnClickListener {
+            val emailEdtText = view.findViewById<EditText>(R.id.findPw1_email).text.toString()
+            if(emailEdtText.length!=0){
+                auth.sendPasswordResetEmail(emailEdtText)
+                    .addOnCompleteListener { task->
+                        if(task.isSuccessful){
+                            Toast.makeText(activity, "비밀번호 변경 이메일을 전송했습니다.", Toast.LENGTH_SHORT).show()
+                            emailWarning.setVisibility(View.INVISIBLE)
+                        }
+                    }
+            } else {
+                emailWarning.setVisibility(View.VISIBLE)
+            }
         }
 
 

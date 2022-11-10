@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="14dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/bucketListModal_xButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/x"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/bucketListModal_titleTextView"
+                android:layout_width="300dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기~~~~"
+                android:layout_marginBottom="10dp"
+                        tools:ignore="MissingConstraints" />
+            <LinearLayout
+                android:id="@+id/bucketListModal_textLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:id="@+id/bucketListModal_challengeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="10명 도전 중!"
+                    tools:ignore="MissingConstraints" />
+                <TextView
+                    android:id="@+id/bucketListModal_successTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="26명이 성공했어요."
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bucketListModal_lookAroundButton"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_style_white"
+                    tools:ignore="MissingConstraints"
+                    android:text="인증샷 구경하기"
+                    android:textColor="@color/cheese_font" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bucketListModal_uploadButton"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:enabled="false"
+                    android:background="@drawable/custom_certifying_button"
+                    tools:ignore="MissingConstraints"
+                    android:text="인증샷 올리기"
+                    android:textColor="@color/white"/>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/bucketListModal_heartCheckBox"
+                    android:layout_width="20dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:button="@drawable/custom_heartcheckbox"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,20 +1,21 @@
 package com.example.bori
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.*
-import android.widget.Button
-import android.widget.TextView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bori.databinding.ActivitySignupBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.SignInMethodQueryResult
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class SignUp : AppCompatActivity() {
@@ -32,20 +33,82 @@ class SignUp : AppCompatActivity() {
         }
     }
 
-    val db = Firebase.firestore
 
     private lateinit var binding: ActivitySignupBinding
-
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
-
+        var isNewUser = false
+        var isNewNickName = false
         val btnRegister = binding.signUpSignUpButton
 
+
+        // 이메일 중복 체크
+        val emailCertificationButton = binding.signUpEmailCertificationButton
+        val emailWarning: TextView = findViewById(R.id.signUp_emailWarning)
+
+        emailCertificationButton.setOnClickListener {
+            val email:String = binding.emailIdEditText.text.toString()
+            if(email != ""){
+                db.collection("users")
+                    .whereEqualTo("email", email)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        if(documents.isEmpty){
+                            emailWarning.setVisibility(View.INVISIBLE)
+                            Toast.makeText(baseContext, "사용 가능한 이메일입니다.", Toast.LENGTH_SHORT).show()
+                            isNewUser = true
+
+                        } else {
+                            emailWarning.setVisibility(View.VISIBLE)
+                            isNewUser = false
+                        }
+                    }
+            } else {
+                Toast.makeText(baseContext, "이메일을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // 닉네임
+        val nicknameCertificationButton: Button = findViewById(R.id.signUp_nicknameCertificationButton)
+        val nicknameWarning: TextView = findViewById(R.id.signUp_nicknameWarning)
+
+        // 닉네임 중복 확인
+        nicknameCertificationButton.setOnClickListener {
+            val nickName = binding.signUpNickNameEditText.text.toString()
+
+            if(nickName != ""){
+                db.collection("users")
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            if(nickName == document.data.get("nickName")){
+                                nicknameWarning.setVisibility(View.VISIBLE)
+                                isNewNickName = false
+                                break
+                            } else {
+                                nicknameWarning.setVisibility(View.INVISIBLE)
+                                isNewNickName = true
+                            }
+                        }
+                        if(isNewNickName)
+                            Toast.makeText(baseContext, "사용가능한 닉네임 입니다..", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e("9999999", "Error getting documents: ", exception)
+                    }
+            } else {
+                Toast.makeText(baseContext, "닉네임 입력해 주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // 회원가입
         btnRegister.setOnClickListener {
             val email:String = binding.emailIdEditText.text.toString()
             val pwd:String = binding.signUpPwEditText.text.toString()
@@ -56,17 +119,20 @@ class SignUp : AppCompatActivity() {
             val terms1 = binding.signUpTermOfServiceCheckBox
             val terms2 = binding.signUpMarketingInfoCheckBox
             val terms3 = binding.signUpPersonalInfoCheckBox
-            if(email.isNotEmpty() && pwd.isNotEmpty() && pwdConfirm.isNotEmpty() && realName.isNotEmpty() && birthDate.isNotEmpty() && nickName.isNotEmpty()){
+            val checkMale = binding.signUpGenderCheckBoxMale
+//            val checkFemale = binding.signUpGenderCheckBoxFemale
+
+            if(email.isNotEmpty() && pwd.isNotEmpty() && pwdConfirm.isNotEmpty() && realName.isNotEmpty() && birthDate.isNotEmpty() && nickName.isNotEmpty() && isNewUser && isNewNickName){
                 if(terms1.isChecked() && terms2.isChecked() && terms3.isChecked()){
                     if(pwd == pwdConfirm){
                         auth.createUserWithEmailAndPassword(email, pwd)
                             .addOnCompleteListener(this) { task ->
-                                binding.emailIdEditText.text.clear()
-                                binding.signUpPwEditText.text.clear()
-                                binding.signUpConfirmPwEditText.text.clear()
-                                binding.signUpNameEditText.text.clear()
-                                binding.signUpBirthEditText.text.clear()
-                                binding.signUpNickNameEditText.text.clear()
+//                                binding.emailIdEditText.text.clear()
+//                                binding.signUpPwEditText.text.clear()
+//                                binding.signUpConfirmPwEditText.text.clear()
+//                                binding.signUpNameEditText.text.clear()
+//                                binding.signUpBirthEditText.text.clear()
+//                                binding.signUpNickNameEditText.text.clear()
                                 if (task.isSuccessful) {
                                     // 비밀번호는 최소 6자 이상
                                     // 메일 보내기
@@ -76,16 +142,24 @@ class SignUp : AppCompatActivity() {
                                                 Toast.makeText(baseContext,
                                                     "회원가입에 성공하였습니다. 전송된 메일을 확인 해주세요.",
                                                     Toast.LENGTH_SHORT).show()
-                                                Firebase.auth.signOut()
                                                 val user = hashMapOf(
                                                     "email" to email,
                                                     "realName" to realName,
                                                     "birthDate" to birthDate,
                                                     "nickName" to nickName,
                                                 )
-                                                db.collection("users").add(user)
-                                                val intent = Intent(this, Start::class.java)
-                                                startActivity(intent)
+                                                if(checkMale.isChecked){
+                                                    user.put("gender", "male")
+                                                } else {
+                                                    user.put("gender", "female")
+                                                }
+                                                db.collection("users").document(email).set(user)
+                                                    .addOnSuccessListener{
+                                                        Firebase.auth.signOut()
+                                                        val intent = Intent(this, Start::class.java)
+                                                        startActivity(intent)
+                                                    }
+
                                             } else {
                                                 Toast.makeText(baseContext, "메일 전송 실패",
                                                     Toast.LENGTH_SHORT).show()
@@ -109,21 +183,12 @@ class SignUp : AppCompatActivity() {
         }
 
 
-
         val arrowToLogin: ImageButton = findViewById(R.id.signUp_arrow)
 
         arrowToLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
-
-        val nickNameCertificationButton: Button = findViewById(R.id.signUp_nickNameCertificationButton)
-        val emailWarning: TextView = findViewById(R.id.signUp_emailWarning)
-
-        nickNameCertificationButton.setOnClickListener {
-            emailWarning.setVisibility(View.VISIBLE)
-        }
-
 
         val certificationEditText: EditText = findViewById(R.id.signUp_certificationEditText)
         val certificationWarning: TextView = findViewById(R.id.signUp_certificationWarning)
@@ -157,42 +222,78 @@ class SignUp : AppCompatActivity() {
         })
 
         val confirmPwEditText: EditText = findViewById(R.id.signUp_confirmPwEditText)
+        val pwEditText: EditText = findViewById(R.id.signUp_pwEditText)
         val confirmPwWarning: TextView = findViewById(R.id.signUp_confirmPwWarning)
 
-        confirmPwEditText.addTextChangedListener(object: TextWatcher{
+        pwEditText.addTextChangedListener(object: TextWatcher{
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
                     confirmPwWarning.setVisibility(View.INVISIBLE)
-                }else{
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
                     confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
                 }
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
                     confirmPwWarning.setVisibility(View.INVISIBLE)
-                }else{
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
                     confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
                 if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
                     confirmPwWarning.setVisibility(View.INVISIBLE)
-                }else{
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
                     confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
                 }
             }
 
         })
 
-        val nicknameCertificationButton: Button = findViewById(R.id.signUp_nicknameCertificationButton)
-        val nicknameWarning: TextView = findViewById(R.id.signUp_nicknameWarning)
+        confirmPwEditText.addTextChangedListener(object: TextWatcher{
 
-        nicknameCertificationButton.setOnClickListener {
-            nicknameWarning.setVisibility(View.VISIBLE)
-        }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(confirmPwEditText.getText().toString().equals("") || confirmPwEditText.getText().toString() == null){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }else if(confirmPwEditText.getText().toString()!= pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.VISIBLE)
+                }else if(confirmPwEditText.getText().toString()== pwEditText.getText().toString()){
+                    confirmPwWarning.setVisibility(View.INVISIBLE)
+                }
+            }
+
+        })
+
+
 
 
         val allCheckBox: androidx.appcompat.widget.AppCompatCheckBox =
@@ -216,6 +317,8 @@ class SignUp : AppCompatActivity() {
         genderCheckBoxFemale.setOnClickListener { genderCheckBoxHandler("Female") }
 
     }
+
+
 
 
     private fun agreeCheckBoxHandler(checkBoxName: String) {

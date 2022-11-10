@@ -102,29 +102,6 @@ class Login : AppCompatActivity() {
         }
     }
 
-
-//    private fun signIn(email: String, password: String) {
-//
-//        if (email.isNotEmpty() && password.isNotEmpty()) {
-//            auth?.signInWithEmailAndPassword(email, password)
-//                ?.addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        Toast.makeText(
-//                            baseContext, "로그인에 성공 하였습니다.",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        moveMainPage(auth?.currentUser)
-//                    } else {
-//                        Toast.makeText(
-//                            baseContext, "로그인에 실패 하였습니다.",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-//                }
-//        }
-//    }
-
-
     public override fun onStart() {
         super.onStart()
         moveMainPage(auth?.currentUser)
