@@ -13,7 +13,7 @@ class Main : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         changeNavFragment(Home())
-
+        
         val pageNum = intent.getIntExtra("pageNum", 9)
         val certifyingShotTag = intent.getStringExtra("Tag")
         when(pageNum){
