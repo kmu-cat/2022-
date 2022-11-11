@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginRight="30dp"
     android:layout_marginLeft="30dp"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".FindPw">
-    <ImageButton
-        android:id="@+id/findPw_arrow"
-        android:layout_width="26dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="0dp"
-
-        android:background="@color/white"
-        android:src="@drawable/vector"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/findPw_title"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:gravity="center"
-        android:text="비밀번호 찾기"
-        android:textColor="@color/black"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/findPw_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/findPw_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="아이디 찾기"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </FrameLayout>
     <LinearLayout
         android:id="@+id/findPw_topButtonLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/findPw_title"
-        tools:ignore="MissingConstraints">
+        android:layout_marginBottom="42dp">
         <android.widget.Button
             android:id="@+id/findPw_toFindId"
             style="?android:attr/borderlessButtonStyle"
@@ -46,8 +42,7 @@
             android:text="아이디 찾기"
             android:textSize="16dp"
             android:textStyle="normal"
-            android:textColor="@color/gray"
-            tools:ignore="MissingConstraints" />
+            android:textColor="@color/gray"/>
         <android.widget.Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="176dp"
@@ -56,36 +51,83 @@
             android:background="@drawable/button_righttop_checked_style"
             android:text="비밀먼호 찾기"
             android:textSize="16dp"
-            android:textStyle="normal"
             android:textColor="@color/cheese_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
+            android:textStyle="normal"/>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/findPw_frameLayout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/findId_info"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findPw_topButtonLinearLayout" />
+        android:text="회원가입시 등록한 정보로\n비밀번호를 확인할 수 있습니다."
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="45dp"
+        android:textSize="17dp"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/findId_nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="normal"/>
+    <EditText
+        android:inputType="text"
+        android:id="@+id/findId_nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_style"
+        android:hint="실명을 입력하세요."
+        android:paddingLeft="10dp"
+        android:textSize="15dp"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/findId_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="이메일"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="normal"/>
+
+    <EditText
+        android:id="@+id/findId_nicknameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_style"
+        android:hint="이메일을 입력하세요."
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/findPw_emailWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이메일이 일치하지 않습니다."
+        android:textColor="#FF0000"
+        android:layout_marginBottom="35dp"
+        android:textSize="15dp"
+        android:textStyle="normal"
+        android:visibility="invisible" />
 
     <android.widget.Button
         style="?android:attr/borderlessButtonStyle"
-        android:id="@+id/findPw_startButton"
+        android:id="@+id/findPw_confirmButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="42dp"
         android:background="@drawable/button_style"
         android:text="확인"
-        android:textSize="17dp"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findPw_frameLayout"
-        tools:ignore="MissingConstraints" />
+        android:textSize="17dp"
+        android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
