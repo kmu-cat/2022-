@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View.inflate
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -37,6 +38,9 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
             uploadButton.isEnabled = true
         }
 
+        dialog.window!!.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCancelable(true)
         dialog.show()
 
