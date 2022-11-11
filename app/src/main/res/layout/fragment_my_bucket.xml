@@ -10,7 +10,7 @@
     tools:context=".MyBucket">
     <Spinner
         android:id="@+id/myBucket_spinner"
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="30dp"
         android:background="@drawable/spinner_background_style"
         android:popupBackground="@drawable/spinner_popup_background_style"
