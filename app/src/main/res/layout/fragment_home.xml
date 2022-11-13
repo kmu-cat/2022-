@@ -16,6 +16,9 @@
             android:background="@drawable/textview_speechbubble"
             android:gravity="center"
             android:text="오늘 같은 날씨에 추천해 줄 만한\n버캣리스트가 있지~"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="normal"
             android:textAlignment="center" />
 
         <ImageView
