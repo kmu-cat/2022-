@@ -12,8 +12,8 @@
             android:id="@+id/dailyComment"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:layout_marginTop="340dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="340dp"
             android:background="@drawable/textview_speechbubble"
             android:gravity="center"
             android:padding="5dp"
@@ -22,6 +22,14 @@
             android:textColor="@color/black"
             android:textSize="17dp"
             android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dailyComment"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="-13dp"
+            android:background="@drawable/home_catchat" />
 
         <ImageView
             android:layout_width="320dp"
