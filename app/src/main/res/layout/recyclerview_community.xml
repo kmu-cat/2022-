@@ -14,8 +14,8 @@ android:layout_margin="30dp">
 
     <ImageView
         android:id="@+id/community_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="390dp"
+        android:layout_width="300dp"
+        android:layout_height="330dp"
         android:src="@drawable/community_test"
         android:layout_margin="30dp" />
 
