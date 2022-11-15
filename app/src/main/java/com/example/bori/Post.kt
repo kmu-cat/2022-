@@ -69,8 +69,8 @@ class Post : AppCompatActivity() {
     private fun saveStore(){
         //add............................
         val data = mapOf(
-            "email" to MyApplication.email,
-            "content" to binding.etPost.text.toString(),
+            // "email" to MyApplication.email,
+            "comment" to binding.etPost.text.toString(),
             "date" to dateToString(Date())
         )
         MyApplication.db.collection("news")
