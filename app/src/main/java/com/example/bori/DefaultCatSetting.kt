@@ -72,22 +72,22 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
             catInfoJSON.remove("Color")
             when (selected.id) {
                 R.id.samsagiBtn -> {
-                    catInfoJSON.put("Color", "R.drawable.cat_samsagi")
+                    catInfoJSON.put("Color", R.drawable.cat_samsagi)
                     myCat.setImageResource(R.drawable.cat_samsagi)
                     curr = btnSamsagi
                 }
                 R.id.cheeseBtn -> {
-                    catInfoJSON.put("Color", "R.drawable.cat_cheese")
+                    catInfoJSON.put("Color", R.drawable.cat_cheese)
                     myCat.setImageResource(R.drawable.cat_cheese)
                     curr = btnCheese
                 }
                 R.id.snowwhiteBtn -> {
-                    catInfoJSON.put("Color", "R.drawable.cat_snowwhite")
+                    catInfoJSON.put("Color", R.drawable.cat_snowwhite)
                     myCat.setImageResource(R.drawable.cat_snowwhite)
                     curr = btnSnowwhite
                 }
                 R.id.tigerBtn -> {
-                    catInfoJSON.put("Color", "R.drawable.cat_tiger")
+                    catInfoJSON.put("Color", R.drawable.cat_tiger)
                     myCat.setImageResource(R.drawable.cat_tiger)
                     curr = btnTiger
                 }
