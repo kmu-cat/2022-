@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:gravity="center"
-            android:text="아이디 찾기"
+            android:text="비밀번호 찾기"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="19dp"
