@@ -13,6 +13,32 @@ class Main : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         changeNavFragment(Home())
+        
+        val pageNum = intent.getIntExtra("pageNum", 9)
+        val certifyingShotTag = intent.getStringExtra("Tag")
+        when(pageNum){
+            1->{
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragmentLayout, CertifyingShot().apply{
+                        arguments = Bundle().apply{
+                            putString("tag", certifyingShotTag)
+                        }
+                    }).commit()
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
+            }
+            4->{
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragmentLayout, Setting()).commit()
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_setting);
+            }
+            else->{
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_home)}
+        }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
         bottomNav.setSelectedItemId(R.id.navigation_home);

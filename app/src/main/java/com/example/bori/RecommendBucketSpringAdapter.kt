@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.auth.AuthUI.getApplicationContext
 import kotlinx.coroutines.NonDisposableHandle.parent
 
-class RecommendBucketSpringAdapter (val bucketList: ArrayList<BucketListForm>):
+class RecommendBucketSpringAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface):
     RecyclerView.Adapter<RecommendBucketSpringAdapter.CustomViewHolder>()
 {
+    private  val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketSpringAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -23,16 +24,13 @@ class RecommendBucketSpringAdapter (val bucketList: ArrayList<BucketListForm>):
     override fun onBindViewHolder(holder: RecommendBucketSpringAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
-        holder.itemView.setOnClickListener{
-            //            val intent = Intent(holder.itemView?.context, RecommendBucketSpringModal::class.java)
-//            intent.putExtra("k", "와")
-            val dialog = RecommendBucketSpringModal(holder)
-            dialog.myDig()
+        holder.heart.isChecked = bucketList.get(position).heartState
+        holder.heart.setOnClickListener{
+            heartInterface.heartControl(position, holder.heart.isChecked)
         }
-        class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-            val title = itemView.findViewById<TextView>(R.id.recommend_bucket_component_titleTextView)
-            val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
-            val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
+        holder.itemView.setOnClickListener{
+            val dialog = RecommendBucketSpringModal(holder,position, heartInterface)
+            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(),bucketList.get(position).heartState)
         }
     }
 

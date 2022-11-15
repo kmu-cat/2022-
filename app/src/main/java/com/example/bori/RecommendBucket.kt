@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -78,6 +79,9 @@ class RecommendBucket : Fragment(){
 
                 addBucketDialog.setCancelable(true)
                 addBucketDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                addBucketDialog.window!!.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT)
                 addBucketDialog.show()
 
 

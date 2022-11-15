@@ -26,4 +26,5 @@
         <item>버캣리스트 추가는\n"버캣리스트 줍기"에서 할 수 있어.</item>
         <item>예쁜 옷이 생기면 좋겠어!</item>
     </string-array>
+    <string name ="service_secession"><u>서비스 탈퇴하기</u></string>
 </resources>
