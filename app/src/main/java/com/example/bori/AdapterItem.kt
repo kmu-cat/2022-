@@ -55,7 +55,7 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
         fun onClick(
             v: View,
             position: Int,
-            src: Int,
+            src: Int
         )
     }
     // 외부에서 클릭 시 이벤트 설정

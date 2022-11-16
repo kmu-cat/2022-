@@ -48,39 +48,39 @@
 
             <ImageView
                 android:id="@+id/cat_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_gravity="center_horizontal"
                 android:src="@drawable/cat_snowwhite" />
 
             <ImageView
                 android:id="@+id/cat_hair"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_gravity="center_horizontal" />
 
             <ImageView
                 android:id="@+id/cat_face"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/cat_body"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/cat_foot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/cat_etc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:layout_gravity="center" />
 
         </FrameLayout>
@@ -105,6 +105,71 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="머리" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_hair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="얼굴" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_face"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="몸통" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="발" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_foot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/recyclerview_item_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기타" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_item_etc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
