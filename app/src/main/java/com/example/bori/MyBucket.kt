@@ -18,6 +18,7 @@ class MyBucket : Fragment() {
     private lateinit var winterButton: android.widget.Button
     private lateinit var addButton:android.widget.Button
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -134,11 +135,7 @@ class MyBucket : Fragment() {
         val btn =
             listOf<android.widget.Button>(springButton, summerButton, fallButton, winterButton)
         for (i in btn) {
-            if (button == i) {
-                i.isSelected = true
-            } else {
-                i.isSelected = false
-            }
+            i.isSelected = button == i
         }
     }
 }

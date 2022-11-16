@@ -42,8 +42,6 @@ class Main : AppCompatActivity() {
         }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-        bottomNav.setSelectedItemId(R.id.navigation_home);
-
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {

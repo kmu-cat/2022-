@@ -72,9 +72,19 @@ class Setting : Fragment(){
             val intent = Intent(context, ModifyPw1::class.java)
             startActivity(intent)
         }
-
+            val yesButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
+            yesButton.setOnClickListener {
+                //어디로 갈지 정해지면 수정
+                logoutDialog.dismiss()
+            }
+            val noButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_no)
+            noButton.setOnClickListener {
+                logoutDialog.dismiss()
+            }
+        }
         return view
-
-
     }
+
 }

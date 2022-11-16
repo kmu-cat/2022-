@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View.inflate
 import android.view.WindowManager
@@ -12,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bori.databinding.FragmentInventoryBinding.inflate
 import com.example.bori.databinding.FragmentRecommendBucketWinterBinding.inflate
 import java.security.AccessController.getContext
@@ -49,6 +51,7 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
             heartInterface.heartControl(position,heart.isChecked)
             dialog.dismiss()
         }
+
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heartButton.setOnClickListener {
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)

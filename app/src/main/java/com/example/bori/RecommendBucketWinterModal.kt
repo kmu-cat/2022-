@@ -37,6 +37,7 @@ class RecommendBucketWinterModal (holder: RecommendBucketWinterAdapter.CustomVie
             uploadButton.isEnabled = true
         }
 
+
         dialog.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)
