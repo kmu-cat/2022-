@@ -62,12 +62,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         if(heartState!=null && position!=null){
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
         }
-// <<<<<<< page/modals
-//         rv = requireView().findViewById(R.id.rv_recommendBucketSpring)
-//         rv.layoutManager = GridLayoutManager(context,2)
-//         rv.setHasFixedSize(true)
-//         rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
-// =======
+
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
         val editor = sharedPreference?.edit()
         if(heartState){

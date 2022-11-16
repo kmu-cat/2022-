@@ -30,18 +30,6 @@ class MyBucketWinter : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_my_bucket_winter, container, false)
-// <<<<<<< page/modals
-//         val bucketList = arrayListOf(
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울", "0명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기1", "1명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기2", "2명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기3", "3명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기4", "4명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기5", "5명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기6", "6명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기7", "7명이 도전 중!",true)
-// =======
-// >>>>>>> develop
 
 
         val sharedPreference1 = context?.getSharedPreferences( "winterRecommendSet", 0)
@@ -89,6 +77,11 @@ class MyBucketWinter : Fragment(){
         rv.adapter = MyBucketWinterAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                winterMyBucketSet.remove(it.title)
+                val sharedMyPreference3 = context?.getSharedPreferences("winterMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("winterMyBucketSet",winterMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )
