@@ -22,6 +22,8 @@ class Setting : Fragment(){
     private lateinit var btnModifyPw : TextView
     private lateinit var btnLogout : TextView
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,6 +72,17 @@ class Setting : Fragment(){
             val intent = Intent(context, ModifyPw1::class.java)
             startActivity(intent)
         }
+
+        btnModifyPw.setOnClickListener{
+            val intent = Intent(context, ModifyPw::class.java)
+            startActivity(intent)
+        }
+
+//        btnLogout.setOnClickListener{
+
+//        }
+
+
 
         return view
 
