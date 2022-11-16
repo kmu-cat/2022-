@@ -73,17 +73,6 @@ class Setting : Fragment(){
             startActivity(intent)
         }
 
-        btnModifyPw.setOnClickListener{
-            val intent = Intent(context, ModifyPw::class.java)
-            startActivity(intent)
-        }
-
-//        btnLogout.setOnClickListener{
-
-//        }
-
-
-
         return view
 
 
