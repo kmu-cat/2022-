@@ -1,119 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeleteAccount2">
-
-    <ImageButton
-        android:id="@+id/deleteAccount_arrow"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/white"
-        android:src="@drawable/vector"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/deleteAccount_title"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp"
+    tools:context=".DeleteAccount2"
+    android:orientation="vertical">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="탈퇴하기"
-        android:textAlignment="center"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/deleteAccount2_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/deleteAccount2_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="탈퇴하기"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </FrameLayout>
 
+        <TextView
+            android:id="@+id/deleteAccount2_info1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계정을 삭제하기 전에 필독해주세요."
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/deleteAccount2_infoLinearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/deleteAccount_title"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/deleteAccount_info1"
+            android:id="@+id/deleteAccount2_info2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="42dp"
-            android:text="계정을 삭제하기 전에 필독해주세요."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_title"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:id="@+id/deleteAccount_info2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="모든 게시글과 쪽지가 삭제됩니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info1"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:textSize="16dp"/>
 
         <TextView
-            android:id="@+id/deleteAccount_info3"
+            android:id="@+id/deleteAccount2_info3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="관심, 거래 내역 등 모든 활동 정보가 삭제됩니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info2"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp" />
+            android:textSize="16dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"/>
         <TextView
-            android:id="@+id/deleteAccount_info4"
+            android:id="@+id/deleteAccount2_info4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="계정이 삭제된 후에는 계정을 다시 살리거나 게시글,\n채팅 및 관심 등의 데이터를 복구 할 수 없습니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info3"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp" />
+            android:text="계정이 삭제된 후에는 계정을 다시 살리거나\n게시글, 채팅 및 관심 등의 데이터를\n복구 할 수 없습니다."
+            android:textSize="16dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/deleteAccount_info5"
+            android:id="@+id/deleteAccount2_info5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="현재 계정으로 다시는 로그인 할 수 없습니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info4"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp" />
+            android:textSize="16dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"/>
         <TextView
-            android:id="@+id/deleteAccount_info6"
+            android:id="@+id/deleteAccount2_info6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="다른 사용자에게 보낸 쪽지 등 일부 정보는 계속 남아\n있을 수 있습니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info5"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp"/>
-        <TextView
-            android:id="@+id/deleteAccount_info7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="아래의 탈퇴하기 버튼을 누르면 본 계정이 영구\n히 삭제됩니다."
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccount_info6"
-            tools:ignore="MissingConstraints"
-            android:layout_marginLeft="42dp"/>
+            android:text="다른 사용자에게 보낸 쪽지 등 일부 정보는\n계속 남아있을 수 있습니다."
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
+        <TextView
+            android:id="@+id/deleteAccount2_info7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="아래의 탈퇴하기 버튼을 누르면 본 계정이"
+            android:textSize="19dp"
+            android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/deleteAccount2_info8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="영구히 삭제됩니다."
+        android:textSize="19dp"
+        android:layout_marginBottom="60dp"
+        android:textColor="@color/red"/>
 
     <android.widget.Button
         android:id="@+id/deleteButton"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        style="?android:attr/borderlessButtonStyle"
         android:background="@drawable/button_style_red"
-        android:text="시작하기"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteAccount2_infoLinearLayout"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="탈퇴하기"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/white"/>
+</LinearLayout>

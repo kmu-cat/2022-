@@ -76,6 +76,10 @@ class FindPw1 : Fragment(){
                 }
             }
 
+            fun doSomething(){
+
+            }
+
         })
 
         return view

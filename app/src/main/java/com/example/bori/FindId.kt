@@ -36,25 +36,6 @@ class FindId : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val confirmButton: Button = findViewById(R.id.findId_confirmButton)
-        val emailWarning: TextView = findViewById(R.id.findId_emailWarning)
-
-
-
-//        confirmButton.setOnClickListener {
-//            val emailEdtText = findViewById<EditText>(R.id.findId_password).text.toString()
-//            if(emailEdtText.length!=0){
-//                auth.sendPasswordResetEmail(emailEdtText)
-//                    .addOnCompleteListener { task->
-//                        if(task.isSuccessful){
-//                            Toast.makeText(this, "비밀번호 변경 이메일을 전송했습니다.", Toast.LENGTH_SHORT).show()
-//                            emailWarning.setVisibility(View.INVISIBLE)
-//                        }
-//                    }
-//            } else {
-//                emailWarning.setVisibility(View.VISIBLE)
-//            }
-//        }
 
         val certificationEditText: EditText = findViewById(R.id.findId_certificationEditText)
         val certificationWarning: TextView = findViewById(R.id.findId_certificationWarning)
