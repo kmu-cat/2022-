@@ -2,6 +2,8 @@ package com.example.bori
 
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class CatSettingFragment : Fragment() {
+
     lateinit var adapteritem_color: AdapterItem
     lateinit var adapteritem_hair: AdapterItem
     lateinit var adapteritem_face: AdapterItem
@@ -32,6 +35,9 @@ class CatSettingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val prefs: SharedPreferences? = this.activity?.getSharedPreferences("CatInfo", 0) ?: null
+        val edit: Editor? = prefs?.edit()
+
         val view = inflater.inflate(R.layout.fragment_catsetting, container, false)
 
         adapteritem_color = AdapterItem(view.context)

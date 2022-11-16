@@ -32,6 +32,7 @@
             android:background="@drawable/home_catchat" />
 
         <ImageView
+            android:id="@+id/user_cat_color"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dailyComment"
