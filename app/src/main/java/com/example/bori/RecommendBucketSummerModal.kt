@@ -1,11 +1,11 @@
 package com.example.bori
 
 import android.app.Dialog
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View.inflate
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,6 +16,8 @@ import com.example.bori.databinding.FragmentRecommendBucketWinterBinding.inflate
 class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomViewHolder, position:Int, heartInterface: heartInterface){
     private val context = holder.itemView.context
     private val dialog = Dialog(context)
+    private val position = position
+    private val heartInterface = heartInterface
 
     private val position = position
     private val heartInterface = heartInterface
@@ -26,7 +28,6 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         dialog.setContentView(R.layout.activity_bucketlist_modal)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
         val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
@@ -39,26 +40,27 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
             uploadButton.isEnabled = true
         }
 
+        dialog.window!!.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCancelable(true)
         dialog.show()
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
             xButton.setOnClickListener{
-                heartInterface.heartControl(position,heart.isChecked)
+                heartInterface.heartControl(position, heart.isChecked)
                 dialog.dismiss()
            }
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
             heartButton.setOnClickListener {
                 val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
-                uploadButton.isEnabled = heartButton.isChecked
+                if(heartButton.isChecked){
+                    uploadButton.isEnabled = true
+                }
+                else{
+                    uploadButton.isEnabled=false
+                }
             }
-        val certifyingShotButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_lookAroundButton)
-        certifyingShotButton.setOnClickListener{
-            val intent = Intent(context, Main::class.java)
-            intent.putExtra("Tag",bucketTitle)
-            intent.putExtra("pageNum", 1)
-            context.startActivity(intent)
-        }
     }
     interface  ButtonClickListener{
         fun onClicked(myName:String)

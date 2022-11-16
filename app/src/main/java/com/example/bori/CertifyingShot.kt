@@ -1,9 +1,6 @@
 package com.example.bori
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +17,6 @@ class CertifyingShot : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_certifying_shot, container, false)
-        val tag = arguments?.getString("tag")
-        if (tag != null) {
-            Log.d("tag", tag)
-        }
 
         adaptercommunity = AdapterCommunity(view.context)
         val rv: RecyclerView = view.findViewById(R.id.rv_profile)

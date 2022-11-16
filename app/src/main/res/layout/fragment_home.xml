@@ -10,15 +10,29 @@
 
         <TextView
             android:id="@+id/dailyComment"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="340dp"
             android:background="@drawable/textview_speechbubble"
             android:gravity="center"
+            android:padding="5dp"
             android:text="오늘 같은 날씨에 추천해 줄 만한\n버캣리스트가 있지~"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="normal" />
 
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dailyComment"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="-13dp"
+            android:background="@drawable/home_catchat" />
+
+        <ImageView
+            android:id="@+id/user_cat_color"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dailyComment"

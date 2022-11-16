@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View.inflate
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -23,7 +24,8 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
         dialog.setContentView(R.layout.activity_bucketlist_modal)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
         val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
@@ -35,7 +37,9 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
             uploadButton.isEnabled = true
         }
-        
+        dialog.window!!.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCancelable(true)
         dialog.show()
 
@@ -56,5 +60,13 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
             intent.putExtra("pageNum", 1)
             context.startActivity(intent)
         }
+    }
+
+    interface  ButtonClickListener{
+        fun onClicked(myName:String)
+    }
+    private lateinit var onClickedListener : ButtonClickListener
+    fun setOnClickedListener(listener : ButtonClickListener){
+        onClickedListener = listener
     }
 }

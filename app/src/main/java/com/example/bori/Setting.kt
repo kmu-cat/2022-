@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -20,6 +21,8 @@ class Setting : Fragment(){
     private lateinit var btnInvite : TextView
     private lateinit var btnModifyPw : TextView
     private lateinit var btnLogout : TextView
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,8 +51,27 @@ class Setting : Fragment(){
             logoutDialog.setContentView(dialogView)
             logoutDialog.setCancelable(true)
             logoutDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            logoutDialog.window!!.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT)
             logoutDialog.show()
 
+            val yesButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
+            yesButton.setOnClickListener {
+                //어디로 갈지 정해지면 수정
+                logoutDialog.dismiss()
+            }
+            val noButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_no)
+            noButton.setOnClickListener {
+                logoutDialog.dismiss()
+            }
+        }
+        btnModifyPw.setOnClickListener {
+            val intent = Intent(context, ModifyPw1::class.java)
+            startActivity(intent)
+        }
             val yesButton =
                 dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
             yesButton.setOnClickListener {
