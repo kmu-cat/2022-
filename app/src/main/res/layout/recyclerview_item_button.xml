@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="60dp"
-    android:layout_height="60dp">
+    android:layout_height="60dp"
+    android:layout_marginBottom="10dp">
 
     <RadioButton
         android:id="@+id/item_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawableLeft="@drawable/rc_color_samsagi"
-        android:button="@null" />
+        android:button="@null"
+        />
     <ImageView
         android:id="@+id/item_selected_icon"
         android:layout_width="match_parent"

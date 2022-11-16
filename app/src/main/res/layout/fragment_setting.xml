@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="30dp">
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp">
 <!--    tools:context=".ui.notifications.NotificationsFragment">-->
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="110dp"
         android:gravity="center"
         android:text="마이 페이지"
         android:textAlignment="center"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        android:textStyle="bold" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
@@ -32,14 +34,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="여섯글자이름 님"
-        android:textAlignment="center" />
+        android:text="귀여운고양이 님"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp">
+        android:layout_margin="20dp">
 
         <ImageView
             android:layout_width="10dp"
@@ -52,6 +57,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="냥줍 100 일 째"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="normal"
             android:textAlignment="center" />
 
         <ImageView
@@ -65,7 +73,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp">
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="60dp">
         <!--        중앙정렬이안돼요-->
 
 
@@ -84,14 +93,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:gravity="center"
                 android:text="공식 인스타"
                 android:textSize="10dp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
                 android:textAlignment="center" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -113,14 +125,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:gravity="center"
                 android:text="아이템 추천"
                 android:textSize="10dp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
                 android:textAlignment="center" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -143,20 +158,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:gravity="center"
                 android:text="쿠폰 입력"
                 android:textSize="10dp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
                 android:textAlignment="center" />
         </LinearLayout>
 
 
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/line2"
-        android:layout_marginTop="50dp"/>
 
 
 
