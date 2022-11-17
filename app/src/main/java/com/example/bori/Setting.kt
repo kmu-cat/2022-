@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class Setting : Fragment(){
@@ -69,6 +70,22 @@ class Setting : Fragment(){
         btnModifyPw.setOnClickListener {
             val intent = Intent(context, ModifyPw1::class.java)
             startActivity(intent)
+        }
+
+        btnInvite.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnInsta.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnItem.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnCoupon.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
         }
 
         return view

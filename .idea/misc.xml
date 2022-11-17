@@ -153,7 +153,7 @@
         <entry key="app/src/main/res/layout/fragment_recommend_bucket_spring.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_recommend_bucket_summer.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_recommend_bucket_winter.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.228891262015385" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recyclerview_community.xml" value="0.40326538085937497" />
         <entry key="app/src/main/res/layout/recyclerview_item_button.xml" value="0.22780797101449277" />
