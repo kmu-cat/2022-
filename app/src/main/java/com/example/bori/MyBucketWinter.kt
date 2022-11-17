@@ -77,6 +77,11 @@ class MyBucketWinter : Fragment(){
         rv.adapter = MyBucketWinterAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                winterMyBucketSet.remove(it.title)
+                val sharedMyPreference3 = context?.getSharedPreferences("winterMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("winterMyBucketSet",winterMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )

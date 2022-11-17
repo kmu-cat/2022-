@@ -32,6 +32,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         Log.d("springRecommendSet2", springRecommendSet.toString())
         super.onPause()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,6 +62,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         if(heartState!=null && position!=null){
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
         }
+
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
         val editor = sharedPreference?.edit()
         if(heartState){
@@ -83,6 +85,5 @@ class RecommendBucketSpring : Fragment(), heartInterface {
 //        rv.layoutManager = GridLayoutManager(context,2)
 //        rv.setHasFixedSize(true)
 //        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
-
     }
 }

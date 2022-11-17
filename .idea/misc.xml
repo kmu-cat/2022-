@@ -17,8 +17,26 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_red.xml" value="0.116" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_submit.xml" value="0.1" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/button_style_white.xml" value="0.1" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_certifying_button.xml" value="0.1265" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_checkbox.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_style.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_delete_account.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_delete_account1.xml" value="0.1" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_delete_account2.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_findid.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_findpw.xml" value="0.1625" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_logout_modal.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_modify_pw.xml" value="0.134375" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_my_bucket_component.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_privacy.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_start.xml" value="0.175" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_certifying_shot.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_findpw1.xml" value="0.3148936170212766" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_findpw2.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_modify_pw1.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_modify_pw2.xml" value="0.22" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_setting.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/custom_heartcheckbox.xml" value="0.10666666666666667" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_leftnarrow_style.xml" value="0.1275" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/drawable/edittext_style.xml" value="0.1" />
@@ -126,6 +144,8 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.107" />
 >>>>>>> 074ec438bb81c651f48812bf50eed55c78923f0e
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_icon_style.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_style.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/button_lefttop_checked_style.xml" value="0.1325" />
         <entry key="app/src/main/res/drawable/button_lefttop_unchecked_style.xml" value="0.1325" />
         <entry key="app/src/main/res/drawable/button_rightnarrow_style.xml" value="0.1425" />
@@ -133,16 +153,42 @@
         <entry key="app/src/main/res/drawable/button_righttop_unchecked_style.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/button_set_color.xml" value="0.145" />
         <entry key="app/src/main/res/drawable/button_style.xml" value="0.214" />
+        <entry key="app/src/main/res/drawable/button_style_red.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/button_style_white.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/custom_checkbox.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/edge.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/edittext_leftnarrow_style.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/edittext_style.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/ic_checkbox_checked.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/ic_checkbox_unchecked.xml" value="0.214" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable/round_border_black.xml" value="0.24490203857421877" />
         <entry key="app/src/main/res/drawable/selector_radio_button_setting.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/spinner_popup_background_style.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/temp.xml" value="0.1315" />
+        <entry key="app/src/main/res/drawable/textview_speechbubble.xml" value="0.31089935302734384" />
+        <entry key="app/src/main/res/layout/activity_defaultcatsetting.xml" value="0.32360534667968754" />
+        <entry key="app/src/main/res/layout/activity_delete_account1.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/activity_delete_account2.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/activity_findid.xml" value="0.3484278361002604" />
+        <entry key="app/src/main/res/layout/activity_findpw.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29579315185546884" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/layout/activity_start.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/layout/fragment_bucket_list.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/fragment_catsetting.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_certifying_shot.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/fragment_findpw1.xml" value="0.245018115942029" />
+        <entry key="app/src/main/res/layout/fragment_findpw2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_inventory.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw1.xml" value="0.15570831298828108" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.3356063842773438" />
+        <entry key="app/src/main/res/layout/activity_add_bucket_modal.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_bucketlist_modal.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/font/custom_font_family.xml" value="0.3125" />
         <entry key="app/src/main/res/font/customfontfamily.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_bucket_modal.xml" value="0.29739583333333336" />
@@ -153,6 +199,9 @@
         <entry key="app/src/main/res/layout/activity_findid.xml" value="0.30443725585937503" />
         <entry key="app/src/main/res/layout/activity_findid_modal.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_findpw.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_get_item_modal.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_logout_modal.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_get_item_modal.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29579315185546884" />
@@ -161,6 +210,8 @@
         <entry key="app/src/main/res/layout/activity_modify_pw2.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/activity_post.xml" value="0.28808898925781257" />
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.3029891304347826" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.2175638183731995" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_catsetting.xml" value="0.28229166666666666" />
@@ -169,6 +220,10 @@
         <entry key="app/src/main/res/layout/fragment_findpw1.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_findpw2.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_inventory.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw1.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_modify_pw2.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.3356063842773438" />
         <entry key="app/src/main/res/layout/fragment_inventory.xml" value="0.10931549072265626" />
         <entry key="app/src/main/res/layout/fragment_modify_pw1.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_modify_pw2.xml" value="0.28229166666666666" />
@@ -185,6 +240,7 @@
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.17064846416382254" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recyclerview_community.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/recyclerview_item_button.xml" value="0.3029891304347826" />
       </map>
     </option>
   </component>
@@ -193,5 +249,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

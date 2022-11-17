@@ -23,6 +23,8 @@ class RecommendBucket : Fragment(){
     private lateinit var addButton:android.widget.Button
     var seasonPositon: Int=0
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +32,8 @@ class RecommendBucket : Fragment(){
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_recommend_bucket, container, false)
+
+
 
         spinner = view.findViewById(R.id.myBucketRecommend_spinner)
 
@@ -125,14 +129,14 @@ class RecommendBucket : Fragment(){
         var myBucketSummer = MyBucketSummer()
         var myBucketFall = MyBucketFall()
         var myBucketWinter = MyBucketWinter()
-
-
-        spring()
         springButton = view.findViewById(R.id.myBucketRecommend_springButton)
         summerButton = view.findViewById(R.id.myBucketRecommend_summerButton)
         fallButton = view.findViewById(R.id.myBucketRecommend_fallButton)
         winterButton = view.findViewById(R.id.myBucketRecommend_winterButton)
-        springButton.isSelected = true
+
+
+        spring()
+            springButton.isSelected = true
 
         springButton.setOnClickListener {
             seasonPositon=0

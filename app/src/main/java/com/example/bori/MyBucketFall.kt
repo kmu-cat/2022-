@@ -76,6 +76,11 @@ class MyBucketFall : Fragment(){
         rv.adapter = MyBucketFallAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                fallMyBucketSet.remove(it.title)
+                val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )

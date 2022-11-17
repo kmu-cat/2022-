@@ -23,6 +23,8 @@ class Setting : Fragment(){
     private lateinit var btnModifyPw : TextView
     private lateinit var btnLogout : TextView
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -79,7 +81,6 @@ class Setting : Fragment(){
         }
 
         return view
-
-
     }
+
 }

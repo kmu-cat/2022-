@@ -39,6 +39,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_fall, container, false)
 
+
         val heartState = arguments?.getBoolean("heartState")
         val position = arguments?.getInt("position")
         if(heartState!=null && position!=null){
@@ -61,6 +62,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
+
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
         val editor = sharedPreference?.edit()
         if(heartState){

@@ -20,6 +20,7 @@ class RecommendBucketSummer : Fragment(), heartInterface{
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 여름6", "6명이 도전 중!",false),
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 여름7", "7명이 도전 중!",false)
 
+
     )
     val summerRecommendSet = mutableSetOf<String>()
 

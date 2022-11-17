@@ -19,6 +19,9 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
     private val position = position
     private val heartInterface = heartInterface
 
+//    private val position = position
+//    private val heartInterface = heartInterface
+
     fun myDig(bucketTitle:String, bucketChallenger:String, bucketHeart:Boolean){
 //        val view = LayoutInflater.from(context).inflate(R.layout.activity_bucketlist_modal, null, false)
 //        view.findViewById<TextView>(R.id.bucketListModal_titleTextView).text = "dfd"
@@ -40,7 +43,6 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         dialog.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)
-
         dialog.setCancelable(true)
         dialog.show()
 

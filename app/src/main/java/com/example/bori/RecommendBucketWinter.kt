@@ -40,7 +40,6 @@ class RecommendBucketWinter : Fragment(), heartInterface{
         if(heartState!=null && position!=null){
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
         }
-
         rv = view.findViewById(R.id.rv_recommendBucketWinter)
         rv.layoutManager = GridLayoutManager(context,2)
         rv.setHasFixedSize(true)

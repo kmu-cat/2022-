@@ -75,6 +75,11 @@ class MyBucketSummer : Fragment(){
         rv.adapter = MyBucketSummerAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                summerMyBucketSet.remove(it.title)
+                val sharedMyPreference3 = context?.getSharedPreferences("summerMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("summerMyBucketSet",summerMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )
