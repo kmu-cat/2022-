@@ -4,17 +4,12 @@ import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+
 import android.view.View
-import android.widget.*
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_findpw.*
-import kotlinx.android.synthetic.main.fragment_findpw1.*
 
 class FindPw : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
@@ -23,9 +18,8 @@ class FindPw : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_findpw)
 
-        setFrag("FindPw1")
 
-        val startButton = findViewById<Button>(R.id.findPw_startButton)
+      //  val startButton = findViewById<Button>(R.id.findPw_startButton)
 //        val findPw1: FindPw1 = supportFragmentManager.findFragmentById(R.id.findPw_frameLayout) as FindPw1
 //
 //        startButton.setOnClickListener{
@@ -54,16 +48,15 @@ class FindPw : AppCompatActivity() {
             val intent = Intent(this, FindId::class.java)
             startActivity(intent)
         }
-
-        val toFindPw2: Button = findViewById(R.id.findPw_startButton)
-
-        toFindPw2.setOnClickListener {
-            setFrag("FindPw2")
+        val confirmButton: Button = findViewById(R.id.findPw_confirmButton)
+        confirmButton.setOnClickListener {
+            val emailWarning: TextView = findViewById(R.id.findPw_emailWarning)
+            emailWarning.setVisibility(View.VISIBLE)
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
-    }
 
-
-//    db.collection("users")
+        //    db.collection("users")
 //    .get()
 //    .addOnSuccessListener { result ->
 //        for (document in result) {
@@ -83,17 +76,6 @@ class FindPw : AppCompatActivity() {
 //        Log.e("9999999", "Error getting documents: ", exception)
 //    }
 
-    private fun setFrag(fragmentName: String) {
-        val ft = supportFragmentManager.beginTransaction()
-        when(fragmentName)
-        {
-            "FindPw1" -> {
-                ft.replace(R.id.findPw_frameLayout, FindPw1()).commit()
-            }
-            "FindPw2" ->{
-                ft.replace(R.id.findPw_frameLayout, FindPw2()).commit()
-            }
-        }
 
     }
 }
