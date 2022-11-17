@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Setting : Fragment(){
     private lateinit var btnInsta : ImageView
@@ -22,8 +25,6 @@ class Setting : Fragment(){
     private lateinit var btnInvite : TextView
     private lateinit var btnModifyPw : TextView
     private lateinit var btnLogout : TextView
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +42,16 @@ class Setting : Fragment(){
         btnModifyPw = view.findViewById(R.id.btn_modifyPw)
         btnLogout = view.findViewById(R.id.btn_logout)
 
+        val db = Firebase.firestore
+        val user = FirebaseAuth.getInstance().currentUser!!
+        val nickname = view.findViewById<TextView>(R.id.setting_nickname)
+
+        val email = user.email.toString()
+        val docRef = db.collection("users").document(email)
+        docRef.get().addOnSuccessListener { document ->
+            Log.e("12312", "${document.data!!.get("realName")}")
+            nickname.setText(document.data!!.get("nickName").toString() + " 님")
+        }
 
         btnPrivacy.setOnClickListener{
             val intent = Intent(context, Privacy::class.java)
@@ -60,7 +71,9 @@ class Setting : Fragment(){
             val yesButton =
                 dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
             yesButton.setOnClickListener {
-                //어디로 갈지 정해지면 수정
+                FirebaseAuth.getInstance().signOut();
+                val intent = Intent(context, Start::class.java)
+                startActivity(intent);
                 logoutDialog.dismiss()
             }
             val noButton =
@@ -74,11 +87,6 @@ class Setting : Fragment(){
             startActivity(intent)
         }
 
-        btnLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut();
-            val intent = Intent(context, Start::class.java)
-            startActivity(intent);
-        }
 
         return view
     }

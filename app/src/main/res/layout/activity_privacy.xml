@@ -105,15 +105,48 @@
         android:textSize="16dp"
         android:layout_marginBottom="15dp"
         android:textColor="@color/black"/>
-    <EditText
-        android:inputType="text"
-        android:id="@+id/privacy_nicknameEditText"
+    <LinearLayout
+        android:id="@+id/privacy_nicknameLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:enabled="false"
-        android:padding="10dp"
-        android:textSize="15dp"
-        android:background="@drawable/edittext_style"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/privacy_nicknameEditText"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="4"
+            android:background="@drawable/edittext_leftnarrow_style"
+            android:hint="닉네임을 입력하세요"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+        <android.widget.Button
+            android:id="@+id/privacy_nicknameCertificationButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="-1dp"
+            android:layout_weight="1.5"
+            android:background="@drawable/button_rightnarrow_style"
+            android:text="중복 확인"
+            android:enabled="false"
+            android:textColor="@color/cheese_font"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+<!--    <EditText-->
+<!--        android:inputType="text"-->
+<!--        android:id="@+id/privacy_nicknameEditText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:enabled="false"-->
+<!--        android:padding="10dp"-->
+<!--        android:textSize="15dp"-->
+<!--        android:background="@drawable/edittext_style"/>-->
     <TextView
         android:id="@+id/privacy_nicknameWarning"
         android:layout_width="wrap_content"

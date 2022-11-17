@@ -78,7 +78,7 @@
         android:textStyle="normal"/>
     <EditText
         android:inputType="text"
-        android:id="@+id/findId_nameEditText"
+        android:id="@+id/findPw_nameEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="30dp"
@@ -99,12 +99,11 @@
         android:textStyle="normal"/>
 
     <EditText
-        android:id="@+id/findId_nicknameEditText"
+        android:id="@+id/findPw_emailEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/edittext_style"
         android:hint="이메일을 입력하세요."
-        android:inputType="number"
         android:paddingLeft="10dp"
         android:textSize="15dp"
         android:textStyle="normal" />

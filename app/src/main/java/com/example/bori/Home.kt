@@ -22,13 +22,13 @@ class Home : Fragment(){
         val userCatInfo = prefs?.getString("CatInfo", null)
         val userCatInfoJSON = JSONObject(userCatInfo)
 
-        var infoColor = userCatInfoJSON.getInt("Color")
+//        var infoColor = userCatInfoJSON.getInt("Color")
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         var dailyComment = view.findViewById<TextView>(R.id.dailyComment)
         val userCatColor = view.findViewById<ImageView>(R.id.user_cat_color)
 
-        userCatColor.setImageResource(infoColor)
+//        userCatColor.setImageResource(infoColor)
 
         val commentList = resources.getStringArray(R.array.daily_comment)
         val randNum = (0..commentList.size-1).random()

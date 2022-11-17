@@ -37,7 +37,6 @@ class Login : AppCompatActivity() {
         auth = Firebase.auth
 
 
-
         val loginBtn = binding.loginLoginButton
 
         loginBtn.setOnClickListener {

@@ -54,7 +54,7 @@ class SignUp : AppCompatActivity() {
         val emailWarning: TextView = findViewById(R.id.signUp_emailWarning)
 
         emailCertificationButton.setOnClickListener {
-            val email:String = binding.emailIdEditText.text.toString()
+            val email:String = binding.signUpEmailEditText.text.toString()
             if(email != ""){
                 db.collection("users")
                     .whereEqualTo("email", email)
@@ -81,7 +81,7 @@ class SignUp : AppCompatActivity() {
 
         // 닉네임 중복 확인
         nicknameCertificationButton.setOnClickListener {
-            val nickName = binding.signUpNickNameEditText.text.toString()
+            val nickName = binding.signUpNicknameEditText.text.toString()
 
             if(nickName != ""){
                 db.collection("users")
@@ -98,7 +98,7 @@ class SignUp : AppCompatActivity() {
                             }
                         }
                         if(isNewNickName)
-                            Toast.makeText(baseContext, "사용가능한 닉네임 입니다..", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(baseContext, "사용가능한 닉네임 입니다.", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener { exception ->
                         Log.e("9999999", "Error getting documents: ", exception)
@@ -110,12 +110,12 @@ class SignUp : AppCompatActivity() {
 
         // 회원가입
         btnRegister.setOnClickListener {
-            val email:String = binding.emailIdEditText.text.toString()
+            val email:String = binding.signUpEmailEditText.text.toString()
             val pwd:String = binding.signUpPwEditText.text.toString()
             val pwdConfirm = binding.signUpConfirmPwEditText.text.toString()
             val realName = binding.signUpNameEditText.text.toString()
             val birthDate = binding.signUpBirthEditText.text.toString()
-            val nickName = binding.signUpNickNameEditText.text.toString()
+            val nickName = binding.signUpNicknameEditText.text.toString()
             val terms1 = binding.signUpTermOfServiceCheckBox
             val terms2 = binding.signUpMarketingInfoCheckBox
             val terms3 = binding.signUpPersonalInfoCheckBox
@@ -190,36 +190,6 @@ class SignUp : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        val certificationEditText: EditText = findViewById(R.id.signUp_certificationEditText)
-//        val certificationWarning: TextView = findViewById(R.id.signUp_certificationWarning)
-//
-//        certificationEditText.addTextChangedListener(object: TextWatcher{
-//
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-//                    certificationWarning.setVisibility(View.INVISIBLE)
-//                }else{
-//                    certificationWarning.setVisibility(View.VISIBLE)
-//                }
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-//                    certificationWarning.setVisibility(View.INVISIBLE)
-//                }else{
-//                    certificationWarning.setVisibility(View.VISIBLE)
-//                }
-//            }
-//
-//            override fun afterTextChanged(s: Editable?) {
-//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-//                    certificationWarning.setVisibility(View.INVISIBLE)
-//                }else{
-//                    certificationWarning.setVisibility(View.VISIBLE)
-//                }
-//            }
-//
-//        })
 
         val confirmPwEditText: EditText = findViewById(R.id.signUp_confirmPwEditText)
         val pwEditText: EditText = findViewById(R.id.signUp_pwEditText)
