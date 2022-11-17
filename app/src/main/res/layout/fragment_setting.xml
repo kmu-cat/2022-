@@ -16,7 +16,7 @@
         android:text="마이 페이지"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="19dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
 
@@ -37,7 +37,7 @@
         android:text="귀여운고양이 님"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -178,7 +178,10 @@
         android:layout_height="wrap_content"
         android:text="개인정보 관리"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="normal"/>
 
     <View
         android:layout_width="match_parent"
@@ -191,7 +194,10 @@
         android:layout_height="wrap_content"
         android:text="친구 초대"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="normal"/>
 
     <View
         android:layout_width="match_parent"
@@ -204,7 +210,10 @@
         android:layout_height="wrap_content"
         android:text="비밀번호 변경"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="normal"/>
 
     <View
         android:layout_width="match_parent"
@@ -217,7 +226,10 @@
         android:layout_height="wrap_content"
         android:text="로그아웃"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="normal"/>
 
 
 </LinearLayout>
