@@ -30,18 +30,6 @@ class MyBucketFall : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_my_bucket_fall, container, false)
-// <<<<<<< page/modals
-//         val bucketList = arrayListOf(
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을", "0명이 도전 중!", true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기1", "1명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기2", "2명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기3", "3명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기4", "4명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기5", "5명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기6", "6명이 도전 중!",true),
-//             BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기7", "7명이 도전 중!",true)
-// =======
-// >>>>>>> develop
 
         val sharedPreference1 = context?.getSharedPreferences( "fallRecommendSet", 0)
         val springPreferenceSet = sharedPreference1?.getStringSet("fallRecommendSet", null)
@@ -88,6 +76,11 @@ class MyBucketFall : Fragment(){
         rv.adapter = MyBucketFallAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                fallMyBucketSet.remove(it.title)
+                val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )

@@ -73,6 +73,7 @@ class Setting : Fragment(){
             val intent = Intent(context, ModifyPw1::class.java)
             startActivity(intent)
         }
+
 //            val yesButton =
 //                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
 //            yesButton.setOnClickListener {
@@ -84,7 +85,7 @@ class Setting : Fragment(){
 //            noButton.setOnClickListener {
 //                logoutDialog.dismiss()
 //            }
-//      }
+      }
         return view
     }
 

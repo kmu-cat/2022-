@@ -58,12 +58,6 @@ class RecommendBucketWinter : Fragment(), heartInterface{
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
         Log.d("heartState", bucketList.get(position).heartState.toString())
-// <<<<<<< page/modals
-//         rv = requireView().findViewById(R.id.rv_recommendBucketWinter)
-//         rv.layoutManager = GridLayoutManager(context,2)
-//         rv.setHasFixedSize(true)
-//         rv.adapter = RecommendBucketWinterAdapter(bucketList, this)
-// =======
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
         val editor = sharedPreference?.edit()
         if(heartState){

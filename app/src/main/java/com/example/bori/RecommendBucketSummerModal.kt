@@ -52,12 +52,7 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
             heartButton.setOnClickListener {
                 val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
-                if(heartButton.isChecked){
-                    uploadButton.isEnabled = true
-                }
-                else{
-                    uploadButton.isEnabled=false
-                }
+                uploadButton.isEnabled = heartButton.isChecked
             }
     }
     interface  ButtonClickListener{

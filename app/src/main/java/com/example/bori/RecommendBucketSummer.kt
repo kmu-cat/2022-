@@ -59,13 +59,6 @@ class RecommendBucketSummer : Fragment(), heartInterface{
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
-// <<<<<<< page/modals
-//         Log.d("heartState", bucketList.get(position).heartState.toString())
-//         rv = requireView().findViewById(R.id.rv_recommendBucketSummer)
-//         rv.layoutManager = GridLayoutManager(context,2)
-//         rv.setHasFixedSize(true)
-//         rv.adapter = RecommendBucketSummerAdapter(bucketList, this)
-// =======
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
         val editor = sharedPreference?.edit()
         if(heartState){
