@@ -85,7 +85,7 @@ class Setting : Fragment(){
 //            noButton.setOnClickListener {
 //                logoutDialog.dismiss()
 //            }
-      }
+//      }
         return view
     }
 
