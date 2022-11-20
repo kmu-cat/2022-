@@ -19,8 +19,6 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
     private val position = position
     private val heartInterface = heartInterface
 
-    private val position = position
-    private val heartInterface = heartInterface
 
     fun myDig(bucketTitle:String, bucketChallenger:String, bucketHeart:Boolean){
 //        val view = LayoutInflater.from(context).inflate(R.layout.activity_bucketlist_modal, null, false)
