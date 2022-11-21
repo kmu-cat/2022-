@@ -58,7 +58,7 @@ class RecommendBucketSummer : Fragment(), heartInterface{
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
-        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
+        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title+"summer", 0)
         val editor = sharedPreference?.edit()
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
@@ -67,13 +67,13 @@ class RecommendBucketSummer : Fragment(), heartInterface{
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            summerRecommendSet.add(bucketList.get(position).title)
+            summerRecommendSet.add(bucketList.get(position).title+"summer")
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            summerRecommendSet.remove(bucketList.get(position).title)
+            summerRecommendSet.remove(bucketList.get(position).title+"summer")
         }
 //        Log.d("heartState", bucketList.get(position).heartState.toString())
 //        rv = requireView().findViewById(R.id.rv_recommendBucketSummer)

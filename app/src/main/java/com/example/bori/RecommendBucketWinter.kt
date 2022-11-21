@@ -59,7 +59,7 @@ class RecommendBucketWinter : Fragment(), heartInterface{
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
         Log.d("heartState", bucketList.get(position).heartState.toString())
-        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
+        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title+"winter", 0)
         val editor = sharedPreference?.edit()
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
@@ -68,13 +68,13 @@ class RecommendBucketWinter : Fragment(), heartInterface{
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            winterRecommendSet.add(bucketList.get(position).title)
+            winterRecommendSet.add(bucketList.get(position).title+"winter")
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            winterRecommendSet.remove(bucketList.get(position).title)
+            winterRecommendSet.remove(bucketList.get(position).title+"winter")
         }
 //        rv = requireView().findViewById(R.id.rv_recommendBucketWinter)
 //        rv.layoutManager = GridLayoutManager(context,2)
