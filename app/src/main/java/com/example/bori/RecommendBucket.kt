@@ -9,9 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import java.text.SimpleDateFormat
+import java.util.*
 
 class RecommendBucket : Fragment(){
     private lateinit var spinner : Spinner
@@ -78,6 +81,9 @@ class RecommendBucket : Fragment(){
 
                 addBucketDialog.setCancelable(true)
                 addBucketDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                addBucketDialog.window!!.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT)
                 addBucketDialog.show()
 
 
@@ -90,21 +96,25 @@ class RecommendBucket : Fragment(){
                                 val addSpring =
                                     childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSpring
                                 addSpring.clicked(newBucketText.text.toString())
+                                saveStore("recommend_spring", newBucketText.text.toString())
                             }
                             1 -> {
                                 val addSummer =
                                     childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSummer
                                 addSummer.clicked(newBucketText.text.toString())
+                                saveStore("recommend_summer", newBucketText.text.toString())
                             }
                             2 -> {
                                 val addFall =
                                     childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketFall
                                 addFall.clicked(newBucketText.text.toString())
+                                saveStore("recommend_fall", newBucketText.text.toString())
                             }
                             3 -> {
                                 val addWinter =
                                     childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketWinter
                                 addWinter.clicked(newBucketText.text.toString())
+                                saveStore("recommend_winter", newBucketText.text.toString())
                             }
                         }
                     }
@@ -121,14 +131,14 @@ class RecommendBucket : Fragment(){
         var myBucketSummer = MyBucketSummer()
         var myBucketFall = MyBucketFall()
         var myBucketWinter = MyBucketWinter()
-
-
-        spring()
         springButton = view.findViewById(R.id.myBucketRecommend_springButton)
         summerButton = view.findViewById(R.id.myBucketRecommend_summerButton)
         fallButton = view.findViewById(R.id.myBucketRecommend_fallButton)
         winterButton = view.findViewById(R.id.myBucketRecommend_winterButton)
-        springButton.isSelected = true
+
+
+        spring()
+            springButton.isSelected = true
 
         springButton.setOnClickListener {
             seasonPositon=0
@@ -151,6 +161,20 @@ class RecommendBucket : Fragment(){
             topNavHandler(winterButton)
         }
         return view
+    }
+
+    private fun saveStore(season:String, text:String){
+        val data = mapOf(
+            "title" to text,
+            "date" to dateToString(Date())
+        )
+        MyApplication.db.collection(season)
+            .add(data)
+    }
+
+    fun dateToString(date: Date): String {
+        val format = SimpleDateFormat("yyyy-MM-dd")
+        return format.format(date)
     }
 
     private fun spring(){
