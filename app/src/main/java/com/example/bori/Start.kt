@@ -10,6 +10,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class Start : AppCompatActivity(){
 
@@ -28,9 +31,16 @@ class Start : AppCompatActivity(){
 
         val toLogin: TextView = findViewById(R.id.start_toLogin)
 
+        // 로그인 되어있을시 바로 메인화면으로
         toLogin.setOnClickListener {
-            val intent = Intent( this, Login::class.java)
-            startActivity(intent)
+            if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                val intent = Intent( this, Login::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent( this, Main::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 }
