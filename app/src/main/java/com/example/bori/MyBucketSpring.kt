@@ -47,13 +47,13 @@ class MyBucketSpring : Fragment(){
         val sharedMyPreferenceEditor = sharedMyPreference2?.edit()
         if(sharedMyPreference2?.getBoolean("init", false)==false){
             for(i in initBucketList){
-                val sharedPreference = context?.getSharedPreferences( i.title, 0)
+                val sharedPreference = context?.getSharedPreferences( i.title + "spring", 0)
                 val editor = sharedPreference?.edit()
                 editor?.putString("title",i.title)
                 editor?.putString("challenger",i.challenger )
                 editor?.putBoolean("heartState", i.heartState )
                 editor?.apply()
-                springMyBucketSet.add(i.title)
+                springMyBucketSet.add(i.title+"spring")
             }
             sharedMyPreferenceEditor?.putStringSet("springMyBucketSet",springMyBucketSet)
             sharedMyPreferenceEditor?.putBoolean("init", true)
@@ -77,7 +77,7 @@ class MyBucketSpring : Fragment(){
         rv.adapter = MyBucketSpringAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
-                springMyBucketSet.remove(it.title)
+                springMyBucketSet.remove(it.title+"spring")
                 val sharedMyPreference3 = context?.getSharedPreferences("springMyBucketSet", 0)
                 val editor = sharedMyPreference3?.edit()
                 editor?.putStringSet("springMyBucketSet",springMyBucketSet)

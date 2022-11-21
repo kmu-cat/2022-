@@ -45,13 +45,13 @@ class MyBucketSummer : Fragment(){
         val sharedMyPreferenceEditor = sharedMyPreference2?.edit()
         if(sharedMyPreference2?.getBoolean("init", false)==false){
             for(i in initBucketList){
-                val sharedPreference = context?.getSharedPreferences( i.title, 0)
+                val sharedPreference = context?.getSharedPreferences( i.title+"summer", 0)
                 val editor = sharedPreference?.edit()
                 editor?.putString("title",i.title)
                 editor?.putString("challenger",i.challenger )
                 editor?.putBoolean("heartState", i.heartState )
                 editor?.apply()
-                summerMyBucketSet.add(i.title)
+                summerMyBucketSet.add(i.title+"summer")
             }
             sharedMyPreferenceEditor?.putStringSet("summerMyBucketSet",summerMyBucketSet)
             sharedMyPreferenceEditor?.putBoolean("init", true)
@@ -75,7 +75,7 @@ class MyBucketSummer : Fragment(){
         rv.adapter = MyBucketSummerAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
-                summerMyBucketSet.remove(it.title)
+                summerMyBucketSet.remove(it.title+"summer")
                 val sharedMyPreference3 = context?.getSharedPreferences("summerMyBucketSet", 0)
                 val editor = sharedMyPreference3?.edit()
                 editor?.putStringSet("summerMyBucketSet",summerMyBucketSet)
