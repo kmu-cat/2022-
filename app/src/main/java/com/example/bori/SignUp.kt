@@ -16,6 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class SignUp : AppCompatActivity() {
@@ -47,6 +48,13 @@ class SignUp : AppCompatActivity() {
         var isNewUser = false
         var isNewNickName = false
         val btnRegister = binding.signUpSignUpButton
+
+        val today = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.time.time
 
 
         // 이메일 중복 체크
@@ -127,12 +135,6 @@ class SignUp : AppCompatActivity() {
                     if(pwd == pwdConfirm){
                         auth.createUserWithEmailAndPassword(email, pwd)
                             .addOnCompleteListener(this) { task ->
-//                                binding.emailIdEditText.text.clear()
-//                                binding.signUpPwEditText.text.clear()
-//                                binding.signUpConfirmPwEditText.text.clear()
-//                                binding.signUpNameEditText.text.clear()
-//                                binding.signUpBirthEditText.text.clear()
-//                                binding.signUpNickNameEditText.text.clear()
                                 if (task.isSuccessful) {
                                     // 비밀번호는 최소 6자 이상
                                     // 메일 보내기
@@ -147,6 +149,8 @@ class SignUp : AppCompatActivity() {
                                                     "realName" to realName,
                                                     "birthDate" to birthDate,
                                                     "nickName" to nickName,
+                                                    "catSettingDone" to false,
+                                                    "signUpDate" to today,
                                                 )
                                                 if(checkMale.isChecked){
                                                     user.put("gender", "male")

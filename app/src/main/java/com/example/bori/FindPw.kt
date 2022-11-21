@@ -38,6 +38,7 @@ class FindPw : AppCompatActivity() {
                     .get()
                     .addOnSuccessListener { result ->
                         for (document in result) {
+                            // 정보 일치 확인
                             if(editedName == document.data!!.get("realName").toString() && editedEmail == document.data!!.get("email").toString()){
                                 isRightInfo = true
                                 flag = false

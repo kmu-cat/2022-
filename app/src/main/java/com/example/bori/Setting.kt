@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class Setting : Fragment(){
     private lateinit var btnInsta : ImageView
@@ -42,16 +43,30 @@ class Setting : Fragment(){
         btnModifyPw = view.findViewById(R.id.btn_modifyPw)
         btnLogout = view.findViewById(R.id.btn_logout)
 
+        val today = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.time.time
+
+
         val db = Firebase.firestore
         val user = FirebaseAuth.getInstance().currentUser!!
         val nickname = view.findViewById<TextView>(R.id.setting_nickname)
+        val signUpDate = view.findViewById<TextView>(R.id.setting_signUpDate)
 
         val email = user.email.toString()
         val docRef = db.collection("users").document(email)
+
         docRef.get().addOnSuccessListener { document ->
-            Log.e("12312", "${document.data!!.get("realName")}")
             nickname.setText(document.data!!.get("nickName").toString() + " 님")
+            val date = document.data!!.get("signUpDate")
+            val d_day = today - date.toString().toLong() + 1
+            signUpDate.setText("냥줍 " + d_day.toString() + "일째")
         }
+
+
 
         btnPrivacy.setOnClickListener{
             val intent = Intent(context, Privacy::class.java)

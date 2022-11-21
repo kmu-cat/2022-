@@ -12,6 +12,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import android.widget.Toast
 import com.example.bori.databinding.ActivityLoginBinding
+import com.google.firebase.firestore.ktx.firestore
 
 class Login : AppCompatActivity() {
     companion object {
@@ -35,6 +36,7 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        val db = Firebase.firestore
 
 
         val loginBtn = binding.loginLoginButton
@@ -51,11 +53,19 @@ class Login : AppCompatActivity() {
                             if (checkAuth()) {
                                 // 로그인 성공
                                 Login.email = email
-                                Toast.makeText(
-                                    baseContext, "로그인에 성공 하였습니다.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                moveMainPage(auth?.currentUser)
+                                val docRef = db.collection("users").document(email)
+                                docRef.get().addOnSuccessListener { document ->
+                                    if(document.data!!.get("catSettingDone") == true){
+                                        Toast.makeText(
+                                            baseContext, "로그인에 성공 하였습니다.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        val intent = Intent(this, Main::class.java)
+                                        startActivity(intent)
+                                    } else {
+                                        moveMainPage(auth?.currentUser)
+                                    }
+                                }
                             } else {
                                 // 발송된 메일로 인증 확인을 안 한 경우
                                 Toast.makeText(baseContext,
