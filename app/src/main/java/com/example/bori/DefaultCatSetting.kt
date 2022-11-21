@@ -39,12 +39,12 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
         val user = Firebase.auth.currentUser!!
         val email = user.email.toString()
 
-        catInfoJSON.put("Color", "")
-        catInfoJSON.put("Hair", "")
-        catInfoJSON.put("Face", "")
-        catInfoJSON.put("Body", "")
-        catInfoJSON.put("Foot", "")
-        catInfoJSON.put("Etc", "")
+        catInfoJSON.put("Color", R.drawable.item_none)
+        catInfoJSON.put("Hair", R.drawable.item_none)
+        catInfoJSON.put("Face", R.drawable.item_none)
+        catInfoJSON.put("Body", R.drawable.item_none)
+        catInfoJSON.put("Foot", R.drawable.item_none)
+        catInfoJSON.put("Etc", R.drawable.item_none)
 
         btnSamsagi = findViewById(R.id.samsagiBtn)
         btnSnowwhite = findViewById(R.id.snowwhiteBtn)
@@ -78,27 +78,30 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
     override fun onClick(selected: View?) {
         if (selected != null) {
             prev = curr
-            catInfoJSON.remove("Color")
             when (selected.id) {
                 R.id.samsagiBtn -> {
+                    catInfoJSON.remove("Color")
                     catInfoJSON.put("Color", R.drawable.cat_samsagi)
                     myCat.setImageResource(R.drawable.cat_samsagi)
                     curr = btnSamsagi
                     cat_img = 0
                 }
                 R.id.cheeseBtn -> {
+                    catInfoJSON.remove("Color")
                     catInfoJSON.put("Color", R.drawable.cat_cheese)
                     myCat.setImageResource(R.drawable.cat_cheese)
                     curr = btnCheese
                     cat_img = 1
                 }
                 R.id.snowwhiteBtn -> {
+                    catInfoJSON.remove("Color")
                     catInfoJSON.put("Color", R.drawable.cat_snowwhite)
                     myCat.setImageResource(R.drawable.cat_snowwhite)
                     curr = btnSnowwhite
                     cat_img = 2
                 }
                 R.id.tigerBtn -> {
+                    catInfoJSON.remove("Color")
                     catInfoJSON.put("Color", R.drawable.cat_tiger)
                     myCat.setImageResource(R.drawable.cat_tiger)
                     curr = btnTiger

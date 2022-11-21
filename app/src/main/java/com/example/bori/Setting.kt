@@ -68,7 +68,7 @@ class Setting : Fragment(){
 
 
 
-        btnPrivacy.setOnClickListener{
+        btnPrivacy.setOnClickListener {
             val intent = Intent(context, Privacy::class.java)
             startActivity(intent)
         }
@@ -80,7 +80,8 @@ class Setting : Fragment(){
             logoutDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             logoutDialog.window!!.setLayout(
                 WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.WRAP_CONTENT)
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
             logoutDialog.show()
 
             val yesButton =
@@ -102,6 +103,18 @@ class Setting : Fragment(){
             startActivity(intent)
         }
 
+//            val yesButton =
+//                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
+//            yesButton.setOnClickListener {
+//                //어디로 갈지 정해지면 수정
+//                logoutDialog.dismiss()
+//            }
+//            val noButton =
+//                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_no)
+//            noButton.setOnClickListener {
+//                logoutDialog.dismiss()
+//            }
+//      }
 
         return view
     }
