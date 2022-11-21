@@ -29,36 +29,36 @@ class SignUp : AppCompatActivity() {
         }
 
 
-        val certificationEditText: EditText = findViewById(R.id.signUp_certificationEditText)
-        val certificationWarning: TextView = findViewById(R.id.signUp_certificationWarning)
-
-        certificationEditText.addTextChangedListener(object: TextWatcher{
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-        })
+//        val certificationEditText: EditText = findViewById(R.id.signUp_certificationEditText)
+//        val certificationWarning: TextView = findViewById(R.id.signUp_certificationWarning)
+//
+//        certificationEditText.addTextChangedListener(object: TextWatcher{
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+//                    certificationWarning.setVisibility(View.INVISIBLE)
+//                }else{
+//                    certificationWarning.setVisibility(View.VISIBLE)
+//                }
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+//                    certificationWarning.setVisibility(View.INVISIBLE)
+//                }else{
+//                    certificationWarning.setVisibility(View.VISIBLE)
+//                }
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
+//                    certificationWarning.setVisibility(View.INVISIBLE)
+//                }else{
+//                    certificationWarning.setVisibility(View.VISIBLE)
+//                }
+//            }
+//
+//        })
 
         val confirmPwEditText: EditText = findViewById(R.id.signUp_confirmPwEditText)
         val confirmPwWarning: TextView = findViewById(R.id.signUp_confirmPwWarning)

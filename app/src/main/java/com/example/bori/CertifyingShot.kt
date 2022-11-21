@@ -68,10 +68,10 @@ class CertifyingShot : Fragment(){
                     // datas.apply{add(item)} // apply
                     datas.apply{DataCommunity(comment = item.comment, buccat="", username="")}
                 }
-                // binding.mainRecyclerView.layoutManager= LinearLayoutManager(this)
-                binding.rvProfile.layoutManager= LinearLayoutManager(getActivity())
-                //binding.mainRecyclerView.adapter= MyAdapter(this, itemList)
-                binding.rvProfile.adapter= view?.let { AdapterCommunity(it.context) }
+//                // binding.mainRecyclerView.layoutManager= LinearLayoutManager(this)
+//                binding.rvProfile.layoutManager= LinearLayoutManager(getActivity())
+//                //binding.mainRecyclerView.adapter= MyAdapter(this, itemList)
+//                binding.rvProfile.adapter= view?.let { AdapterCommunity(it.context) }
 
                 adaptercommunity.datas = datas
                 adaptercommunity.notifyDataSetChanged()

@@ -1,11 +1,15 @@
 package com.example.bori
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -30,42 +34,28 @@ class FindId : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val confirmButton: Button = findViewById(R.id.findId_confirmButton)
-        val emailWarning: TextView = findViewById(R.id.findId_emailWarning)
-
+        val confirmButton: android.widget.Button= findViewById(R.id.findId_confirmButton)
         confirmButton.setOnClickListener {
-            emailWarning.setVisibility(View.VISIBLE)
+            val dialogView = layoutInflater.inflate(R.layout.activity_findid_modal, null)
+
+            val findIdDialog = Dialog(this)
+            findIdDialog.setContentView(dialogView)
+
+            findIdDialog.setCancelable(true)
+            findIdDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            findIdDialog.window!!.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+            findIdDialog.show()
+
+
+            val modal_confirmButton =
+                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.findId_modal_confirmButton)
+            modal_confirmButton.setOnClickListener {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
         }
-
-        val certificationEditText: EditText = findViewById(R.id.findId_certificationEditText)
-        val certificationWarning: TextView = findViewById(R.id.findId_certificationWarning)
-
-        certificationEditText.addTextChangedListener(object: TextWatcher {
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if(certificationEditText.getText().toString().equals("") || certificationEditText.getText().toString() == null){
-                    certificationWarning.setVisibility(View.INVISIBLE)
-                }else{
-                    certificationWarning.setVisibility(View.VISIBLE)
-                }
-            }
-
-        })
     }
 }

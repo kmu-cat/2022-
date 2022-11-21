@@ -11,6 +11,7 @@ import com.example.bori.databinding.FragmentCatsettingBinding
 
 class AdapterItem(private val context: Context) :
 RecyclerView.Adapter<AdapterItem.ViewHolder>() {
+    private var selectedPos: Int = -1
     var datas = mutableListOf<DataItem>()
     lateinit var binding: FragmentCatsettingBinding
 
@@ -28,16 +29,34 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(datas[position])
-        // onClick 호출
-        holder.viewButton.setOnClickListener {
-            itemClickListener.onClick(it, position, datas[position].colorSrc)
+
+        if (selectedPos == position) {
+            holder.viewButton.isSelected = true
+            holder.viewSelected.visibility = View.VISIBLE
+        } else {
+            holder.viewButton.isSelected = false
+            holder.viewSelected.visibility = View.INVISIBLE
         }
 
+        // onClick 호출
+        holder.viewButton.setOnClickListener {
+            if (selectedPos >= 0) {
+                notifyItemChanged(selectedPos)
+            }
+            selectedPos = holder.adapterPosition
+            notifyItemChanged(selectedPos)
+
+            itemClickListener.onClick(it, position, datas[position].colorSrc)
+        }
     }
 
     // 리스너 인터페이스
     interface OnItemClickListener {
-        fun onClick(v: View, position: Int, src: Int)
+        fun onClick(
+            v: View,
+            position: Int,
+            src: Int
+        )
     }
     // 외부에서 클릭 시 이벤트 설정
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -49,6 +68,7 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
     inner class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         val viewButton: RadioButton = itemView.findViewById(R.id.item_button)
+        val viewSelected: ImageView = itemView.findViewById(R.id.item_selected_icon)
         fun bind(item: DataItem) {
             viewButton.setCompoundDrawablesRelativeWithIntrinsicBounds(item.src, 0, 0, 0)
         }

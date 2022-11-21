@@ -1,6 +1,7 @@
 package com.example.bori
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,20 +9,35 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONObject
 
 class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
-    lateinit var myCat: ImageView;
-    lateinit var btnSamsagi: ImageButton;
-    lateinit var btnCheese: ImageButton;
-    lateinit var btnTiger: ImageButton;
-    lateinit var btnSnowwhite: ImageButton;
+    lateinit var catInfoJSON: JSONObject
+    lateinit var myCat: ImageView
+    lateinit var btnSamsagi: ImageButton
+    lateinit var btnCheese: ImageButton
+    lateinit var btnTiger: ImageButton
+    lateinit var btnSnowwhite: ImageButton
 
-    lateinit var prev: ImageButton;
-    lateinit var curr: ImageButton;
+    lateinit var prev: ImageButton
+    lateinit var curr: ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_defaultcatsetting)
+
+        catInfoJSON = JSONObject()
+
+        val prefs: SharedPreferences = getSharedPreferences("CatInfo", 0)
+        val editor = prefs.edit()
+
+        catInfoJSON.put("Color", R.drawable.item_none)
+        catInfoJSON.put("Hair", R.drawable.item_none)
+        catInfoJSON.put("Face", R.drawable.item_none)
+        catInfoJSON.put("Body", R.drawable.item_none)
+        catInfoJSON.put("Foot", R.drawable.item_none)
+        catInfoJSON.put("Etc", R.drawable.item_none)
 
         btnSamsagi = findViewById(R.id.samsagiBtn)
         btnSnowwhite = findViewById(R.id.snowwhiteBtn)
@@ -39,8 +55,13 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
         var pickUpBtn = findViewById<Button>(R.id.pickUpBtn)
 
         pickUpBtn.setOnClickListener {
+            startActivity(Intent(this, Main::class.java))
             Toast.makeText(this@DefaultCatSetting, "야옹~",Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Main::class.java)
+
+            editor.putString("CatInfo", catInfoJSON.toString())
+            editor.apply()
+
             startActivity(intent)
         }
     }
@@ -50,18 +71,26 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
             prev = curr
             when (selected.id) {
                 R.id.samsagiBtn -> {
+                    catInfoJSON.remove("Color")
+                    catInfoJSON.put("Color", R.drawable.cat_samsagi)
                     myCat.setImageResource(R.drawable.cat_samsagi)
                     curr = btnSamsagi
                 }
                 R.id.cheeseBtn -> {
+                    catInfoJSON.remove("Color")
+                    catInfoJSON.put("Color", R.drawable.cat_cheese)
                     myCat.setImageResource(R.drawable.cat_cheese)
                     curr = btnCheese
                 }
                 R.id.snowwhiteBtn -> {
+                    catInfoJSON.remove("Color")
+                    catInfoJSON.put("Color", R.drawable.cat_snowwhite)
                     myCat.setImageResource(R.drawable.cat_snowwhite)
                     curr = btnSnowwhite
                 }
                 R.id.tigerBtn -> {
+                    catInfoJSON.remove("Color")
+                    catInfoJSON.put("Color", R.drawable.cat_tiger)
                     myCat.setImageResource(R.drawable.cat_tiger)
                     curr = btnTiger
                 }
@@ -80,7 +109,6 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
 }
 
 

@@ -1,13 +1,16 @@
 package com.example.bori
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
+
+class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface): RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
 {
+    private val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketFallAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)
@@ -19,9 +22,13 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): Re
     override fun onBindViewHolder(holder: RecommendBucketFallAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
         holder.challenger.text = bucketList.get(position).challenger.toString()
+        holder.heart.isChecked = bucketList.get(position).heartState
+        holder.heart.setOnClickListener{
+            heartInterface.heartControl(position, holder.heart.isChecked)
+        }
         holder.itemView.setOnClickListener{
-            val dialog = RecommendBucketFallModal(holder)
-            dialog.myDig()
+            val dialog = RecommendBucketFallModal(holder, position, heartInterface)
+            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(), bucketList.get(position).heartState)
         }
     }
 
@@ -30,5 +37,4 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>): Re
         val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
         val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
     }
-
 }
