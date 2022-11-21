@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -103,18 +104,21 @@ class Setting : Fragment(){
             startActivity(intent)
         }
 
-//            val yesButton =
-//                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_yes)
-//            yesButton.setOnClickListener {
-//                //어디로 갈지 정해지면 수정
-//                logoutDialog.dismiss()
-//            }
-//            val noButton =
-//                dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.logoutModal_no)
-//            noButton.setOnClickListener {
-//                logoutDialog.dismiss()
-//            }
-//      }
+        btnInvite.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnInsta.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnItem.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnCoupon.setOnClickListener{
+            Toast.makeText(this.context, "서비스를 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
 
         return view
     }
