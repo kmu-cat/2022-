@@ -39,6 +39,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_fall, container, false)
 
+
         val heartState = arguments?.getBoolean("heartState")
         val position = arguments?.getInt("position")
         if(heartState!=null && position!=null){

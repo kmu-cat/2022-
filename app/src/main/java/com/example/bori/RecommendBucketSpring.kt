@@ -32,6 +32,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         Log.d("springRecommendSet2", springRecommendSet.toString())
         super.onPause()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -83,6 +84,5 @@ class RecommendBucketSpring : Fragment(), heartInterface {
 //        rv.layoutManager = GridLayoutManager(context,2)
 //        rv.setHasFixedSize(true)
 //        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
-
     }
 }

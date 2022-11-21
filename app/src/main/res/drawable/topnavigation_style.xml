@@ -4,7 +4,7 @@
            android:color = "@color/cheese_font"
            android:drawable="@drawable/top_navigation_selected_style"/>
         <item android:state_selected="false"
-            android:color = "@color/gray"
+            android:color = "#999999"
             android:drawable="@drawable/top_navigation_unselected_style"/>
 </selector>
 

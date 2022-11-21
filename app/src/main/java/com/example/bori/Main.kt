@@ -9,12 +9,13 @@ class Main : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         changeNavFragment(Home())
-
-        val pageNum = intent.getIntExtra("pageNum", 3)
+        
+        val pageNum = intent.getIntExtra("pageNum", 9)
         val certifyingShotTag = intent.getStringExtra("Tag")
         when(pageNum){
             1->{
@@ -28,14 +29,19 @@ class Main : AppCompatActivity() {
                 val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
                 bottomNav.setSelectedItemId(R.id.navigation_certifyingShot);
             }
+            4->{
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragmentLayout, Setting()).commit()
+                val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
+                bottomNav.setSelectedItemId(R.id.navigation_setting);
+            }
             else->{
                 val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
                 bottomNav.setSelectedItemId(R.id.navigation_home)}
         }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-        bottomNav.setSelectedItemId(R.id.navigation_home);
-
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {

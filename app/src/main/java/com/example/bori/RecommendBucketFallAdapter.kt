@@ -1,10 +1,12 @@
 package com.example.bori
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+
 
 class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface): RecyclerView.Adapter<RecommendBucketFallAdapter.CustomViewHolder>()
 {
@@ -35,5 +37,4 @@ class RecommendBucketFallAdapter (val bucketList: ArrayList<BucketListForm>, hea
         val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
         val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
     }
-
 }
