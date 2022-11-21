@@ -19,11 +19,13 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/myBucketComponent_titleTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:textSize="16dp"
             android:textColor="@color/black"
+            android:singleLine="true"
             android:maxLength="22"
+            android:ellipsize="end"
             android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기"/>
         <View
             android:layout_width="0dp"

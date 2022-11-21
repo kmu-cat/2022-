@@ -29,10 +29,13 @@
                 android:src="@drawable/x"/>
             <TextView
                 android:id="@+id/bucketListModal_titleTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="20dp"
                 android:textSize="17dp"
                 android:textColor="@color/black"
+                android:singleLine="true"
+                android:maxLength="22"
+                android:ellipsize="end"
                 android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기~~~~"
                 android:layout_marginBottom="12dp"/>
             <LinearLayout
