@@ -9,6 +9,7 @@ class Main : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -41,8 +42,6 @@ class Main : AppCompatActivity() {
         }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottomNav)
-        bottomNav.setSelectedItemId(R.id.navigation_home);
-
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {

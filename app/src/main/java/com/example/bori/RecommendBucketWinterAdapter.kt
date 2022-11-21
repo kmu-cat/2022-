@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class RecommendBucketWinterAdapter (val bucketList: ArrayList<BucketListForm>, heartInterface: heartInterface): RecyclerView.Adapter<RecommendBucketWinterAdapter.CustomViewHolder>()
 {
     private val heartInterface =heartInterface

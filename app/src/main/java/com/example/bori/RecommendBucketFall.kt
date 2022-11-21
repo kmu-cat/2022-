@@ -38,6 +38,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_fall, container, false)
 
+
         val heartState = arguments?.getBoolean("heartState")
         val position = arguments?.getInt("position")
         if(heartState!=null && position!=null){
@@ -60,7 +61,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
-        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
+        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title+"fall", 0)
         val editor = sharedPreference?.edit()
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
@@ -69,13 +70,13 @@ class RecommendBucketFall : Fragment(), heartInterface{
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            fallRecommendSet.add(bucketList.get(position).title)
+            fallRecommendSet.add(bucketList.get(position).title+"fall")
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            fallRecommendSet.remove(bucketList.get(position).title)
+            fallRecommendSet.remove(bucketList.get(position).title+"fall")
         }
 
 //        Log.d("heartState", bucketList.get(position).heartState.toString())

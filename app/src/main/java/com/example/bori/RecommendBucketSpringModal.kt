@@ -37,7 +37,6 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
             uploadButton.isEnabled = true
         }
-
         dialog.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)

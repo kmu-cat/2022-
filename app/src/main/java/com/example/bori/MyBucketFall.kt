@@ -46,13 +46,13 @@ class MyBucketFall : Fragment(){
         val sharedMyPreferenceEditor = sharedMyPreference2?.edit()
         if(sharedMyPreference2?.getBoolean("init", false)==false){
             for(i in initBucketList){
-                val sharedPreference = context?.getSharedPreferences( i.title, 0)
+                val sharedPreference = context?.getSharedPreferences( i.title+"fall", 0)
                 val editor = sharedPreference?.edit()
                 editor?.putString("title",i.title)
                 editor?.putString("challenger",i.challenger )
                 editor?.putBoolean("heartState", i.heartState )
                 editor?.apply()
-                fallMyBucketSet.add(i.title)
+                fallMyBucketSet.add(i.title+"fall")
             }
             sharedMyPreferenceEditor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
             sharedMyPreferenceEditor?.putBoolean("init", true)
@@ -76,6 +76,11 @@ class MyBucketFall : Fragment(){
         rv.adapter = MyBucketFallAdapter(bucketList,
             onClickHeart = {
                 bucketList.remove(it)
+                fallMyBucketSet.remove(it.title+"fall")
+                val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
+                val editor = sharedMyPreference3?.edit()
+                editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
+                editor?.apply()
                 rv.adapter?.notifyDataSetChanged()
             }
         )

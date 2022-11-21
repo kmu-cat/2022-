@@ -32,6 +32,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         Log.d("springRecommendSet2", springRecommendSet.toString())
         super.onPause()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +62,7 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         if(heartState!=null && position!=null){
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
         }
-        val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title, 0)
+        val sharedPreference = context?.getSharedPreferences(bucketList.get(position).title+"spring", 0)
         val editor = sharedPreference?.edit()
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
@@ -70,19 +71,18 @@ class RecommendBucketSpring : Fragment(), heartInterface {
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            springRecommendSet.add(bucketList.get(position).title)
+            springRecommendSet.add(bucketList.get(position).title+"spring")
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            springRecommendSet.remove(bucketList.get(position).title)
+            springRecommendSet.remove(bucketList.get(position).title+"spring")
         }
 
 //        rv = requireView().findViewById(R.id.rv_recommendBucketSpring)
 //        rv.layoutManager = GridLayoutManager(context,2)
 //        rv.setHasFixedSize(true)
 //        rv.adapter = RecommendBucketSpringAdapter(bucketList, this)
-
     }
 }
