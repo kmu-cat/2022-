@@ -4,6 +4,7 @@ package com.example.bori
 
 
 import androidx.multidex.MultiDexApplication
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,6 +32,7 @@ class MyApplication: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance()
         storage = Firebase.storage
