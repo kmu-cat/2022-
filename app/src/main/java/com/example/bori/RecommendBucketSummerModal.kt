@@ -1,6 +1,7 @@
 package com.example.bori
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -54,6 +55,11 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
                 val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
                 uploadButton.isEnabled = heartButton.isChecked
             }
+        val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+        uploadButton.setOnClickListener {
+            val intent = Intent(context, Post::class.java)
+            context.startActivity(intent)
+        }
     }
     interface  ButtonClickListener{
         fun onClicked(myName:String)

@@ -1,11 +1,15 @@
 package com.example.bori
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.bori.databinding.ActivityPostBinding
@@ -34,6 +38,11 @@ class Post : AppCompatActivity() {
             )
             requestLauncher.launch(intent)
         }
+        binding.postArrow.setOnClickListener {
+            val intent = Intent(this, Main::class.java)
+            intent.putExtra("pageNum", 1)
+            this.startActivity(intent)
+        }
 
         binding.postSave.setOnClickListener{
             if(binding.postImageView.drawable !== null && binding.etPost.text.isNotEmpty()){
@@ -43,6 +52,17 @@ class Post : AppCompatActivity() {
             }else {
                 Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
+            //모달 띄우기
+            val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+            val getItemModal = Dialog(this)
+            getItemModal.setContentView(dialogView)
+            getItemModal.setCancelable(true)
+            getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            getItemModal.window!!.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+            getItemModal.show()
         }
     }
 

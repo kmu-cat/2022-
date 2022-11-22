@@ -57,6 +57,11 @@ class MyBucketSpringModal (holder: MyBucketSpringAdapter.CustomViewHolder, posit
             intent.putExtra("pageNum", 1)
             context.startActivity(intent)
         }
+        val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+        uploadButton.setOnClickListener {
+            val intent = Intent(context, Post::class.java)
+            context.startActivity(intent)
+        }
     }
     interface  ButtonClickListener{
         fun onClicked(myName:String)
