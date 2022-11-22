@@ -151,6 +151,7 @@ class SignUp : AppCompatActivity() {
                                                     "nickName" to nickName,
                                                     "catSettingDone" to false,
                                                     "signUpDate" to today,
+                                                    "numPost" to 0,
                                                 )
                                                 if(checkMale.isChecked){
                                                     user.put("gender", "male")
