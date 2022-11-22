@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bori.databinding.ActivityMainBinding
 
-class MyBucketSpring : Fragment(){
+class MyBucketSpring : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
     val bucketList = arrayListOf<BucketListForm>()
 
@@ -74,7 +74,7 @@ class MyBucketSpring : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketSpring)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketSpringAdapter(bucketList,
+        rv.adapter = MyBucketSpringAdapter(bucketList,this,
             onClickHeart = {
                 bucketList.remove(it)
                 springMyBucketSet.remove(it.title+"spring")
@@ -88,4 +88,18 @@ class MyBucketSpring : Fragment(){
         return view
     }
 
+    override fun heartControl(position: Int, heartState: Boolean) {
+        val sharedPreference =
+            context?.getSharedPreferences(bucketList.get(position).title + "spring", 0)
+        val editor = sharedPreference?.edit()
+        if (!heartState) {
+            springMyBucketSet.remove(bucketList.get(position).title + "spring")
+            val sharedMyPreference3 = context?.getSharedPreferences("springMyBucketSet", 0)
+            val editor = sharedMyPreference3?.edit()
+            editor?.putStringSet("springMyBucketSet", springMyBucketSet)
+            editor?.apply()
+            bucketList.remove(bucketList[position])
+            rv.adapter?.notifyDataSetChanged()
+        }
+    }
 }

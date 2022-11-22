@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MyBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>,
+                             heartInterface: heartInterface,
                              val onClickHeart: (list: BucketListForm) -> Unit):
     RecyclerView.Adapter<MyBucketSummerAdapter.CustomViewHolder>()
 {
+    private val heartInterface = heartInterface
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): MyBucketSummerAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_my_bucket_component,parent, false)
@@ -25,6 +27,10 @@ class MyBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>,
         holder.challenger.text = bucketList.get(position).challenger.toString()
         holder.heart.setOnClickListener{
             onClickHeart.invoke(listposition)
+        }
+        holder.itemView.setOnClickListener{
+            val dialog = MyBucketSummerModal(holder, position, heartInterface)
+            dialog.myDig(bucketList.get(position).title.toString(),bucketList.get(position).challenger.toString(), bucketList.get(position).heartState)
         }
     }
 

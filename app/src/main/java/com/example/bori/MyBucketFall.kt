@@ -1,13 +1,14 @@
 package com.example.bori
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MyBucketFall : Fragment(){
+class MyBucketFall (): Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
     val bucketList = arrayListOf<BucketListForm>()
 
@@ -73,7 +74,7 @@ class MyBucketFall : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketFall)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketFallAdapter(bucketList,
+        rv.adapter = MyBucketFallAdapter(bucketList, this,
             onClickHeart = {
                 bucketList.remove(it)
                 fallMyBucketSet.remove(it.title+"fall")
@@ -88,5 +89,20 @@ class MyBucketFall : Fragment(){
         return view
     }
 
+    override fun heartControl(position: Int, heartState: Boolean) {
+        val sharedPreference =
+            context?.getSharedPreferences(bucketList.get(position).title + "fall", 0)
+        val editor = sharedPreference?.edit()
+        if (!heartState) {
+            Log.d("heart2", bucketList[position].title)
+            fallMyBucketSet.remove(bucketList.get(position).title+"fall")
+            val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
+            val editor = sharedMyPreference3?.edit()
+            editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
+            editor?.apply()
+            bucketList.remove(bucketList[position])
+            rv.adapter?.notifyDataSetChanged()
+        }
 
+    }
 }
