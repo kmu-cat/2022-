@@ -45,9 +45,11 @@ class Home : Fragment(){
         userCatBody.setImageResource(infoBody)
         userCatFoot.setImageResource(infoFoot)
         userCatEtc.setImageResource(infoEtc)
+
         val commentList = resources.getStringArray(R.array.daily_comment)
         val randNum = (0..commentList.size-1).random()
         dailyComment.setText(commentList[randNum])
+
         return view
     }
 }

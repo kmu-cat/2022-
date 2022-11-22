@@ -13,7 +13,6 @@ class RecommendBucketSpringAdapter (val bucketList: ArrayList<BucketListForm>, h
     RecyclerView.Adapter<RecommendBucketSpringAdapter.CustomViewHolder>()
 {
     private  val heartInterface = heartInterface
-
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): RecommendBucketSpringAdapter.CustomViewHolder
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_recommend_bucket_component,parent, false)

@@ -17,11 +17,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:maxLines="3"
+        android:ellipsize="end"
         android:textColor="@color/black"
         android:textSize="17dp"
         android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기"/>
+    <View
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

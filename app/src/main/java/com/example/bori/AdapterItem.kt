@@ -48,6 +48,8 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
             itemClickListener.onClick(it, position, datas[position].colorSrc)
         }
+
+
     }
 
     // 리스너 인터페이스

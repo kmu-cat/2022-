@@ -61,7 +61,7 @@
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_post.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_privacy.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.6" />
-        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_signup.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_bucket_list.xml" value="0.175" />
         <entry key="..\:/Users/bohhh/GitHub/2022-MOP/app/src/main/res/layout/fragment_catsetting.xml" value="0.175" />
@@ -138,7 +138,6 @@
         <entry key="app/src/main/res/layout/activity_modify_pw.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_modify_pw1.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/activity_modify_pw2.xml" value="0.29739583333333336" />
-        <entry key="app/src/main/res/layout/activity_my_bucket_component.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_post.xml" value="0.28808898925781257" />
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_recommend_bucket_component.xml" value="0.3029891304347826" />
