@@ -1,3 +1,7 @@
 package com.example.bori
 
-class BucketListForm (val title:String, val challenger: String, var heartState: Boolean)
+data class BucketListForm (
+    var title:String="",
+    var challenger: String="",
+    var heartState: Boolean = false,
+)

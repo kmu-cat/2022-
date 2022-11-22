@@ -27,6 +27,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/postSave"
             android:layout_width="wrap_content"
             android:layout_height="110dp"
             android:layout_marginLeft="315dp"
@@ -34,7 +35,8 @@
             android:text="완료"
             android:textColor="@color/cheese_font"
             android:textSize="19dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:clickable="true"/>
 
     </FrameLayout>
 
@@ -46,23 +48,23 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="390dp"
-            android:layout_margin="30dp"
-            android:src="@drawable/gallery" />
+                <ImageView
+                    android:id="@+id/postImageView"
+                    android:layout_width="300dp"
+                    android:layout_height="330dp"
+                    android:layout_margin="30dp"
+                    android:clickable="true"
+                    android:src="@drawable/gallery" />
 
-        <EditText
-            android:id="@+id/picture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:hint="한줄 소감을 작성해주세요. (20자이내)"
-            android:background="@android:color/transparent"
-            android:textSize="16dp"
-            android:layout_marginBottom="20dp"/>
-
-
+                <EditText
+                    android:id="@+id/et_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:hint="한줄 소감을 작성해주세요. (20자이내)"
+                    android:background="@android:color/transparent"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,11 +78,10 @@
                 android:textSize="14dp"
                 />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +92,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -5,12 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 
 class RecommendBucketFall : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     val bucketList = arrayListOf(
+
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을", "0명이 도전 중!",false),
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을1", "1명이 도전 중!",false),
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을2", "2명이 도전 중!",false),
@@ -51,6 +53,34 @@ class RecommendBucketFall : Fragment(), heartInterface{
 
         return view
     }
+
+
+    override fun onStart() {
+        super.onStart()
+
+        makeRecyclerView()
+    }
+
+    private fun makeRecyclerView(){
+        // 컬렉션을 모두 가져오기
+        MyApplication.db.collection("recommend_fall")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+
+                    val item = document.toObject(BucketListForm::class.java)
+                    bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                }
+
+                rv.adapter?.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.d("kkang", "Error getting documents: ", exception)
+                Toast.makeText(getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
+                    Toast.LENGTH_SHORT).show()
+            }
+    }
+
     fun clicked(text:String){
         bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
         rv.adapter?.notifyDataSetChanged()
