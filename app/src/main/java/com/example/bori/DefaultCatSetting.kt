@@ -39,7 +39,7 @@ class DefaultCatSetting: AppCompatActivity(), View.OnClickListener {
         val user = Firebase.auth.currentUser!!
         val email = user.email.toString()
 
-        catInfoJSON.put("Color", R.drawable.item_none)
+        catInfoJSON.put("Color", R.drawable.cat_snowwhite)
         catInfoJSON.put("Hair", R.drawable.item_none)
         catInfoJSON.put("Face", R.drawable.item_none)
         catInfoJSON.put("Body", R.drawable.item_none)
