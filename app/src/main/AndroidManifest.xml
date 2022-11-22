@@ -21,9 +21,6 @@
             android:name=".MyApplication"
             android:exported="false" />
         <activity
-            android:name=".Start"
-            android:exported="true" />
-        <activity
             android:name=".MyBucket"
             android:exported="false" />
         <activity
@@ -41,11 +38,11 @@
         <activity
             android:name=".AddBucketModal"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Main"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_main"-->
-<!--            android:windowSoftInputMode="adjustPan"/>-->
+        <activity
+            android:name=".Main"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".DeleteAccount2"
             android:exported="false" />
@@ -80,7 +77,7 @@
             android:name=".Post"
             android:exported="false" />
         <activity
-            android:name=".Main"
+            android:name=".Start"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
