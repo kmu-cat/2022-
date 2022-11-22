@@ -1,13 +1,14 @@
 package com.example.bori
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MyBucketSummer : Fragment(){
+class MyBucketSummer : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
     val bucketList = arrayListOf<BucketListForm>()
 
@@ -72,7 +73,7 @@ class MyBucketSummer : Fragment(){
         rv = view.findViewById(R.id.rv_myBucketSummer)
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv.setHasFixedSize(true)
-        rv.adapter = MyBucketSummerAdapter(bucketList,
+        rv.adapter = MyBucketSummerAdapter(bucketList, this,
             onClickHeart = {
                 bucketList.remove(it)
                 summerMyBucketSet.remove(it.title+"summer")
@@ -85,6 +86,22 @@ class MyBucketSummer : Fragment(){
         )
 
         return view
+    }
+    override fun heartControl(position: Int, heartState: Boolean) {
+        val sharedPreference =
+            context?.getSharedPreferences(bucketList.get(position).title + "summer", 0)
+        val editor = sharedPreference?.edit()
+        if (!heartState) {
+            Log.d("heart2", bucketList[position].title)
+            summerMyBucketSet.remove(bucketList.get(position).title+"summer")
+            val sharedMyPreference3 = context?.getSharedPreferences("summerMyBucketSet", 0)
+            val editor = sharedMyPreference3?.edit()
+            editor?.putStringSet("summerMyBucketSet",summerMyBucketSet)
+            editor?.apply()
+            bucketList.remove(bucketList[position])
+            rv.adapter?.notifyDataSetChanged()
+        }
+
     }
 
 
