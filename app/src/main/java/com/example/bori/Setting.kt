@@ -63,8 +63,8 @@ class Setting : Fragment(){
         docRef.get().addOnSuccessListener { document ->
             nickname.setText(document.data!!.get("nickName").toString() + " 님")
             val date = document.data!!.get("signUpDate")
-            val d_day = (today - date.toString().toLong()) / (24 * 60 * 60 * 1000) + 1
-            signUpDate.setText("냥줍 " + d_day.toString() + "일째")
+            val dayCount = (today - date.toString().toLong()) / (24 * 60 * 60 * 1000) + 1
+            signUpDate.setText("냥줍 " + dayCount.toString() + "일째")
         }
 
         btnPrivacy.setOnClickListener {
