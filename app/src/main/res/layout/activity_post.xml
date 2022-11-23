@@ -62,11 +62,11 @@
                 android:id="@+id/et_post"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:hint="한줄 소감을 작성해주세요. (20자이내)"
+                android:layout_marginBottom="20dp"
                 android:background="@android:color/transparent"
-                android:textSize="16dp"
-                android:layout_marginBottom="20dp" />
+                android:hint="한줄 소감을 작성해주세요. (20자이내)"
+                android:textAlignment="center"
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,8 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="# 버캣리스트"
-                    android:textSize="14dp"
-                    />
+                    android:textSize="14dp" />
 
                 <View
                     android:layout_width="0dp"

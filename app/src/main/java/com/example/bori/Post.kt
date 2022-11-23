@@ -18,6 +18,9 @@ import java.util.*
 
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import java.text.SimpleDateFormat
 
@@ -29,6 +32,16 @@ class Post : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val db = Firebase.firestore
+        val user = FirebaseAuth.getInstance().currentUser!!
+        val email = user.email.toString()
+        var numPost = 0
+        val docRef = db.collection("users").document(email)
+        docRef.get().addOnSuccessListener { document ->
+            numPost = document.data!!.get("numPost").toString().toInt()
+            Log.e("12312", numPost.toString())
+        }
 
         binding.postImageView.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
@@ -46,9 +59,13 @@ class Post : AppCompatActivity() {
 
         binding.postSave.setOnClickListener{
             if(binding.postImageView.drawable !== null && binding.etPost.text.isNotEmpty()){
-                //store 에 먼저 데이터를 저장후 document id 값으로 업로드 파일 이름 지정
-                saveStore()
-                Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
+                numPost++
+                docRef.update("numPost", numPost).addOnCompleteListener(){
+                    //store 에 먼저 데이터를 저장후 document id 값으로 업로드 파일 이름 지정
+                    saveStore()
+                    Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
+                    Log.e("12312", numPost.toString())
+                }
             }else {
                 Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
