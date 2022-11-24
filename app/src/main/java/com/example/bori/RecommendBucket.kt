@@ -6,10 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -93,34 +91,40 @@ class RecommendBucket : Fragment(){
 
                 val addButton = dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.addBucket_addButton)
                 addButton.setOnClickListener {
+//                    val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//                    hideKeyboard(inputMethodManager, dialogView)
+
                     val newBucketText = dialogView.findViewById<EditText>(R.id.addBucket_newEditText)
                     if(newBucketText.text.isNotEmpty()){
                         when (seasonPositon) {
                             0 -> {
-                                val addSpring =
-                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSpring
-                                addSpring.clicked(newBucketText.text.toString())
+//                                val addSpring =
+//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSpring
+//                                addSpring.clicked(newBucketText.text.toString())
                                 saveStore("recommend_spring", newBucketText.text.toString())
                             }
                             1 -> {
-                                val addSummer =
-                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSummer
-                                addSummer.clicked(newBucketText.text.toString())
+//                                val addSummer =
+//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSummer
+//                                addSummer.clicked(newBucketText.text.toString())
                                 saveStore("recommend_summer", newBucketText.text.toString())
                             }
                             2 -> {
-                                val addFall =
-                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketFall
-                                addFall.clicked(newBucketText.text.toString())
+//                                val addFall =
+//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketFall
+//                                addFall.clicked(newBucketText.text.toString())
                                 saveStore("recommend_fall", newBucketText.text.toString())
                             }
                             3 -> {
-                                val addWinter =
-                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketWinter
-                                addWinter.clicked(newBucketText.text.toString())
+//                                val addWinter =
+//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketWinter
+//                                addWinter.clicked(newBucketText.text.toString())
                                 saveStore("recommend_winter", newBucketText.text.toString())
                             }
                         }
+                    }else{
+                        Toast.makeText(getActivity(), "버캣을 작성해주세요.",
+                            Toast.LENGTH_SHORT).show()
                     }
                     addBucketDialog.dismiss()
                 }
@@ -167,13 +171,51 @@ class RecommendBucket : Fragment(){
         return view
     }
 
+    private fun hideKeyboard(inputMethodManager: InputMethodManager, view: View) {
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0);
+        view.clearFocus()
+    }
+
     private fun saveStore(season:String, text:String){
         val data = mapOf(
             "title" to text,
-            "date" to dateToString(Date())
+            "date" to com.google.firebase.Timestamp.now()
         )
-        MyApplication.db.collection(season)
-            .add(data)
+
+        MyApplication.db.collection(season).whereEqualTo("title", text)
+        .get()
+        .addOnSuccessListener{
+            if(it.size() != 0)
+                Toast.makeText(getActivity(), "이미 존재하는 버캣입니다.",
+                    Toast.LENGTH_SHORT).show()
+            else {
+                MyApplication.db.collection(season).add(data)
+
+                when (seasonPositon) {
+                    0 -> {
+                        spring()
+                    }
+                    1 -> {
+                        summer()
+                    }
+                    2 -> {
+                        fall()
+                    }
+                    3 -> {
+                        winter()
+                    }
+                }
+
+            }
+//            for (document in result) {
+//                Log.d("tag1", "${document.id} => ${document.data.get("title")}")
+//                Log.d("tag1", "${document.id} => ${document.data.get("title").toString()}")
+//            }
+        }
+        .addOnFailureListener { exception ->
+            Log.d("tag1", "Error getting documents: ", exception)
+        }
+
     }
 
     fun dateToString(date: Date): String {

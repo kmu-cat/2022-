@@ -32,7 +32,7 @@ class AdapterCommunity(private val context: Context) : RecyclerView.Adapter<Adap
         //스토리지 이미지 다운로드
         val imgRef= MyApplication.storage
             .reference
-            .child("images/${data.docId}.jpg")
+            .child("posts/${data.docId}.jpg")
 
         imgRef.getDownloadUrl().addOnCompleteListener { task ->
             if (task.isSuccessful) {

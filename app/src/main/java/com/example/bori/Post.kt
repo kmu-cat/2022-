@@ -108,9 +108,9 @@ class Post : AppCompatActivity() {
         val data = mapOf(
             // "email" to MyApplication.email,
             "comment" to binding.etPost.text.toString(),
-            "date" to dateToString(Date())
+            "date" to com.google.firebase.Timestamp.now()
         )
-        MyApplication.db.collection("news")
+        MyApplication.db.collection("posts")
             .add(data)
             .addOnSuccessListener {
                 // 스토리지에 데이터 저장 후 id값으로 스토리지에 이미지 업로드
@@ -126,7 +126,7 @@ class Post : AppCompatActivity() {
         // 스토리지를 참조하는 StorageReference 생성
         val storageRef: StorageReference = storage.reference
         // 실제 업로드하는 파일을 참조하는 StorageReference 생성
-        val imgRef: StorageReference = storageRef.child("images/${docId}.jpg")
+        val imgRef: StorageReference = storageRef.child("posts/${docId}.jpg")
         // 파일 업로드
         var file = Uri.fromFile(File(filePath))
         imgRef.putFile(file)
@@ -139,8 +139,4 @@ class Post : AppCompatActivity() {
             }
     }
 
-    fun dateToString(date: Date): String {
-        val format = SimpleDateFormat("yyyy-MM-dd")
-        return format.format(date)
-    }
 }
