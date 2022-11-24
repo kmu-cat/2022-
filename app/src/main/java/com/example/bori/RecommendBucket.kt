@@ -122,6 +122,9 @@ class RecommendBucket : Fragment(){
                                 saveStore("recommend_winter", newBucketText.text.toString())
                             }
                         }
+                    }else{
+                        Toast.makeText(getActivity(), "버캣을 작성해주세요.",
+                            Toast.LENGTH_SHORT).show()
                     }
                     addBucketDialog.dismiss()
                 }
