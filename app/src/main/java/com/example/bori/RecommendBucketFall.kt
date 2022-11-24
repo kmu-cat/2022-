@@ -8,19 +8,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.firebase.firestore.Query
 
 class RecommendBucketFall : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     val bucketList = arrayListOf(
-
         BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을", "0명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을1", "1명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을2", "2명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을3", "3명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을4", "4명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을5", "5명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을6", "6명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을7", "7명이 도전 중!",false)
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을1", "1명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을2", "2명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을3", "3명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을4", "4명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을5", "5명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을6", "6명이 도전 중!",false),
+//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을7", "7명이 도전 중!",false)
     )
 
     val fallRecommendSet = mutableSetOf<String>()
@@ -64,6 +64,7 @@ class RecommendBucketFall : Fragment(), heartInterface{
     private fun makeRecyclerView(){
         // 컬렉션을 모두 가져오기
         MyApplication.db.collection("recommend_fall")
+            .orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
