@@ -37,7 +37,7 @@ class MyBucketFallModal (holder: MyBucketFallAdapter.CustomViewHolder, position:
             uploadButton.isEnabled = true
         }
 
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.show()
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
