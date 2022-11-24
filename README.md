@@ -47,12 +47,27 @@ android {
   - 상품 페이지에 RecyclerView를 사용함
   - 애플리케이션  모듈의 build.gradle 파일에 필요한 아티팩트의 종속 항목을 추가
 
+- Firebase 라이브러리 
+
 
 ```kotlin  
 dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     // For control over item selection of both touch and mouse driven selection
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+    
+    // firebase-firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.3.1'
+    // firebase-storage
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.0'
+    // firebase etc.
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-bom:29.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx:20.0.0'
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 }
 ```    
 
