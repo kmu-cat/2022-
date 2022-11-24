@@ -11,10 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.bori.databinding.ActivityMainBinding
 import com.example.bori.databinding.FragmentCertifyingShotBinding
 import com.firebase.ui.auth.AuthUI.getApplicationContext
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 
 class CertifyingShot : Fragment(){
@@ -55,7 +57,8 @@ class CertifyingShot : Fragment(){
 
     private fun makeRecyclerView(){
         // 컬렉션을 모두 가져오기
-        MyApplication.db.collection("news")
+        MyApplication.db.collection("posts")
+            .orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 // val itemList = mutableListOf<ItemData>()
@@ -64,14 +67,8 @@ class CertifyingShot : Fragment(){
                     val item = document.toObject(DataCommunity::class.java)
                     item.docId=document.id
                     datas.add(item)
-                    // itemList.add(item)
-                    // datas.apply{add(item)} // apply
                     datas.apply{DataCommunity(comment = item.comment, buccat="", username="")}
                 }
-//                // binding.mainRecyclerView.layoutManager= LinearLayoutManager(this)
-//                binding.rvProfile.layoutManager= LinearLayoutManager(getActivity())
-//                //binding.mainRecyclerView.adapter= MyAdapter(this, itemList)
-//                binding.rvProfile.adapter= view?.let { AdapterCommunity(it.context) }
 
                 adaptercommunity.datas = datas
                 adaptercommunity.notifyDataSetChanged()
