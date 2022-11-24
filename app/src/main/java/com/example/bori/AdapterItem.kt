@@ -46,7 +46,13 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
             selectedPos = holder.adapterPosition
             notifyItemChanged(selectedPos)
 
-            itemClickListener.onClick(it, position, datas[position].colorSrc)
+            itemClickListener.onClick(
+                it,
+                position,
+                datas[position].colorSrc,
+                datas[position].name,
+                datas[position].explain
+            )
         }
 
 
@@ -57,7 +63,9 @@ RecyclerView.Adapter<AdapterItem.ViewHolder>() {
         fun onClick(
             v: View,
             position: Int,
-            src: Int
+            src: Int,
+            name: String,
+            explain: String,
         )
     }
     // 외부에서 클릭 시 이벤트 설정

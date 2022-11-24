@@ -12,18 +12,6 @@ class MyBucketFall (): Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
     val bucketList = arrayListOf<BucketListForm>()
 
-    val initBucketList = arrayListOf(
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 마이 가을", "0명이 도전 중!", true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기1", "1명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기2", "2명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기3", "3명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기4", "4명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기5", "5명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기6", "6명이 도전 중!",true),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기7", "7명이 도전 중!",true)
-
-    )
-    var fallMyBucketSet = mutableSetOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,42 +21,16 @@ class MyBucketFall (): Fragment(), heartInterface{
         val view = inflater.inflate(R.layout.fragment_my_bucket_fall, container, false)
 
         val sharedPreference1 = context?.getSharedPreferences( "fallRecommendSet", 0)
-        val springPreferenceSet = sharedPreference1?.getStringSet("fallRecommendSet", null)
-        if(springPreferenceSet!=null){
-            for(i in springPreferenceSet!!){
-                fallMyBucketSet.add(i)
-            }
-            val editor = sharedPreference1.edit()
-            editor.putStringSet("fallRecommendSet", null)
-            editor.apply()
-        }
+        val fallRecommendSet = sharedPreference1?.getStringSet("fallRecommendSet", null)
 
-        val sharedMyPreference2 = context?.getSharedPreferences("fallMyBucketSet", 0)
-        val sharedMyPreferenceEditor = sharedMyPreference2?.edit()
-        if(sharedMyPreference2?.getBoolean("init", false)==false){
-            for(i in initBucketList){
-                val sharedPreference = context?.getSharedPreferences( i.title+"fall", 0)
-                val editor = sharedPreference?.edit()
-                editor?.putString("title",i.title)
-                editor?.putString("challenger",i.challenger )
-                editor?.putBoolean("heartState", i.heartState )
-                editor?.apply()
-                fallMyBucketSet.add(i.title+"fall")
+        if(fallRecommendSet!=null) {
+            for (i in fallRecommendSet) {
+                val shared = context?.getSharedPreferences((i + "fall").toString(), 0)
+                val title = shared?.getString("title", "")
+                val challenger = shared?.getString("challenger", "")
+                val heartState = shared?.getBoolean("heartState", false)
+                bucketList.add(BucketListForm(title!!, challenger!!, heartState!!))
             }
-            sharedMyPreferenceEditor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
-            sharedMyPreferenceEditor?.putBoolean("init", true)
-            sharedMyPreferenceEditor?.apply()
-        }else{
-            fallMyBucketSet += sharedMyPreference2?.getStringSet("fallMyBucketSet", null)!!
-            sharedMyPreferenceEditor?.putStringSet("fallMyBucketSet", fallMyBucketSet)
-            sharedMyPreferenceEditor?.apply()
-        }
-        for(i in fallMyBucketSet){
-            val shared = context?.getSharedPreferences(i, 0)
-            val title = shared?.getString("title", "")
-            val challenger = shared?.getString("challenger", "")
-            val heartState = shared?.getBoolean("heartState", false)
-            bucketList.add(BucketListForm(title!!, challenger!!, heartState!!))
         }
 
         rv = view.findViewById(R.id.rv_myBucketFall)
@@ -77,12 +39,15 @@ class MyBucketFall (): Fragment(), heartInterface{
         rv.adapter = MyBucketFallAdapter(bucketList, this,
             onClickHeart = {
                 bucketList.remove(it)
-                fallMyBucketSet.remove(it.title+"fall")
-                val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
-                val editor = sharedMyPreference3?.edit()
-                editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
-                editor?.apply()
+
+                fallRecommendSet?.remove(it.title)
+                val fallRecommendPreference = context?.getSharedPreferences("fallRecommendSet", 0)
+                val fallRecommendEditor = fallRecommendPreference?.edit()
+                fallRecommendEditor?.putStringSet("fallRecommendSet",fallRecommendSet)
+                fallRecommendEditor?.apply()
+
                 rv.adapter?.notifyDataSetChanged()
+
             }
         )
 
@@ -90,16 +55,17 @@ class MyBucketFall (): Fragment(), heartInterface{
     }
 
     override fun heartControl(position: Int, heartState: Boolean) {
-        val sharedPreference =
-            context?.getSharedPreferences(bucketList.get(position).title + "fall", 0)
-        val editor = sharedPreference?.edit()
         if (!heartState) {
             Log.d("heart2", bucketList[position].title)
-            fallMyBucketSet.remove(bucketList.get(position).title+"fall")
-            val sharedMyPreference3 = context?.getSharedPreferences("fallMyBucketSet", 0)
+            val sharedPreference1 = context?.getSharedPreferences( "fallRecommendSet", 0)
+            val fallRecommendSet = sharedPreference1?.getStringSet("fallRecommendSet", null)!!
+
+            fallRecommendSet.remove(bucketList.get(position).title)
+            val sharedMyPreference3 = context?.getSharedPreferences("fallRecommendSet", 0)
             val editor = sharedMyPreference3?.edit()
-            editor?.putStringSet("fallMyBucketSet",fallMyBucketSet)
+            editor?.putStringSet("fallRecommendSet",fallRecommendSet)
             editor?.apply()
+
             bucketList.remove(bucketList[position])
             rv.adapter?.notifyDataSetChanged()
         }

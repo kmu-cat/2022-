@@ -8,34 +8,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.firebase.firestore.Query
 
 class RecommendBucketWinter : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView;
-    val bucketList = arrayListOf(
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울", "0명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울1", "1명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울2", "2명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울3", "3명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울4", "4명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울5", "5명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울6", "6명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 겨울7", "7명이 도전 중!",false)
-    )
-    val winterRecommendSet = mutableSetOf<String>()
-    override fun onPause() {
-        val sharedPreference = context?.getSharedPreferences( "winterRecommendSet", 0)
-        val editor = sharedPreference?.edit()
-        editor?.putStringSet("winterRecommendSet", winterRecommendSet)
-        editor?.commit()
-        Log.d("winterRecommendSet2", winterRecommendSet.toString())
-        super.onPause()
-    }
+    val bucketList = arrayListOf<BucketListForm>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_winter, container, false)
+
         val heartState = arguments?.getBoolean("heartState")
         val position = arguments?.getInt("position")
         if(heartState!=null && position!=null){
@@ -57,14 +42,25 @@ class RecommendBucketWinter : Fragment(), heartInterface{
     }
 
     private fun makeRecyclerView(){
+        val sharedPreference1 = context?.getSharedPreferences( "winterRecommendSet", 0)
+        val winterRecommendSet = sharedPreference1?.getStringSet("winterRecommendSet", null)
         // 컬렉션을 모두 가져오기
         MyApplication.db.collection("recommend_winter")
+            .orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
 
                     val item = document.toObject(BucketListForm::class.java)
-                    bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    if (winterRecommendSet != null) {
+                        if(item.title in winterRecommendSet){
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", true))
+                        }else{
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                        }
+                    }else{
+                        bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    }
                 }
 
                 rv.adapter?.notifyDataSetChanged()
@@ -86,9 +82,13 @@ class RecommendBucketWinter : Fragment(), heartInterface{
             bucketList.set(position, BucketListForm(bucketList.get(position).title, bucketList.get(position).challenger, heartState))
             Log.d("heartState", bucketList.get(position).heartState.toString())
         }
-        Log.d("heartState", bucketList.get(position).heartState.toString())
+
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title+"winter", 0)
         val editor = sharedPreference?.edit()
+
+        val winterRecommendPreference = context?.getSharedPreferences( "winterRecommendSet", 0)
+        val winterRecommendSet = winterRecommendPreference?.getStringSet("winterRecommendSet", null)
+
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
             editor?.putString("challenger", bucketList.get(position).challenger)
@@ -96,18 +96,36 @@ class RecommendBucketWinter : Fragment(), heartInterface{
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            winterRecommendSet.add(bucketList.get(position).title+"winter")
+
+            if (winterRecommendSet == null) {
+                val winterRecommendSetForNull= setOf(
+                    bucketList.get(position).title
+                )
+                val sharedPreference = context?.getSharedPreferences( "winterRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("winterRecommendSet", winterRecommendSetForNull)
+                editor?.commit()
+            }else{
+                winterRecommendSet.add(bucketList.get(position).title)
+                val sharedPreference = context?.getSharedPreferences( "winterRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("winterRecommendSet", winterRecommendSet)
+                editor?.commit()
+            }
+
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            winterRecommendSet.remove(bucketList.get(position).title+"winter")
+            if (winterRecommendSet != null) {
+                winterRecommendSet.remove(bucketList.get(position).title)
+            }
+            val sharedPreference = context?.getSharedPreferences( "winterRecommendSet", 0)
+            val editor = sharedPreference?.edit()
+            editor?.putStringSet("winterRecommendSet", winterRecommendSet)
+            editor?.commit()
         }
-//        rv = requireView().findViewById(R.id.rv_recommendBucketWinter)
-//        rv.layoutManager = GridLayoutManager(context,2)
-//        rv.setHasFixedSize(true)
-//        rv.adapter = RecommendBucketWinterAdapter(bucketList, this)
 
     }
 

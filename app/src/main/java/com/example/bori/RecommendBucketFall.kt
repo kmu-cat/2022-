@@ -8,30 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.firebase.firestore.Query
 
 class RecommendBucketFall : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
-    val bucketList = arrayListOf(
+    val bucketList = arrayListOf<BucketListForm>()
 
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을", "0명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을1", "1명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을2", "2명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을3", "3명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을4", "4명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을5", "5명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을6", "6명이 도전 중!",false),
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 가을7", "7명이 도전 중!",false)
-    )
-
-    val fallRecommendSet = mutableSetOf<String>()
-
-    override fun onPause() {
-        val sharedPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
-        val editor = sharedPreference?.edit()
-        editor?.putStringSet("fallRecommendSet", fallRecommendSet)
-        editor?.commit()
-        super.onPause()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +21,6 @@ class RecommendBucketFall : Fragment(), heartInterface{
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recommend_bucket_fall, container, false)
-
 
         val heartState = arguments?.getBoolean("heartState")
         val position = arguments?.getInt("position")
@@ -62,14 +43,27 @@ class RecommendBucketFall : Fragment(), heartInterface{
     }
 
     private fun makeRecyclerView(){
+
+        val fallRecommendPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
+        val fallRecommendSet = fallRecommendPreference?.getStringSet("fallRecommendSet", null)
+
         // 컬렉션을 모두 가져오기
         MyApplication.db.collection("recommend_fall")
+            .orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
 
                     val item = document.toObject(BucketListForm::class.java)
-                    bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    if (fallRecommendSet != null) {
+                        if(item.title in fallRecommendSet){
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", true))
+                        }else{
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                        }
+                    }else{
+                        bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    }
                 }
 
                 rv.adapter?.notifyDataSetChanged()
@@ -93,27 +87,50 @@ class RecommendBucketFall : Fragment(), heartInterface{
         }
         val sharedPreference = context?.getSharedPreferences( bucketList.get(position).title+"fall", 0)
         val editor = sharedPreference?.edit()
+
+        val fallRecommendPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
+        val fallRecommendSet = fallRecommendPreference?.getStringSet("fallRecommendSet", null)
+
         if(heartState){
+
             editor?.putString("title", bucketList.get(position).title)
             editor?.putString("challenger", bucketList.get(position).challenger)
             editor?.putBoolean("heartState", heartState)
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            fallRecommendSet.add(bucketList.get(position).title+"fall")
+
+            if (fallRecommendSet == null) {
+                val fallRecommendSetForNull= setOf(
+                    bucketList.get(position).title
+                )
+                val sharedPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("fallRecommendSet", fallRecommendSetForNull)
+                editor?.commit()
+            }else{
+                fallRecommendSet.add(bucketList.get(position).title)
+                val sharedPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("fallRecommendSet", fallRecommendSet)
+                editor?.commit()
+            }
+
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            fallRecommendSet.remove(bucketList.get(position).title+"fall")
+            if (fallRecommendSet != null) {
+                fallRecommendSet.remove(bucketList.get(position).title)
+            }
+            val sharedPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
+            val editor = sharedPreference?.edit()
+            editor?.putStringSet("fallRecommendSet", fallRecommendSet)
+            editor?.commit()
+
         }
 
-//        Log.d("heartState", bucketList.get(position).heartState.toString())
-//        rv = requireView().findViewById(R.id.rv_recommendBucketFall)
-//        rv.layoutManager = GridLayoutManager(context,2)
-//        rv.setHasFixedSize(true)
-//        rv.adapter = RecommendBucketFallAdapter(bucketList, this)
 
     }
 
