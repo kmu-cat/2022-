@@ -48,7 +48,6 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
         xButton.setOnClickListener{
-            heartInterface.heartControl(position,heart.isChecked)
             dialog.dismiss()
         }
 
@@ -56,6 +55,7 @@ class RecommendBucketFallModal (holder: RecommendBucketFallAdapter.CustomViewHol
         heartButton.setOnClickListener {
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
             uploadButton.isEnabled = heartButton.isChecked
+            heartInterface.heartControl(position,heart.isChecked)
         }
         val certifyingShotButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_lookAroundButton)
         certifyingShotButton.setOnClickListener{
