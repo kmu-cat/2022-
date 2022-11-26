@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class Home : Fragment(){
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,15 +25,15 @@ class Home : Fragment(){
         val userCatInfo = prefs?.getString("CatInfo", null)
         val userCatInfoJSON = JSONObject(userCatInfo)
 
-        var infoColor = userCatInfoJSON.getInt("Color")
-        var infoHair = userCatInfoJSON.getInt("Hair")
-        var infoFace = userCatInfoJSON.getInt("Face")
-        var infoBody = userCatInfoJSON.getInt("Body")
-        var infoFoot = userCatInfoJSON.getInt("Foot")
-        var infoEtc = userCatInfoJSON.getInt("Etc")
+        val infoColor = userCatInfoJSON.getInt("Color")
+        val infoHair = userCatInfoJSON.getInt("Hair")
+        val infoFace = userCatInfoJSON.getInt("Face")
+        val infoBody = userCatInfoJSON.getInt("Body")
+        val infoFoot = userCatInfoJSON.getInt("Foot")
+        val infoEtc = userCatInfoJSON.getInt("Etc")
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        var dailyComment = view.findViewById<TextView>(R.id.dailyComment)
+        val dailyComment = view.findViewById<TextView>(R.id.dailyComment)
 
         val userCatColor = view.findViewById<ImageView>(R.id.user_cat_color)
         val userCatHair = view.findViewById<ImageView>(R.id.user_cat_hair)
@@ -61,7 +61,6 @@ class Home : Fragment(){
             }
         }
 
-
         userCatColor.setImageResource(infoColor)
         userCatFace.setImageResource(infoFace)
         userCatHair.setImageResource(infoHair)
@@ -70,8 +69,8 @@ class Home : Fragment(){
         userCatEtc.setImageResource(infoEtc)
 
         val commentList = resources.getStringArray(R.array.daily_comment)
-        val randNum = (0..commentList.size-1).random()
-        dailyComment.setText(commentList[randNum])
+        val randNum = (commentList.indices).random()
+        dailyComment.text = commentList[randNum]
 
         return view
     }
