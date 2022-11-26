@@ -89,8 +89,10 @@ class Post : AppCompatActivity() {
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 이빨"
                             getButton.setOnClickListener {
                                 // item1 의 boolean 값 false -> true
-                                getItemModal.dismiss()
-                                finish()
+                                docRef.update("item1", true).addOnCompleteListener {
+                                    getItemModal.dismiss()
+                                    finish()
+                                }
                             }
                         }
                         20 -> {
@@ -99,8 +101,10 @@ class Post : AppCompatActivity() {
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 속눈썹"
                             getButton.setOnClickListener {
                                 // item2 의 boolean 값 false -> true
-                                getItemModal.dismiss()
-                                finish()
+                                docRef.update("item2", true).addOnCompleteListener {
+                                    getItemModal.dismiss()
+                                    finish()
+                                }
                             }
                         }
                         100 -> {
@@ -109,8 +113,10 @@ class Post : AppCompatActivity() {
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "고인물이 이런거 좋아하던데"
                             getButton.setOnClickListener {
                                 // item3 의 boolean 값 false -> true
-                                getItemModal.dismiss()
-                                finish()
+                                docRef.update("item3", true).addOnCompleteListener {
+                                    getItemModal.dismiss()
+                                    finish()
+                                }
                             }
                         }
                     }
