@@ -16,10 +16,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class CatSettingFragment : Fragment() {
     lateinit var catInfoJSON: JSONObject
     lateinit var applyButton: Button
+    lateinit var background: ImageView
 
     lateinit var adapteritem_color: AdapterItem
     lateinit var adapteritem_hair: AdapterItem
@@ -54,7 +57,29 @@ class CatSettingFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_catsetting, container, false)
 
         applyButton = view.findViewById(R.id.catSetting_confirmButton)
+        background = view.findViewById(R.id.cat_bg)
 
+        // 현재 시간을 가져와 Date 생성
+        val date = Date(System.currentTimeMillis())
+        val sdf = SimpleDateFormat("MM")
+        when (sdf.format(date)) {
+            in arrayListOf("03", "04", "05") -> { // 3월 ~ 5월 (봄)
+                background.setImageResource(R.drawable.bg_set_spring)
+                view.findViewById<TextView>(R.id.item_script).text = "싱그러운 봄이야!"
+            }
+            in arrayListOf("06", "07", "08") -> { // 6월 ~ 8월 (여름)
+                background.setImageResource(R.drawable.bg_set_summer)
+                view.findViewById<TextView>(R.id.item_script).text = "여름엔 바다로 가요~"
+            }
+            in arrayListOf("09", "10", "11") -> { // 9월 ~ 11월 (가을)
+                background.setImageResource(R.drawable.bg_set_fall)
+                view.findViewById<TextView>(R.id.item_script).text = "고독한 가을의 야옹이..."
+            }
+            in arrayListOf("12", "01", "02") -> { // 12월 ~ 2월 (겨울)
+                background.setImageResource(R.drawable.bg_set_winter)
+                view.findViewById<TextView>(R.id.item_script).text = "포근한 눈이 쌓인 겨울"
+            }
+        }
 
         adapteritem_color = AdapterItem(view.context)
         adapteritem_hair = AdapterItem(view.context)
@@ -165,6 +190,7 @@ class CatSettingFragment : Fragment() {
             add(DataItem("샴이", "아궁이 들어갔다옴", R.drawable.rc_color_siamese, R.drawable.cat_siamese))
             add(DataItem("까망이", "밤되면 안보여요", R.drawable.rc_color_black, R.drawable.cat_black))
         }
+
         datasHair.apply {
             add(DataItem("선택 안함", "이잉 싫어 불편해서 벗었어요", R.drawable.rc_item_none, R.drawable.item_none))
             add(DataItem("빨간 양갈래 리본", "귀여움이 두배가 돼요", R.drawable.rc_item_ribbon_red, R.drawable.item_test))
@@ -172,6 +198,7 @@ class CatSettingFragment : Fragment() {
             add(DataItem("메리 크리스마스", "고양이 맞춤형 모자라구", R.drawable.rc_item_x_mas, R.drawable.x_mas))
             add(DataItem("소라게", "가린 눈에서 눈물 한방울 흐르는 중", R.drawable.rc_item_hermit_crab, R.drawable.hermit_crab))
         }
+
         datasFace.apply {
             add(DataItem("선택 안함", "이잉 싫어 불편해서 벗었어요", R.drawable.rc_item_none, R.drawable.item_none))
             add(DataItem("에취", "에티켓을 지켜요", R.drawable.rc_item_ahchoo, R.drawable.ahchoo))
@@ -210,7 +237,6 @@ class CatSettingFragment : Fragment() {
         adapteritem_foot.datas = datasFoot
         adapteritem_etc.datas = datasEtc
 
-
         adapteritem_color.notifyDataSetChanged()
         adapteritem_hair.notifyDataSetChanged()
         adapteritem_face.notifyDataSetChanged()
@@ -223,7 +249,6 @@ class CatSettingFragment : Fragment() {
         rvBody.layoutManager = GridLayoutManager(activity, 5)
         rvFoot.layoutManager = GridLayoutManager(activity, 5)
         rvEtc.layoutManager = GridLayoutManager(activity, 5)
-
 
         return view
     }
