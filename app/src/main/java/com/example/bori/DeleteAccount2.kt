@@ -7,8 +7,6 @@ import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.ImageButton
-import android.widget.ImageView
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -17,8 +15,12 @@ class DeleteAccount2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delete_account2)
         val deleteButton = findViewById<Button>(R.id.deleteButton)
-        deleteButton.setOnClickListener(){
+        deleteButton.setOnClickListener {
             deleteId()
+        }
+        val backArrow: ImageButton = findViewById(R.id.deleteAccount2_arrow)
+        backArrow.setOnClickListener {
+            finish()
         }
     }
 
@@ -38,11 +40,6 @@ class DeleteAccount2 : AppCompatActivity() {
             } else {
                 Toast.makeText(this, task.exception.toString(), Toast.LENGTH_LONG).show()
 
-            }
-            val backArrow: ImageButton = findViewById(R.id.deleteAccount2_arrow)
-            backArrow.setOnClickListener {
-                val intent = Intent(this, DeleteAccount1::class.java)
-                startActivity(intent)
             }
         }
     }
