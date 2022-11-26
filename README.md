@@ -79,7 +79,7 @@ dependencies {
 <img width="200" alt="로그인" src="https://user-images.githubusercontent.com/104475363/203085884-8cad3c9e-4b98-4534-a2bb-1a7c3e80646b.png">
 <img width="200" alt="default_cat_setting" src="https://user-images.githubusercontent.com/104475363/203085953-a8ed5562-002c-4261-9b89-23c58c07e28c.png">
 <img width="200" alt="버캣리스트" src="https://user-images.githubusercontent.com/104475363/203806546-0c88f810-f044-4899-b3cd-38bb0d1f6590.png">
-<img width="200" alt="폴라로이드" src="https://user-images.githubusercontent.com/104475363/203086143-c51c3ed0-570e-4588-9870-8a22e4766310.png">
+<img width="200" alt="폴라로이드" src="https://user-images.githubusercontent.com/104475363/204072304-59aada26-315a-4d48-9073-bcb088fcff53.png">
 <div/>
 
 
