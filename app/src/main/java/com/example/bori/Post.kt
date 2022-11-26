@@ -11,6 +11,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.WindowManager
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.bori.databinding.ActivityPostBinding
@@ -64,22 +66,59 @@ class Post : AppCompatActivity() {
                     saveStore()
                     Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
                     Log.e("12312", numPost.toString())
-                    finish()
                 }
-            }else {
+                // 모달 띄우기
+                when (numPost) {
+                    10 -> {
+                        val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+                        val getItemModal = Dialog(this)
+                        getItemModal.setContentView(dialogView)
+                        getItemModal.setCancelable(true)
+                        getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                        getItemModal.window!!.setLayout(
+                            WindowManager.LayoutParams.MATCH_PARENT,
+                            WindowManager.LayoutParams.WRAP_CONTENT
+                        )
+                        getItemModal.show()
+                        getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.teeth)
+                        getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "이빨 하나"
+                        getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 이빨"
+                    }
+                    20 -> {
+                        val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+                        val getItemModal = Dialog(this)
+                        getItemModal.setContentView(dialogView)
+                        getItemModal.setCancelable(true)
+                        getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                        getItemModal.window!!.setLayout(
+                            WindowManager.LayoutParams.MATCH_PARENT,
+                            WindowManager.LayoutParams.WRAP_CONTENT
+                        )
+                        getItemModal.show()
+                        getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.eyelashes)
+                        getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "속눈썹 한가닥"
+                        getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 속눈썹"
+                    }
+                    100 -> {
+                        val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+                        val getItemModal = Dialog(this)
+                        getItemModal.setContentView(dialogView)
+                        getItemModal.setCancelable(true)
+                        getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                        getItemModal.window!!.setLayout(
+                            WindowManager.LayoutParams.MATCH_PARENT,
+                            WindowManager.LayoutParams.WRAP_CONTENT
+                        )
+                        getItemModal.show()
+                        getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.face_heart)
+                        getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "하트"
+                        getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "고인물이 이런거 좋아하던데"
+                    }
+                    else -> finish()
+                }
+            } else {
                 Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
-            //모달 띄우기
-//            val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
-//            val getItemModal = Dialog(this)
-//            getItemModal.setContentView(dialogView)
-//            getItemModal.setCancelable(true)
-//            getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//            getItemModal.window!!.setLayout(
-//                WindowManager.LayoutParams.MATCH_PARENT,
-//                WindowManager.LayoutParams.WRAP_CONTENT
-//            )
-//            getItemModal.show()
         }
     }
 
