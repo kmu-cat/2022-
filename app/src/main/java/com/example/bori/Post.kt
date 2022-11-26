@@ -1,5 +1,6 @@
 package com.example.bori
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
@@ -14,20 +15,18 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.bori.databinding.ActivityPostBinding
 import java.io.File
-import java.util.*
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
-import java.text.SimpleDateFormat
 
 class Post : AppCompatActivity() {
-    lateinit var binding: ActivityPostBinding
-    lateinit var filePath: String
+    private lateinit var binding: ActivityPostBinding
+    private var filePath: String = ""
 
+    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityPostBinding.inflate(layoutInflater)
@@ -39,7 +38,7 @@ class Post : AppCompatActivity() {
         var numPost = 0
         val docRef = db.collection("users").document(email)
         docRef.get().addOnSuccessListener { document ->
-            numPost = document.data!!.get("numPost").toString().toInt()
+            numPost = document.data!!["numPost"].toString().toInt()
             Log.e("12312", numPost.toString())
         }
 
@@ -58,9 +57,9 @@ class Post : AppCompatActivity() {
         }
 
         binding.postSave.setOnClickListener{
-            if(binding.postImageView.drawable !== null && binding.etPost.text.isNotEmpty()){
+            if(filePath != "" && binding.etPost.text.isNotEmpty()){
                 numPost++
-                docRef.update("numPost", numPost).addOnCompleteListener(){
+                docRef.update("numPost", numPost).addOnCompleteListener {
                     //store 에 먼저 데이터를 저장후 document id 값으로 업로드 파일 이름 지정
                     saveStore()
                     Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
@@ -83,12 +82,12 @@ class Post : AppCompatActivity() {
         }
     }
 
-    val requestLauncher = registerForActivityResult(
+    private val requestLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult())
     {
-        if(it.resultCode === android.app.Activity.RESULT_OK){
+        if(it.resultCode == android.app.Activity.RESULT_OK){
             Glide
-                .with(getApplicationContext())
+                .with(applicationContext)
                 .load(it.data?.data)
                 .apply(RequestOptions().override(360, 480))
                 .centerCrop()
@@ -96,7 +95,7 @@ class Post : AppCompatActivity() {
 
 
             val cursor = contentResolver.query(it.data?.data as Uri,
-                arrayOf<String>(MediaStore.Images.Media.DATA), null, null, null);
+                arrayOf(MediaStore.Images.Media.DATA), null, null, null)
             cursor?.moveToFirst().let {
                 filePath=cursor?.getString(0) as String
             }
@@ -113,7 +112,7 @@ class Post : AppCompatActivity() {
         MyApplication.db.collection("posts")
             .add(data)
             .addOnSuccessListener {
-                // 스토리지에 데이터 저장 후 id값으로 스토리지에 이미지 업로드
+                // 스토리지에 데이터 저장 후 id 값으로 스토리지에 이미지 업로드
                 uploadImage(it.id)
             }
             .addOnFailureListener {
@@ -128,10 +127,10 @@ class Post : AppCompatActivity() {
         // 실제 업로드하는 파일을 참조하는 StorageReference 생성
         val imgRef: StorageReference = storageRef.child("posts/${docId}.jpg")
         // 파일 업로드
-        var file = Uri.fromFile(File(filePath))
+        val file = Uri.fromFile(File(filePath))
         imgRef.putFile(file)
             .addOnFailureListener {
-                Log.d("UploadeImage","failure"+it)
+                Log.d("UploadImage", "failure$it")
             }.addOnSuccessListener {
                 Toast.makeText(this, "데이터가 저장되었습니다.",
                     Toast.LENGTH_SHORT).show()
