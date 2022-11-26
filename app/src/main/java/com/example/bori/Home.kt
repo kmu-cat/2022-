@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Home : Fragment(){
     @SuppressLint("MissingInflatedId")
@@ -38,6 +41,26 @@ class Home : Fragment(){
         val userCatBody = view.findViewById<ImageView>(R.id.user_cat_body)
         val userCatFoot = view.findViewById<ImageView>(R.id.user_cat_foot)
         val userCatEtc = view.findViewById<ImageView>(R.id.user_cat_etc)
+
+        val background = view.findViewById<FrameLayout>(R.id.home_background)
+
+        val date = Date(System.currentTimeMillis())
+        val sdf = SimpleDateFormat("MM")
+        when (sdf.format(date)) {
+            in arrayListOf("03", "04", "05") -> { // 3월 ~ 5월 (봄)
+                background.setBackgroundResource(R.drawable.main_bg_spring)
+            }
+            in arrayListOf("06", "07", "08") -> { // 6월 ~ 8월 (여름)
+                background.setBackgroundResource(R.drawable.main_bg_summer)
+            }
+            in arrayListOf("09", "10", "11") -> { // 9월 ~ 11월 (가을)
+                background.setBackgroundResource(R.drawable.main_bg_fall)
+            }
+            in arrayListOf("12", "01", "02") -> { // 12월 ~ 2월 (겨울)
+                background.setBackgroundResource(R.drawable.main_bg_winter)
+            }
+        }
+
 
         userCatColor.setImageResource(infoColor)
         userCatFace.setImageResource(infoFace)
