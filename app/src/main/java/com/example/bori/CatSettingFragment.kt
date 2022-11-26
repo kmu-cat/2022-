@@ -15,6 +15,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -45,6 +48,23 @@ class CatSettingFragment : Fragment() {
     ): View? {
         val prefs: SharedPreferences? = this.activity?.getSharedPreferences("CatInfo", 0)
         val edit: Editor? = prefs?.edit()
+
+        var item1_unlock = false
+        var item2_unlock = false
+        var item3_unlock = false
+
+        val db = Firebase.firestore
+        val user = FirebaseAuth.getInstance().currentUser!!
+        val email = user.email.toString()
+        val docRef = db.collection("users").document(email)
+        docRef.get().addOnSuccessListener { document ->
+            item1_unlock = document.data!!["item1"] as Boolean
+            item2_unlock = document.data!!["item2"] as Boolean
+            item3_unlock = document.data!!["item3"] as Boolean
+            if (item1_unlock) { datasFace.apply { add(DataItem("이빨 하나", "킹받는 이빨", R.drawable.rc_item_face_teeth, R.drawable.face_teeth)) } }
+            if (item2_unlock) { datasFace.apply { add(DataItem("속눈썹 한가닥", "킹받는 속눈썹", R.drawable.rc_item_face_eyelashes, R.drawable.face_eyelashes)) } }
+            if (item3_unlock) { datasFace.apply { add(DataItem("하트", "고인물이 이런거 좋아하던데", R.drawable.rc_item_face_heart, R.drawable.face_heart)) } }
+        }
 
         catInfoJSON = JSONObject(prefs?.getString("CatInfo", "NONE"))
 

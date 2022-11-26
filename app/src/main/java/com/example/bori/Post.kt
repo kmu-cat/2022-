@@ -84,7 +84,7 @@ class Post : AppCompatActivity() {
                     val getButton = dialogView.findViewById<AppCompatButton>(R.id.item_get_button)
                     when (numPost) {
                         10 -> {
-                            getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.teeth)
+                            getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.face_teeth)
                             getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "이빨 하나"
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 이빨"
                             getButton.setOnClickListener {
@@ -96,7 +96,7 @@ class Post : AppCompatActivity() {
                             }
                         }
                         20 -> {
-                            getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.eyelashes)
+                            getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.face_eyelashes)
                             getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "속눈썹 한가닥"
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 속눈썹"
                             getButton.setOnClickListener {
