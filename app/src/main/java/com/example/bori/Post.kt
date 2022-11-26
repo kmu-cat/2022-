@@ -72,7 +72,7 @@ class Post : AppCompatActivity() {
                     val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
                     val getItemModal = Dialog(this)
                     getItemModal.setContentView(dialogView)
-                    getItemModal.setCancelable(true)
+                    getItemModal.setCancelable(false)
                     getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                     getItemModal.window!!.setLayout(
                         WindowManager.LayoutParams.MATCH_PARENT,
