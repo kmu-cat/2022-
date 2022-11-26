@@ -64,21 +64,22 @@ class Post : AppCompatActivity() {
                     saveStore()
                     Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
                     Log.e("12312", numPost.toString())
+                    finish()
                 }
             }else {
                 Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             //모달 띄우기
-            val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
-            val getItemModal = Dialog(this)
-            getItemModal.setContentView(dialogView)
-            getItemModal.setCancelable(true)
-            getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            getItemModal.window!!.setLayout(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.WRAP_CONTENT
-            )
-            getItemModal.show()
+//            val dialogView = layoutInflater.inflate(R.layout.activity_get_item_modal, null)
+//            val getItemModal = Dialog(this)
+//            getItemModal.setContentView(dialogView)
+//            getItemModal.setCancelable(true)
+//            getItemModal.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            getItemModal.window!!.setLayout(
+//                WindowManager.LayoutParams.MATCH_PARENT,
+//                WindowManager.LayoutParams.WRAP_CONTENT
+//            )
+//            getItemModal.show()
         }
     }
 
