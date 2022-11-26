@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.AppCompatButton
 import com.example.bori.databinding.ActivityPostBinding
 import java.io.File
 import com.bumptech.glide.Glide
@@ -79,21 +80,38 @@ class Post : AppCompatActivity() {
                         WindowManager.LayoutParams.WRAP_CONTENT
                     )
                     getItemModal.show()
+
+                    val getButton = dialogView.findViewById<AppCompatButton>(R.id.item_get_button)
                     when (numPost) {
                         10 -> {
                             getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.teeth)
                             getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "이빨 하나"
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 이빨"
+                            getButton.setOnClickListener {
+                                // item1 의 boolean 값 false -> true
+                                getItemModal.dismiss()
+                                finish()
+                            }
                         }
                         20 -> {
                             getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.eyelashes)
                             getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "속눈썹 한가닥"
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "킹받는 속눈썹"
+                            getButton.setOnClickListener {
+                                // item2 의 boolean 값 false -> true
+                                getItemModal.dismiss()
+                                finish()
+                            }
                         }
                         100 -> {
                             getItemModal.findViewById<ImageView>(R.id.item_modal_item).setImageResource(R.drawable.face_heart)
                             getItemModal.findViewById<TextView>(R.id.item_modal_name).text = "하트"
                             getItemModal.findViewById<TextView>(R.id.item_modal_explain).text = "고인물이 이런거 좋아하던데"
+                            getButton.setOnClickListener {
+                                // item3 의 boolean 값 false -> true
+                                getItemModal.dismiss()
+                                finish()
+                            }
                         }
                     }
                 } else {
