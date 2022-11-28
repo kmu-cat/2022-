@@ -3,6 +3,7 @@ package com.example.bori
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,7 +26,6 @@ class Home : Fragment(){
         val prefs: SharedPreferences? = this.activity?.getSharedPreferences("CatInfo", 0) ?: null
         val userCatInfo = prefs?.getString("CatInfo", null)
         val userCatInfoJSON = JSONObject(userCatInfo)
-
         val infoColor = userCatInfoJSON.getInt("Color")
         val infoHair = userCatInfoJSON.getInt("Hair")
         val infoFace = userCatInfoJSON.getInt("Face")

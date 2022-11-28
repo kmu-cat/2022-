@@ -67,7 +67,7 @@ class CertifyingShot : Fragment(){
                     val item = document.toObject(DataCommunity::class.java)
                     item.docId=document.id
                     datas.add(item)
-                    datas.apply{DataCommunity(comment = item.comment, buccat="", username="")}
+                    datas.apply{DataCommunity(comment = item.comment, hashTag=item.hashTag, nickname = item.nickname)}
                 }
 
                 adaptercommunity.datas = datas

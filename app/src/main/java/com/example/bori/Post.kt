@@ -20,6 +20,7 @@ import com.example.bori.databinding.ActivityPostBinding
 import java.io.File
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -43,7 +44,10 @@ class Post : AppCompatActivity() {
         docRef.get().addOnSuccessListener { document ->
             numPost = document.data!!["numPost"].toString().toInt()
             Log.e("12312", numPost.toString())
+            binding.postNickName.setText("by "+document.data!!["nickName"].toString())
         }
+        val title = intent.getStringExtra("title")
+        binding.postHashTage.text = "# "+title
 
         binding.postImageView.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
@@ -132,7 +136,7 @@ class Post : AppCompatActivity() {
     private val requestLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult())
     {
-        if(it.resultCode == android.app.Activity.RESULT_OK){
+        if(it.resultCode == RESULT_OK){
             Glide
                 .with(applicationContext)
                 .load(it.data?.data)
@@ -154,7 +158,9 @@ class Post : AppCompatActivity() {
         val data = mapOf(
             // "email" to MyApplication.email,
             "comment" to binding.etPost.text.toString(),
-            "date" to com.google.firebase.Timestamp.now()
+            "date" to Timestamp.now(),
+            "hashTag" to binding.postHashTage.text.toString(),
+            "nickname" to binding.postNickName.text.toString()
         )
         MyApplication.db.collection("posts")
             .add(data)

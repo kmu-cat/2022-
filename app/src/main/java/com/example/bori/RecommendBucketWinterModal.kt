@@ -64,6 +64,7 @@ class RecommendBucketWinterModal (holder: RecommendBucketWinterAdapter.CustomVie
         val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
         uploadButton.setOnClickListener {
             val intent = Intent(context, Post::class.java)
+            intent.putExtra("title",title.text )
             context.startActivity(intent)
         }
 

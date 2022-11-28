@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -34,6 +35,7 @@ class Start : AppCompatActivity(){
         // 로그인 되어있을시 바로 메인화면으로
         toLogin.setOnClickListener {
             if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                Log.d("getcurrentuser",FirebaseAuth.getInstance().getCurrentUser().toString())
                 val intent = Intent( this, Login::class.java)
                 startActivity(intent)
             } else {
