@@ -29,8 +29,6 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
-        val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
-        challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
 

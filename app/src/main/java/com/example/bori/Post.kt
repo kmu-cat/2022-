@@ -20,6 +20,7 @@ import com.example.bori.databinding.ActivityPostBinding
 import java.io.File
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.common.io.Files.getFileExtension
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -167,6 +168,7 @@ class Post : AppCompatActivity() {
             .addOnSuccessListener {
                 // 스토리지에 데이터 저장 후 id 값으로 스토리지에 이미지 업로드
                 uploadImage(it.id)
+
             }
             .addOnFailureListener {
                 Log.w("hmm", "data save error", it)
@@ -178,7 +180,7 @@ class Post : AppCompatActivity() {
         // 스토리지를 참조하는 StorageReference 생성
         val storageRef: StorageReference = storage.reference
         // 실제 업로드하는 파일을 참조하는 StorageReference 생성
-        val imgRef: StorageReference = storageRef.child("posts/${docId}.jpg")
+        val imgRef: StorageReference = storageRef.child("posts/${docId}."+ getFileExtension(filePath).toString())
         // 파일 업로드
         val file = Uri.fromFile(File(filePath))
         imgRef.putFile(file)

@@ -38,8 +38,8 @@
             android:id="@+id/recommend_bucket_component_challengeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10명이 도전 중!"
-            android:textColor="@color/black"
+            android:text="나도 참여하기->"
+            android:textColor="@color/gray"
             android:layout_gravity="left"
             android:textSize="14dp"/>
 

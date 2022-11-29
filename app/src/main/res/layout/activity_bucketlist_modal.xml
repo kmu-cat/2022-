@@ -37,28 +37,27 @@
                 android:maxLength="22"
                 android:ellipsize="end"
                 android:text="날씨 좋은 날 잔디밭에서 피크닉 즐기기~~~~"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="20dp"/>
             <LinearLayout
                 android:id="@+id/bucketListModal_textLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="12dp">
                 <TextView
                     android:id="@+id/bucketListModal_challengeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
                     android:textSize="14dp"
-                    android:textColor="@color/black"
-                    android:text="10명 도전 중!"/>
+                    android:textColor="@color/gray"
+                    android:text="버캣을 달성하고 "/>
                 <TextView
                     android:id="@+id/bucketListModal_successTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="14dp"
-                    android:text="26명이 성공했어요."/>
+                    android:text="인증샷을 올려봐요!"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

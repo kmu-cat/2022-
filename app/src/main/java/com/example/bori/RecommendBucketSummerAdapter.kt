@@ -23,7 +23,6 @@ class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>, h
 
     override fun onBindViewHolder(holder: RecommendBucketSummerAdapter.CustomViewHolder, position: Int){
         holder.title.text = bucketList.get(position).title.toString()
-        holder.challenger.text = bucketList.get(position).challenger.toString()
         holder.heart.isChecked = bucketList.get(position).heartState
         holder.heart.setOnClickListener{
             heartInterface.heartControl(position, holder.heart.isChecked)
@@ -38,7 +37,6 @@ class RecommendBucketSummerAdapter (val bucketList: ArrayList<BucketListForm>, h
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val title = itemView.findViewById<TextView>(R.id.recommend_bucket_component_titleTextView)
-        val challenger = itemView.findViewById<TextView>(R.id.recommend_bucket_component_challengeTextView)
         val heart = itemView.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.recommend_bucket_component_heartCheckBox)
 
     }

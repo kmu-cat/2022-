@@ -66,6 +66,8 @@
                 android:background="@android:color/transparent"
                 android:hint="한줄 소감을 작성해주세요. (20자이내)"
                 android:textAlignment="center"
+                android:maxLength="20"
+                android:singleLine="true"
                 android:textSize="16dp" />
 
             <LinearLayout
