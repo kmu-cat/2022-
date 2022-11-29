@@ -28,8 +28,6 @@ class MyBucketSummerModal (holder: MyBucketSummerAdapter.CustomViewHolder, posit
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
-        val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
-        challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
         if(bucketHeart==true){
@@ -37,7 +35,7 @@ class MyBucketSummerModal (holder: MyBucketSummerAdapter.CustomViewHolder, posit
             uploadButton.isEnabled = true
         }
 
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.show()
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
@@ -55,6 +53,12 @@ class MyBucketSummerModal (holder: MyBucketSummerAdapter.CustomViewHolder, posit
             val intent = Intent(context, Main::class.java)
             intent.putExtra("Tag",bucketTitle)
             intent.putExtra("pageNum", 1)
+            context.startActivity(intent)
+        }
+        val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+        uploadButton.setOnClickListener {
+            val intent = Intent(context, Post::class.java)
+            intent.putExtra("title",title.text )
             context.startActivity(intent)
         }
     }

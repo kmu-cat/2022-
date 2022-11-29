@@ -50,6 +50,7 @@
         android:id="@+id/modifyPw1_pwEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:singleLine="true"
         android:background="@drawable/edittext_style"
         android:textSize="15dp"
         android:padding="10dp"

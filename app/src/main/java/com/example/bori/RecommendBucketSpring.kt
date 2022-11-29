@@ -12,27 +12,8 @@ import com.google.firebase.firestore.Query
 
 class RecommendBucketSpring : Fragment(), heartInterface {
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
-    val bucketList = arrayListOf(
-        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄", "0명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄1", "1명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄2", "2명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄3", "3명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄4", "4명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄5", "5명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄6", "6명이 도전 중!",false),
-//        BucketListForm("날씨 좋은 날 잔디밭에서 피크닉 즐기기 봄7", "7명이 도전 중!",false)
-    )
 
-    val springRecommendSet = mutableSetOf<String>()
-
-    override fun onPause() {
-        val sharedPreference = context?.getSharedPreferences( "springRecommendSet", 0)
-        val editor = sharedPreference?.edit()
-        editor?.putStringSet("springRecommendSet", springRecommendSet)
-        editor?.commit()
-        Log.d("springRecommendSet2", springRecommendSet.toString())
-        super.onPause()
-    }
+    val bucketList = arrayListOf<BucketListForm>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,6 +43,9 @@ class RecommendBucketSpring : Fragment(), heartInterface {
     }
 
     private fun makeRecyclerView(){
+        val springRecommendPreference = context?.getSharedPreferences( "springRecommendSet", 0)
+        val springRecommendSet = springRecommendPreference?.getStringSet("springRecommendSet", null)
+
         // 컬렉션을 모두 가져오기
         MyApplication.db.collection("recommend_spring")
             .orderBy("date", Query.Direction.DESCENDING)
@@ -69,7 +53,15 @@ class RecommendBucketSpring : Fragment(), heartInterface {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val item = document.toObject(BucketListForm::class.java)
-                    bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    if (springRecommendSet != null) {
+                        if(item.title in springRecommendSet){
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", true))
+                        }else{
+                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                        }
+                    }else{
+                        bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                    }
                 }
 
                 rv.adapter?.notifyDataSetChanged()
@@ -92,6 +84,10 @@ class RecommendBucketSpring : Fragment(), heartInterface {
         }
         val sharedPreference = context?.getSharedPreferences(bucketList.get(position).title+"spring", 0)
         val editor = sharedPreference?.edit()
+
+        val springRecommendPreference = context?.getSharedPreferences( "springRecommendSet", 0)
+        val springRecommendSet = springRecommendPreference?.getStringSet("springRecommendSet", null)
+
         if(heartState){
             editor?.putString("title", bucketList.get(position).title)
             editor?.putString("challenger", bucketList.get(position).challenger)
@@ -99,13 +95,35 @@ class RecommendBucketSpring : Fragment(), heartInterface {
             editor?.apply()
             bucketList.get(position).heartState=true
             rv.adapter?.notifyDataSetChanged()
-            springRecommendSet.add(bucketList.get(position).title+"spring")
+
+            if (springRecommendSet == null) {
+                val springRecommendSetForNull= setOf(
+                    bucketList.get(position).title
+                )
+                val sharedPreference = context?.getSharedPreferences( "springRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("springRecommendSet", springRecommendSetForNull)
+                editor?.commit()
+            }else{
+                springRecommendSet.add(bucketList.get(position).title)
+                val sharedPreference = context?.getSharedPreferences( "springRecommendSet", 0)
+                val editor = sharedPreference?.edit()
+                editor?.putStringSet("springRecommendSet", springRecommendSet)
+                editor?.commit()
+            }
+
         }else{
             editor?.remove( bucketList.get(position).title)
             editor?.apply()
             bucketList.get(position).heartState=false
             rv.adapter?.notifyDataSetChanged()
-            springRecommendSet.remove(bucketList.get(position).title+"spring")
+            if (springRecommendSet != null) {
+                springRecommendSet.remove(bucketList.get(position).title)
+            }
+            val sharedPreference = context?.getSharedPreferences( "springRecommendSet", 0)
+            val editor = sharedPreference?.edit()
+            editor?.putStringSet("springRecommendSet", springRecommendSet)
+            editor?.commit()
         }
     }
 }

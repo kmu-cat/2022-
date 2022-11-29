@@ -28,8 +28,6 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
-        val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
-        challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
 
@@ -45,19 +43,25 @@ class RecommendBucketSpringModal (holder: RecommendBucketSpringAdapter.CustomVie
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
         xButton.setOnClickListener{
-            heartInterface.heartControl(position, heart.isChecked)
             dialog.dismiss()
         }
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heartButton.setOnClickListener {
             val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
             uploadButton.isEnabled = heartButton.isChecked
+            heartInterface.heartControl(position, heart.isChecked)
         }
         val certifyingShotButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_lookAroundButton)
         certifyingShotButton.setOnClickListener{
             val intent = Intent(context, Main::class.java)
             intent.putExtra("Tag",bucketTitle)
             intent.putExtra("pageNum", 1)
+            context.startActivity(intent)
+        }
+        val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+        uploadButton.setOnClickListener {
+            val intent = Intent(context, Post::class.java)
+            intent.putExtra("title",title.text )
             context.startActivity(intent)
         }
     }

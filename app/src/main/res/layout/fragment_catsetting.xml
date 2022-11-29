@@ -24,9 +24,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="나를 꾸며줘!\n옆으로 넘겨서 계절 별로 꾸밀 수 있다구!"
+            android:text="나를 꾸며줘!"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/item_script"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="옆으로 넘겨서 계절 별로 꾸밀 수 있다구!"
             android:textAlignment="center"
             android:layout_gravity="center"
             android:textColor="@color/black"
@@ -97,8 +108,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:text="색상"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold"/>
@@ -114,7 +125,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="머리" />
+                    android:text="머리"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_hair"
@@ -127,7 +142,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="얼굴" />
+                    android:text="얼굴"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_face"
@@ -140,7 +159,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="몸통" />
+                    android:text="몸통"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_body"
@@ -153,7 +176,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="발" />
+                    android:text="발"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_foot"
@@ -166,7 +193,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="기타" />
+                    android:text="기타"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_item_etc"

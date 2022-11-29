@@ -89,6 +89,7 @@
         android:inputType="number"
         android:maxLength="8"
         android:padding="10dp"
+        android:singleLine="true"
         android:id="@+id/privacy_birthEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -119,6 +120,7 @@
             android:background="@drawable/edittext_leftnarrow_style"
             android:hint="닉네임을 입력하세요"
             android:inputType="text"
+            android:maxLength="6"
             android:paddingLeft="10dp"
             android:textSize="15dp"
             android:textStyle="normal" />

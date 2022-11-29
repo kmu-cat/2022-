@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:layout_marginLeft="30dp"
-        android:textColor="@color/black"
-        android:text="10명이 도전 중!"/>
+        android:textColor="@color/gray"
+        android:text="버캣을 달성하고 인증샷을 올려봐요!"/>
 
 </LinearLayout>

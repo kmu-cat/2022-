@@ -1,6 +1,7 @@
 package com.example.bori
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -28,8 +29,6 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val title = dialog.findViewById<TextView>(R.id.bucketListModal_titleTextView)
         title.text = bucketTitle
-        val challenger = dialog.findViewById<TextView>(R.id.bucketListModal_challengeTextView)
-        challenger.text = bucketChallenger
         val heart = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
         heart.isChecked = bucketHeart
 
@@ -46,14 +45,20 @@ class RecommendBucketSummerModal (holder: RecommendBucketSummerAdapter.CustomVie
 
         val xButton = dialog.findViewById<ImageButton>(R.id.bucketListModal_xButton)
             xButton.setOnClickListener{
-                heartInterface.heartControl(position, heart.isChecked)
                 dialog.dismiss()
            }
         val heartButton = dialog.findViewById<androidx.appcompat.widget.AppCompatCheckBox>(R.id.bucketListModal_heartCheckBox)
             heartButton.setOnClickListener {
                 val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
                 uploadButton.isEnabled = heartButton.isChecked
+                heartInterface.heartControl(position, heart.isChecked)
             }
+        val uploadButton = dialog.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.bucketListModal_uploadButton)
+        uploadButton.setOnClickListener {
+            val intent = Intent(context, Post::class.java)
+            intent.putExtra("title",title.text )
+            context.startActivity(intent)
+        }
     }
     interface  ButtonClickListener{
         fun onClicked(myName:String)

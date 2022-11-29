@@ -67,6 +67,7 @@
                     android:hint="이메일을 입력하세요"
                     android:inputType="text"
                     android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textSize="15dp"
                     android:textStyle="normal" />
 
@@ -114,6 +115,7 @@
                 android:hint="비밀번호를 입력하세요."
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
+                android:singleLine="true"
                 android:layout_marginBottom="30dp"
                 android:textSize="15dp"
                 android:textStyle="normal" />
@@ -136,6 +138,7 @@
                 android:hint="비밀번호 확인"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
+                android:singleLine="true"
                 android:textSize="15dp"
                 android:textStyle="normal" />
             <TextView
@@ -168,6 +171,7 @@
                 android:background="@drawable/edittext_style"
                 android:hint="실명을 입력하세요."
                 android:inputType="text"
+                android:singleLine="true"
                 android:paddingLeft="10dp"
                 android:textSize="15dp"
                 android:textStyle="normal" />
@@ -191,6 +195,7 @@
                 android:hint="숫자 8자리를 입력하세요."
                 android:inputType="number"
                 android:maxLength="8"
+                android:singleLine="true"
                 android:paddingLeft="10dp"
                 android:textSize="15dp"
                 android:textStyle="normal" />
@@ -219,6 +224,7 @@
                     android:background="@drawable/edittext_leftnarrow_style"
                     android:hint="닉네임을 입력하세요"
                     android:inputType="text"
+                    android:maxLength="6"
                     android:paddingLeft="10dp"
                     android:textSize="15dp"
                     android:textStyle="normal" />

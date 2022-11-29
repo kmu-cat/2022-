@@ -50,15 +50,15 @@ class AdapterCommunity(private val context: Context) : RecyclerView.Adapter<Adap
     inner class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         private val txtComment: TextView = itemView.findViewById(R.id.community_comment)
-        private val txtBuccat: TextView = itemView.findViewById(R.id.community_buccat)
-        private val txtUsername: TextView = itemView.findViewById(R.id.community_nickname)
+        private val txtHashTag: TextView = itemView.findViewById(R.id.community_hashTag)
+        private val txtNickname: TextView = itemView.findViewById(R.id.community_nickname)
 
         fun bind(item: DataCommunity) {
             txtComment.text = item.comment
 //            txtComment.text = item.docId
 //            txtComment.text = item.date
-            txtBuccat.text = item.buccat
-            txtUsername.text = item.username
+            txtHashTag.text = item.hashTag
+            txtNickname.text = item.nickname
         }
 
     }

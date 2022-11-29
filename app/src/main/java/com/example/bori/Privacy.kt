@@ -52,7 +52,6 @@ class Privacy : AppCompatActivity() {
         val email = user.email.toString()
         val docRef = db.collection("users").document(email)
         docRef.get().addOnSuccessListener { document ->
-            Log.e("12312", "${document.data!!.get("realName")}")
             realname = document.data!!.get("realName").toString()
             birthdate = document.data!!.get("birthDate").toString()
             nickname = document.data!!.get("nickName").toString()
@@ -75,7 +74,11 @@ class Privacy : AppCompatActivity() {
         nicknameCertificationButton.setOnClickListener {
             val EditedNickname = nicknameEditText.text.toString()
             isConfirmButtonChekced = true
-            if(EditedNickname != ""){
+            if(EditedNickname == nickname) {
+                nicknameWarning.setVisibility(View.INVISIBLE)
+                isNewNickName = true
+                Toast.makeText(baseContext, "기존과 동일한 닉네임 입니다.", Toast.LENGTH_SHORT).show()
+            } else if(EditedNickname != ""){
                 db.collection("users")
                     .get()
                     .addOnSuccessListener { result ->
@@ -114,6 +117,7 @@ class Privacy : AppCompatActivity() {
                 nicknameCertificationButton.isEnabled=true
             }
             else{
+
                 if(!isConfirmButtonChekced){
                     Toast.makeText(baseContext, "닉네임 중복을 확인해주세요.", Toast.LENGTH_SHORT).show()
                 } else {
@@ -129,7 +133,10 @@ class Privacy : AppCompatActivity() {
                         } else {
                             user.put("gender", "female")
                         }
-                        db.collection("users").document(email).set(user)
+                        db.collection("users").document(email).update("email", email)
+                        db.collection("users").document(email).update("realName", realname)
+                        db.collection("users").document(email).update("birthDate", birthEditText.text.toString())
+                        db.collection("users").document(email).update("nickName", nicknameEditText.text.toString())
                             .addOnSuccessListener{
                                 modify.setText("수정")
                                 idEditText.isEnabled=false
