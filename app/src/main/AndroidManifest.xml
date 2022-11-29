@@ -39,11 +39,11 @@
         <activity
             android:name=".AddBucketModal"
             android:exported="false" />
-        <activity
-            android:name=".Main"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:windowSoftInputMode="adjustPan"/>
+<!--        <activity-->
+<!--            android:name=".Main"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_main"-->
+<!--            android:windowSoftInputMode="adjustPan"/>-->
         <activity
             android:name=".DeleteAccount2"
             android:exported="false" />
@@ -79,6 +79,9 @@
             android:exported="false" />
         <activity
             android:name=".Start"
+            android:exported="false" />
+        <activity
+            android:name=".Main"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
