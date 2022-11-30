@@ -13,6 +13,7 @@ import com.google.firebase.firestore.Query
 class RecommendBucketFall : Fragment(), heartInterface{
     private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     val bucketList = arrayListOf<BucketListForm>()
+    var draw = false
 
 
     override fun onCreateView(
@@ -44,40 +45,39 @@ class RecommendBucketFall : Fragment(), heartInterface{
 
     private fun makeRecyclerView(){
 
+
         val fallRecommendPreference = context?.getSharedPreferences( "fallRecommendSet", 0)
         val fallRecommendSet = fallRecommendPreference?.getStringSet("fallRecommendSet", null)
+        if(draw==false) {
+            // 컬렉션을 모두 가져오기
+            MyApplication.db.collection("recommend_fall")
+                .orderBy("date", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
 
-        // 컬렉션을 모두 가져오기
-        MyApplication.db.collection("recommend_fall")
-            .orderBy("date", Query.Direction.DESCENDING)
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-
-                    val item = document.toObject(BucketListForm::class.java)
-                    if (fallRecommendSet != null) {
-                        if(item.title in fallRecommendSet){
-                            bucketList.add(BucketListForm(item.title, "0명이 도전 중!", true))
-                        }else{
+                        val item = document.toObject(BucketListForm::class.java)
+                        if (fallRecommendSet != null) {
+                            if (item.title in fallRecommendSet) {
+                                bucketList.add(BucketListForm(item.title, "0명이 도전 중!", true))
+                            } else {
+                                bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
+                            }
+                        } else {
                             bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
                         }
-                    }else{
-                        bucketList.add(BucketListForm(item.title, "0명이 도전 중!", false))
                     }
+
+                    rv.adapter?.notifyDataSetChanged()
                 }
+                .addOnFailureListener { exception ->
+                    Log.d("firebase", "(RecommendBucketFall) Error getting documents: ", exception)
+                    Toast.makeText(getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            draw =true
+        }
 
-                rv.adapter?.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.d("kkang", "Error getting documents: ", exception)
-                Toast.makeText(getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
-                    Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    fun clicked(text:String){
-        bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
-        rv.adapter?.notifyDataSetChanged()
     }
 
     override fun heartControl(position: Int, heartState: Boolean) {

@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MyBucket : Fragment() {
@@ -73,14 +75,31 @@ class MyBucket : Fragment() {
             var myBucketFall = MyBucketFall()
             var myBucketWinter = MyBucketWinter()
 
-
-            spring()
-
             springButton = view.findViewById(R.id.myBucket_springButton)
             summerButton = view.findViewById(R.id.myBucket_summerButton)
             fallButton = view.findViewById(R.id.myBucket_fallButton)
             winterButton = view.findViewById(R.id.myBucket_winterButton)
-            springButton.isSelected = true
+
+            val date = Date(System.currentTimeMillis())
+            val sdf = SimpleDateFormat("MM")
+            when (sdf.format(date)) {
+                in arrayListOf("03", "04", "05") -> { // 3월 ~ 5월 (봄)
+                    spring()
+                    springButton.isSelected = true
+                }
+                in arrayListOf("06", "07", "08") -> { // 6월 ~ 8월 (여름)
+                    summer()
+                    summerButton.isSelected = true
+                }
+                in arrayListOf("09", "10", "11") -> { // 9월 ~ 11월 (가을)
+                    fall()
+                    fallButton.isSelected = true
+                }
+                in arrayListOf("12", "01", "02") -> { // 12월 ~ 2월 (겨울)
+                    winter()
+                    winterButton.isSelected = true
+                }
+            }
 
             springButton.setOnClickListener {
                 spring()
