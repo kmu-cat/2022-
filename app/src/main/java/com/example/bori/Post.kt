@@ -1,8 +1,10 @@
 package com.example.bori
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -16,6 +18,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.bori.databinding.ActivityPostBinding
 import java.io.File
 import com.bumptech.glide.Glide
@@ -51,12 +55,7 @@ class Post : AppCompatActivity() {
         binding.postHashTage.text = "# "+title
 
         binding.postImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                "image/*"
-            )
-            requestLauncher.launch(intent)
+            checkPermission()
         }
         binding.postArrow.setOnClickListener {
             val intent = Intent(this, Main::class.java)
@@ -133,6 +132,44 @@ class Post : AppCompatActivity() {
             }
         }
     }
+    private fun checkPermission(){
+        val imagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (imagePermission == PackageManager.PERMISSION_GRANTED) {
+            postImage()
+        } else {
+            requestPermission()
+        }
+    }
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            1 -> {
+                if (grantResults.last() == PackageManager.PERMISSION_GRANTED) {
+                    postImage()
+                } else {
+                    Toast.makeText(this, "권한을 허용해주세요.",
+                        Toast.LENGTH_SHORT).show()
+                    requestPermission()
+                }
+            }
+        }
+    }
+
+    private fun postImage(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.setDataAndType(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            "image/*"
+        )
+        requestLauncher.launch(intent)
+    }
 
     private val requestLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult())
@@ -156,7 +193,7 @@ class Post : AppCompatActivity() {
 
     private fun saveStore(){
         //add............................
-        val data = mapOf(
+        var data = mapOf(
             // "email" to MyApplication.email,
             "comment" to binding.etPost.text.toString(),
             "date" to Timestamp.now(),
@@ -168,7 +205,6 @@ class Post : AppCompatActivity() {
             .addOnSuccessListener {
                 // 스토리지에 데이터 저장 후 id 값으로 스토리지에 이미지 업로드
                 uploadImage(it.id)
-
             }
             .addOnFailureListener {
                 Log.w("hmm", "data save error", it)
@@ -180,7 +216,7 @@ class Post : AppCompatActivity() {
         // 스토리지를 참조하는 StorageReference 생성
         val storageRef: StorageReference = storage.reference
         // 실제 업로드하는 파일을 참조하는 StorageReference 생성
-        val imgRef: StorageReference = storageRef.child("posts/${docId}."+ getFileExtension(filePath).toString())
+        val imgRef: StorageReference = storageRef.child("posts/${docId}.jpg")
         // 파일 업로드
         val file = Uri.fromFile(File(filePath))
         imgRef.putFile(file)
