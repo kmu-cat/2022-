@@ -46,8 +46,8 @@ class CatSettingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val prefs: SharedPreferences? = this.activity?.getSharedPreferences("CatInfo", 0)
-        val edit: Editor? = prefs?.edit()
+        val prefs: SharedPreferences = this.requireActivity().getSharedPreferences("CatInfo", 0)
+        val edit: Editor = prefs.edit()
 
         var item1_unlock = false
         var item2_unlock = false
@@ -66,14 +66,27 @@ class CatSettingFragment : Fragment() {
             if (item3_unlock) { datasFace.apply { add(DataItem("하트", "고인물이 이런거 좋아하던데", R.drawable.rc_item_face_heart, R.drawable.face_heart)) } }
         }
 
-        catInfoJSON = JSONObject(prefs?.getString("CatInfo", "NONE"))
+        catInfoJSON = JSONObject(prefs.getString("CatInfo", null))
 
-        var infoColor = catInfoJSON.getInt("Color")
-        var infoHair = catInfoJSON.getInt("Hair")
-        var infoFace = catInfoJSON.getInt("Face")
-        var infoBody = catInfoJSON.getInt("Body")
-        var infoFoot = catInfoJSON.getInt("Foot")
-        var infoEtc = catInfoJSON.getInt("Etc")
+        var infoColor: Int; var infoFace: Int; var infoBody: Int
+        var infoFoot: Int; var infoHair: Int; var infoEtc: Int;
+
+        if (catInfoJSON == null) {
+            infoColor = R.drawable.cat_snowwhite
+            infoHair = R.drawable.item_none
+            infoFace = R.drawable.item_none
+            infoBody = R.drawable.item_none
+            infoFoot = R.drawable.item_none
+            infoEtc = R.drawable.item_none
+        } else {
+            infoColor = catInfoJSON.getInt("Color")
+            infoHair = catInfoJSON.getInt("Hair")
+            infoFace = catInfoJSON.getInt("Face")
+            infoBody = catInfoJSON.getInt("Body")
+            infoFoot = catInfoJSON.getInt("Foot")
+            infoEtc = catInfoJSON.getInt("Etc")
+        }
+
         val view = inflater.inflate(R.layout.fragment_catsetting, container, false)
 
         applyButton = view.findViewById(R.id.catSetting_confirmButton)
@@ -132,8 +145,8 @@ class CatSettingFragment : Fragment() {
 
         applyButton.setOnClickListener {
             Toast.makeText(this.context, "꾸미기가 완료되었다옹~", Toast.LENGTH_SHORT).show()
-            edit?.putString("CatInfo", catInfoJSON.toString())
-            edit?.apply()
+            edit.putString("CatInfo", catInfoJSON.toString())
+            edit.apply()
         }
 
         adapteritem_color.setItemClickListener(object: AdapterItem.OnItemClickListener{
