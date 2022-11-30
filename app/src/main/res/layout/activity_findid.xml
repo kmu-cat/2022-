@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp"
+    tools:context=".FindId">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/findId_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/findId_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="아이디 찾기"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/findId_topButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp">
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="176dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="-0.8dp"
+            android:background="@drawable/button_lefttop_checked_style"
+            android:text="아이디 찾기"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:textColor="@color/cheese_font"/>
+
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/toFindPw"
+            android:layout_width="176dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_righttop_unchecked_style"
+            android:text="비밀번호 찾기"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:textColor="@color/gray"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/findId_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입시 등록한 정보로\n아이디를 확인할 수 있습니다."
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="45dp"
+        android:textSize="17dp"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/findId_nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="normal"/>
+    <EditText
+        android:inputType="text"
+        android:id="@+id/findId_nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_style"
+        android:hint="실명을 입력하세요."
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="15dp"
+        android:textStyle="normal"/>
+    <TextView
+        android:id="@+id/findId_birthTextEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생년월일"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="normal" />
+
+    <EditText
+        android:id="@+id/findId_birthEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_style"
+        android:hint="숫자 8자리를 입력하세요."
+        android:inputType="number"
+        android:maxLength="8"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/findId_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="닉네임"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="normal"/>
+
+    <EditText
+        android:id="@+id/findId_nicknameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_style"
+        android:hint="닉네임을 입력하세요. (6글자 이내)"
+        android:paddingLeft="10dp"
+        android:maxLength="6"
+        android:layout_marginBottom="60dp"
+        android:textSize="15dp"
+        android:singleLine="true"
+        android:textStyle="normal" />
+    <android.widget.Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/findId_confirmButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button_style"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

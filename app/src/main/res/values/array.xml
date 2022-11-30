@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_array_string">
+        <item>나의 버캣리스트</item>
+        <item>버캣리스트 줍기</item>
+    </string-array>
+</resources>

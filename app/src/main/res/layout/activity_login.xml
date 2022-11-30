@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        tools:context=".Login">
+        <ImageView
+            android:id="@+id/login_appImage"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginBottom="484dp"
+            android:src="@drawable/app_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/login_idEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_style"
+            android:hint="아이디(이메일)를 입력해주세요."
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textSize="17dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_appImage"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/login_pwEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_style"
+            android:hint="비밀번호를 입력해주세요."
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textSize="17dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_idEditText"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/login_loginWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입력된 아이디가 존재하지 않습니다."
+            android:textColor="#FF0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_pwEditText"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/login_keepLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="자동로그인"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:button="@drawable/custom_checkbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_loginWarning"
+            tools:ignore="MissingConstraints" />
+
+        <android.widget.Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/login_loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button_style"
+            android:text="로그인"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_keepLogin"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/login_findLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_loginButton"
+            tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="앗, 계정을 잊었어요. "
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="576dp" />
+
+        <TextView
+            android:id="@+id/login_findId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디 찾기 "
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:textColor="@color/cheese_font"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="576dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="또는 "
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="247dp"
+            tools:layout_editor_absoluteY="576dp" />
+
+        <TextView
+            android:id="@+id/login_findPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 찾기"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:textColor="@color/cheese_font"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="277dp"
+            tools:layout_editor_absoluteY="576dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_findLinearLayout"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="아직 회원이 아닌가요? "
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutFind"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/login_toSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="회원가입"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:textColor="@color/cheese_font"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutFind"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
