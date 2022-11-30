@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_spring">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dailyComment"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="340dp"
+            android:background="@drawable/textview_speechbubble"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="오늘 같은 날씨에 추천해 줄 만한\n버캣리스트가 있지~"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dailyComment"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="-13dp"
+            android:background="@drawable/home_catchat" />
+
+        <FrameLayout
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/dailyComment">
+            <ImageView
+                android:id="@+id/user_cat_color"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/cat_snowwhite" />
+            <ImageView
+                android:id="@+id/user_cat_face"
+                android:layout_width="320dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/user_cat_hair"
+                android:layout_width="320dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/user_cat_body"
+                android:layout_width="320dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/user_cat_foot"
+                android:layout_width="320dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/user_cat_etc"
+                android:layout_width="320dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

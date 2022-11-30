@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteAccount1"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <ImageButton
+            android:id="@+id/deleteAccount_arrow"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:src="@drawable/vector"/>
+        <TextView
+            android:id="@+id/deleteAccount_title"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:text="탈퇴하기"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteAccount_infoLinearLayout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/deleteAccount_info1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginBottom="20dp"
+            android:text="잠깐! 탈퇴 전에 확인해주세요."/>
+        <TextView
+            android:id="@+id/deleteAccount_info2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"
+            android:text="계정을 삭제하면 가입 시 기입한 정보, 아이템, 나의 버캣리스트 등 활동 정보가 삭제됩니다.\n단, 추천 버캣리스트와 인증샷은 삭제되지 않습니다." />
+
+        <TextView
+            android:id="@+id/deleteAccount_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginBottom="20dp"
+            android:text="계정을 삭제하려는 이유를 알려주세요."/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/deleteAccount_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/deleteAccount_radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:button="@drawable/custom_checkbox"
+            android:text=" 더이상 이루고 싶은게 없어요."/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/deleteAccount_radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text=" 서비스가 원활하지 않아요."
+            android:button="@drawable/custom_checkbox"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/deleteAccount_radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_checkbox"
+            android:text=" 자주 사용하지 않아요."
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/deleteAccount_radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_checkbox"
+            android:text=" 개인정보 유출이 우려돼요."
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/deleteAccount_radioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_checkbox"
+            android:text="기타"
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+        <EditText
+            android:id="@+id/deleteAccount_feedbackEditText"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:padding="10dp"
+            android:gravity="top"
+            android:textSize="16dp"
+            android:background="@drawable/edittext_style"
+            android:hint="서비스 이용 중 아쉬운 점에 대해서 알려주세요.\n(선택사항, 80자 이내)"
+            android:maxLength="80"
+            android:visibility="gone"/>
+    </RadioGroup>
+    <LinearLayout
+        android:id="@+id/deleteAccount_bottomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <android.widget.Button
+            android:id="@+id/deleteAccount_cancelButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:background="@drawable/button_style_white"
+            android:text="취소"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/cheese_font"/>
+        <android.widget.Button
+            android:id="@+id/deleteAccount_submitButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:enabled="false"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:background="@drawable/button_style_submit"
+            android:text="제출"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</LinearLayout>
