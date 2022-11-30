@@ -91,34 +91,19 @@ class RecommendBucket : Fragment(){
 
                 val addButton = dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.addBucket_addButton)
                 addButton.setOnClickListener {
-//                    val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                    hideKeyboard(inputMethodManager, dialogView)
-
                     val newBucketText = dialogView.findViewById<EditText>(R.id.addBucket_newEditText)
                     if(newBucketText.text.isNotEmpty()){
                         when (seasonPositon) {
                             0 -> {
-//                                val addSpring =
-//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSpring
-//                                addSpring.clicked(newBucketText.text.toString())
                                 saveStore("recommend_spring", newBucketText.text.toString())
                             }
                             1 -> {
-//                                val addSummer =
-//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketSummer
-//                                addSummer.clicked(newBucketText.text.toString())
                                 saveStore("recommend_summer", newBucketText.text.toString())
                             }
                             2 -> {
-//                                val addFall =
-//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketFall
-//                                addFall.clicked(newBucketText.text.toString())
                                 saveStore("recommend_fall", newBucketText.text.toString())
                             }
                             3 -> {
-//                                val addWinter =
-//                                    childFragmentManager.findFragmentById(R.id.myBucketRecommend_frameLayout) as RecommendBucketWinter
-//                                addWinter.clicked(newBucketText.text.toString())
                                 saveStore("recommend_winter", newBucketText.text.toString())
                             }
                         }
@@ -144,9 +129,26 @@ class RecommendBucket : Fragment(){
         fallButton = view.findViewById(R.id.myBucketRecommend_fallButton)
         winterButton = view.findViewById(R.id.myBucketRecommend_winterButton)
 
-
-        spring()
-            springButton.isSelected = true
+        val date = Date(System.currentTimeMillis())
+        val sdf = SimpleDateFormat("MM")
+        when (sdf.format(date)) {
+            in arrayListOf("03", "04", "05") -> { // 3월 ~ 5월 (봄)
+                spring()
+                springButton.isSelected = true
+            }
+            in arrayListOf("06", "07", "08") -> { // 6월 ~ 8월 (여름)
+                summer()
+                summerButton.isSelected = true
+            }
+            in arrayListOf("09", "10", "11") -> { // 9월 ~ 11월 (가을)
+                fall()
+                fallButton.isSelected = true
+            }
+            in arrayListOf("12", "01", "02") -> { // 12월 ~ 2월 (겨울)
+                winter()
+                winterButton.isSelected = true
+            }
+        }
 
         springButton.setOnClickListener {
             seasonPositon=0
@@ -169,11 +171,6 @@ class RecommendBucket : Fragment(){
             topNavHandler(winterButton)
         }
         return view
-    }
-
-    private fun hideKeyboard(inputMethodManager: InputMethodManager, view: View) {
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0);
-        view.clearFocus()
     }
 
     private fun saveStore(season:String, text:String){
@@ -207,20 +204,11 @@ class RecommendBucket : Fragment(){
                 }
 
             }
-//            for (document in result) {
-//                Log.d("tag1", "${document.id} => ${document.data.get("title")}")
-//                Log.d("tag1", "${document.id} => ${document.data.get("title").toString()}")
-//            }
         }
         .addOnFailureListener { exception ->
-            Log.d("tag1", "Error getting documents: ", exception)
+            Log.d("firebase", "(recommendBucket)Error getting documents: ", exception)
         }
 
-    }
-
-    fun dateToString(date: Date): String {
-        val format = SimpleDateFormat("yyyy-MM-dd")
-        return format.format(date)
     }
 
     private fun spring(){
