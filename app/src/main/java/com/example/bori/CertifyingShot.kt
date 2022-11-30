@@ -74,7 +74,7 @@ class CertifyingShot : Fragment(){
                 adaptercommunity.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
-                Log.d("kkang", "Error getting documents: ", exception)
+                Log.d("firebase", "(CertifyingShot) Error getting documents: ", exception)
                 Toast.makeText(getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
                     Toast.LENGTH_SHORT).show()
             }

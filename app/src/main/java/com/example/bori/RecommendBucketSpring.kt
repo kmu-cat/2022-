@@ -69,19 +69,12 @@ class RecommendBucketSpring : Fragment(), heartInterface {
                     rv.adapter?.notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->
-                    Log.d("kkang", "Error getting documents: ", exception)
-                    Toast.makeText(
-                        getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Log.d("firebase", "(RecommendBucketSpring) Error getting documents: ", exception)
+                    Toast.makeText(getActivity(), "서버로부터 데이터 획득에 실패했습니다.",
+                        Toast.LENGTH_SHORT).show()
                 }
         }
         draw=true
-    }
-
-    fun clicked(text:String){
-        bucketList.add(BucketListForm(text,"0명이 도전 중!", false))
-        rv.adapter?.notifyDataSetChanged()
     }
 
     override fun heartControl(position: Int, heartState: Boolean) {

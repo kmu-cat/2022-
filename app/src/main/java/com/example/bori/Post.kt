@@ -69,7 +69,7 @@ class Post : AppCompatActivity() {
                 docRef.update("numPost", numPost).addOnCompleteListener {
                     //store 에 먼저 데이터를 저장후 document id 값으로 업로드 파일 이름 지정
                     saveStore()
-                    Toast.makeText(this, "등록 완료.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "등록 완료!", Toast.LENGTH_SHORT).show()
                     Log.e("12312", numPost.toString())
                 }
                 // 모달 띄우기
@@ -128,7 +128,7 @@ class Post : AppCompatActivity() {
                     finish()
                 }
             } else {
-                Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "사진과 소감 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -154,8 +154,8 @@ class Post : AppCompatActivity() {
                 if (grantResults.last() == PackageManager.PERMISSION_GRANTED) {
                     postImage()
                 } else {
-                    Toast.makeText(this, "권한을 허용해주세요.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "설정-앱-버캣리스트에서\n미디어 권한을 허용해주세요.",
+                        Toast.LENGTH_LONG).show()
                     requestPermission()
                 }
             }
@@ -207,7 +207,7 @@ class Post : AppCompatActivity() {
                 uploadImage(it.id)
             }
             .addOnFailureListener {
-                Log.w("hmm", "data save error", it)
+                Log.w("firebase", "(post) data save error", it)
             }
     }
     private fun uploadImage(docId: String){
@@ -221,10 +221,10 @@ class Post : AppCompatActivity() {
         val file = Uri.fromFile(File(filePath))
         imgRef.putFile(file)
             .addOnFailureListener {
-                Log.d("UploadImage", "failure$it")
+                Log.d("firebase", "(post) UploadImage failure$it")
             }.addOnSuccessListener {
-                Toast.makeText(this, "데이터가 저장되었습니다.",
-                    Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "데이터가 저장되었습니다.",
+//                    Toast.LENGTH_SHORT).show()
                 finish()
             }
     }
