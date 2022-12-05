@@ -68,16 +68,15 @@
             app:layout_constraintTop_toBottomOf="@+id/login_pwEditText"
             tools:ignore="MissingConstraints" />
 
-        <androidx.appcompat.widget.AppCompatCheckBox
+        <TextView
             android:id="@+id/login_keepLogin"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="자동로그인"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="normal"
-            android:button="@drawable/custom_checkbox"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
