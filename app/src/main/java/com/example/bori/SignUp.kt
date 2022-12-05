@@ -17,6 +17,7 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
+import java.util.regex.Pattern
 
 
 class SignUp : AppCompatActivity() {
@@ -34,6 +35,7 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    val emailPattern: Pattern = android.util.Patterns.EMAIL_ADDRESS
 
     private lateinit var binding: ActivitySignupBinding
     val db = Firebase.firestore
@@ -68,15 +70,24 @@ class SignUp : AppCompatActivity() {
                     .whereEqualTo("email", email)
                     .get()
                     .addOnSuccessListener { documents ->
-                        if(documents.isEmpty){
-                            emailWarning.setVisibility(View.INVISIBLE)
-                            Toast.makeText(baseContext, "사용 가능한 이메일입니다.", Toast.LENGTH_SHORT).show()
-                            isNewUser = true
+                        if (emailPattern.matcher(email).matches()) {
+                            if(documents.isEmpty){
+                                emailWarning.setVisibility(View.INVISIBLE)
+                                Toast.makeText(baseContext, "사용 가능한 이메일입니다.", Toast.LENGTH_SHORT).show()
+                                isNewUser = true
 
+                            } else {
+                                emailWarning.setVisibility(View.VISIBLE)
+                                emailWarning.text = "중복된 이메일입니다."
+                                isNewUser = false
+                            }
                         } else {
                             emailWarning.setVisibility(View.VISIBLE)
+                            emailWarning.text = "올바른 이메일 형식이 아닙니다."
                             isNewUser = false
                         }
+
+
                     }
             } else {
                 Toast.makeText(baseContext, "이메일을 입력해 주세요.", Toast.LENGTH_SHORT).show()
