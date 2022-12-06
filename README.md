@@ -1,11 +1,11 @@
 # 모바일프로그래밍 팀 프로젝트: 버캣리스트 (Buccat List)
 
 ## 팀 치즈 (Team CHEESE)
-- 김동윤 (소프트웨어학부, 20212674, Back-End)
-- 윤서영 (소프트웨어학부, 20210153, Back-End)
-- 이보현 (소프트웨어학부, 20213038, Front-End)
-- 장수미 (소프트웨어학부, 20193216, Front-End)
-- 최지원 (소프트웨어학부, 20213091, Front-End)
+- [김동윤 (소프트웨어학부, 20212674, Back-End)](https://github.com/zkxmdkdltm)
+- [윤서영 (소프트웨어학부, 20210153, Back-End)](https://github.com/ytjdud)
+- [이보현 (소프트웨어학부, 20213038, Front-End)](https://github.com/250b)
+- [장수미 (소프트웨어학부, 20193216, Front-End)](https://github.com/jangsumi)
+- [최지원 (소프트웨어학부, 20213091, Front-End)](https://github.com/Choi-Jiwon-38)
 
 
 ## 앱 소개 (Introduction)
@@ -75,6 +75,9 @@ dependencies {
 - 이미지 업로드시 미디어 접근 권한을 허용해야 함
 - 미디어 접근 권한 비허용시 사진 업로드가 불가하므로 설정-버캣리스트-권한 에서 '허용'으로 직접 변경해야 함
 - 이미지 업로드시 .jpg파일로 변환가능한 파일을 업로드 해야함.
+- BUCCAT LIST 프로젝트에는 <b>파이어베이스(Firebase)</b> 라이브러리가 사용되었기 때문에 `File google-services.json is missing. The Google Services Plugin cannot function without it.` 에러가 발생할 수 있으며 `google-service.json` 파일을 프로젝트 최상단에 존재하는 'app' 폴더에 넣어준 뒤, build 해야만 원활한 애플리케이션 동작이 가능함.
+- 아이템은 인증샷 게시물을 누적합 10개, 20개, 100개에 달성할 때마다 하나씩 잠금해제됨.
+- 비정상적인 접근이나 순차적이지 못한 애플리케이션 접근으로 인하여 SharedPreference에 손상이 발생한 경우, SharedPreference에 존재하는 CatInfo.xml 파일을 제거한 뒤, 실행하면 원활한 동작이 가능함.
 
 ## 스크린샷 (Screenshot)
 <div>
